@@ -58,8 +58,8 @@ export default function News() {
           {featured.map((item, i) => (
             <div key={i} className="p-4 border rounded-lg bg-white shadow-md">
               {/* Link to internal embedded page */}
-              <Link href={`/news/${item.slug}`}>
-                <a className="text-sky-700 font-semibold hover:underline text-lg block">
+              <Link href={`/news/${item.slug}`} legacyBehavior>
+                <a className="font-semibold text-black hover:underline text-lg block">
                   {item.title}
                 </a>
               </Link>
@@ -78,7 +78,7 @@ export default function News() {
         <div className="grid gap-4">
           {newsList.map((n, i) => (
             <article key={i} className="p-4 border rounded-lg bg-white">
-              <a href={n.url} target="_blank" rel="noreferrer" className="text-sky-700 font-semibold hover:underline">
+              <a href={n.url} target="_blank" rel="noreferrer" className="font-semibold text-black hover:underline">
                 {n.title}
               </a>
               <div className="text-xs text-slate-500 mt-1">
