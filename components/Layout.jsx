@@ -88,10 +88,7 @@ export default function Layout({ children }) {
 
       {/* Push content below fixed navbar */}
       <main className="pt-16">{children}</main>
-    </div>
-  );
-}
-{/* GLOBAL FOOTER */}
+      {/* GLOBAL FOOTER */}
 <footer className="mt-16 border-t bg-white/60 backdrop-blur py-6">
   <div className="max-w-5xl mx-auto px-4 text-center text-sm text-slate-600">
 
@@ -110,4 +107,8 @@ export default function Layout({ children }) {
 
   </div>
 </footer>
+    </div>
+  );
+}
+
 
