@@ -11,7 +11,7 @@ export default function Home() {
 
           <div>
             <p className="text-sm uppercase text-slate-500 tracking-wide">
-              Geospatial Science • InSAR • Energy & Environmental Hazards
+              Geophysics • InSAR • Energy & Environmental Hazards
             </p>
             
             <h1 className="mt-3 text-3xl md:text-4xl font-extrabold leading-tight">
