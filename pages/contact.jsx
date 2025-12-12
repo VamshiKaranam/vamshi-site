@@ -53,7 +53,7 @@ export default function Contact() {
           {/* Email */}
           <a href="mailto:vkaranam@smu.edu">
             <img
-              src="/outlook.png"
+              src="/outlook.svg"
               alt="Email"
               className="w-12 h-12 hover:opacity-80 transition"
             />
