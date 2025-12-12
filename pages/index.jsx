@@ -121,6 +121,7 @@ export default function Home() {
         </p>
 
         <div className="mt-4 flex flex-wrap gap-4 items-center">
+          <span className="px-3 py-2 bg-white rounded shadow text-sm">UT Austin</span>
           <span className="px-3 py-2 bg-white rounded shadow text-sm">GFZ German Research Centre for Geosciences</span>
           <span className="px-3 py-2 bg-white rounded shadow text-sm">IIT Roorkee</span>
           <span className="px-3 py-2 bg-white rounded shadow text-sm">University of Cambridge</span>
