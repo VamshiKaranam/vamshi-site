@@ -15,7 +15,7 @@ export default function Home() {
             </p>
             
             <h1 className="mt-3 text-3xl md:text-4xl font-extrabold leading-tight">
-              I study how natural and human activities deform the Earth’s surface and subsurface, and develop geospatial methods to monitor, model, and forecast geohazards.
+              Quantifying ground deformation to assess risks in energy basins, cities, and coastal environments.
             </h1>
             
             <p className="mt-4 text-slate-700 max-w-xl">
