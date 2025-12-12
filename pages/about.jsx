@@ -98,11 +98,11 @@ export default function About() {
       <section className="mb-12">
         <h2 className="text-xl font-semibold mb-3 border-b pb-2">Software Skills</h2>
         <ul className="list-disc pl-6 text-sm space-y-1">
-          <li><strong>InSAR:</strong> SNAP, ISCE2, MintPy, LiCSBAS, GAMMA</li>
-          <li><strong>GIS:</strong> QGIS, ArcGIS Pro</li>
+          <li><strong>InSAR:</strong> , GAMMA, SNAP, ISCE2, MintPy, LiCSBAS</li>
+          <li><strong>GIS:</strong> QGIS, ArcGIS Pro, PyQGIS</li>
           <li><strong>Modeling:</strong> Poroelastic modeling, FEM workflows, hydro-mechanical simulations</li>
           <li><strong>Programming:</strong> Python, MATLAB, Bash, Linux, SLURM HPC</li>
-          <li><strong>Other:</strong> GEE, COMSOL (basic), AutoCAD</li>
+          <li><strong>Other:</strong> Google Earth Engine, COMSOL Multiphysics, AutoCAD</li>
         </ul>
       </section>
 
