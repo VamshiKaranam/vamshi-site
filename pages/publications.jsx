@@ -133,18 +133,29 @@ const conferences = [
 ];
 
 function PubItem({ item }) {
+  const highlightName = (text) => {
+    return text.replace(
+      /Karanam,\s*V\.?/g,
+      `<span class="text-sky-700 font-semibold">Karanam, V.</span>`
+    );
+  };
+
   return (
-    <li className="mb-3">
-      <strong>{item.ref}</strong>. {item.title} <em>{item.outlet}</em>
-      {item.url ? (
-        <>
-          {" "}• <a href={item.url} target="_blank" rel="noreferrer" className="text-sky-700 hover:underline">link</a>
-        </>
-      ) : null}
-      {item.note ? <span className="text-slate-500"> {item.note}</span> : null}
-    </li>
+    <li
+      className="mb-3"
+      dangerouslySetInnerHTML={{
+        __html: `
+        <strong>${highlightName(item.ref)}</strong>. 
+        ${item.title} 
+        <em>${item.outlet}</em>
+        ${item.url ? ` • <a href="${item.url}" target="_blank" class="text-sky-700 hover:underline">link</a>` : ""}
+        ${item.note ? `<span class="text-slate-500"> ${item.note}</span>` : ""}
+      `,
+      }}
+    />
   );
 }
+
 
 export default function Publications() {
   return (
