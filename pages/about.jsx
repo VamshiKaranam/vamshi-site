@@ -20,7 +20,7 @@ export default function About() {
 
           <p>
             <strong>M.Tech. in Remote Sensing & GIS</strong>, Indian Institute of Technology Roorkee, India (2018–2020)<br />
-            Research in land subsidence, groundwater extraction, and InSAR time-series analysis.
+            Research in land subsidence, coal mine fires, thermal anomaly mapping, and InSAR time-series analysis.
           </p>
 
           <p>
