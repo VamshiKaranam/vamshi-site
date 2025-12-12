@@ -56,7 +56,6 @@ export default function Layout({ children }) {
             <NavLink href="/about">About</NavLink>
             <NavLink href="/research">Research</NavLink>
             <NavLink href="/publications">Publications</NavLink>
-            <NavLink href="/news">News</NavLink>
             <NavLink href="/media">Media</NavLink>
             <NavLink href="/contact">Contact</NavLink>
           </nav>
@@ -80,8 +79,7 @@ export default function Layout({ children }) {
               <NavLink href="/about">About</NavLink>
               <NavLink href="/research">Research</NavLink>
               <NavLink href="/publications">Publications</NavLink>
-              <NavLink href="/news">News</NavLink>
-              <NavLink href="/media">Media</NavLink>
+              <NavLink href="/news">Media</NavLink>
               <NavLink href="/contact">Contact</NavLink>
             </div>
           </div>
