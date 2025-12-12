@@ -18,7 +18,7 @@ export default function Contact() {
             rel="noreferrer"
           >
             <img
-              src="/researchgate.png"
+              src="/ResearchGate.png"
               alt="ResearchGate"
               className="w-12 h-12 hover:opacity-80 transition"
             />
@@ -31,7 +31,7 @@ export default function Contact() {
             rel="noreferrer"
           >
             <img
-              src="/scholar.png"
+              src="/Google_Scholar.svg"
               alt="Google Scholar"
               className="w-12 h-12 hover:opacity-80 transition"
             />
@@ -53,7 +53,7 @@ export default function Contact() {
           {/* Email */}
           <a href="mailto:vkaranam@smu.edu">
             <img
-              src="/email.png"
+              src="/outlook.png"
               alt="Email"
               className="w-12 h-12 hover:opacity-80 transition"
             />
