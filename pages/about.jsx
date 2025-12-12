@@ -2,86 +2,118 @@ export default function About() {
   return (
     <main className="max-w-5xl mx-auto px-6 py-16 text-slate-800">
 
-      {/* HERO TITLE */}
+      {/* PAGE TITLE */}
       <h1 className="text-4xl font-bold text-center mb-6">About Me</h1>
 
-      {/* OPTIONAL SUBTEXT */}
       <p className="text-center text-slate-600 max-w-2xl mx-auto mb-12">
-        Geospatial scientist specializing in InSAR, subsurface deformation, and energy–environmental hazards.
+        Geophysicist specializing in InSAR, surface deformation monitoring, and geomechanical modeling of energy and environmental hazards.
       </p>
 
       {/* --- EDUCATION --- */}
-      <section className="mb-10">
+      <section className="mb-12">
         <h2 className="text-xl font-semibold mb-3 border-b pb-2">Education</h2>
-        <div className="space-y-2 text-sm">
-          <p><strong>Ph.D., Geophysics</strong>, Southern Methodist University (NASA FINESST Fellow)</p>
-          <p><strong>M.Tech., Remote Sensing & GIS</strong>, IIT Roorkee</p>
-          <p><strong>B.Arch.</strong>, National Institute of Technology Calicut</p>
+        <div className="space-y-3 text-sm">
+          <p>
+            <strong>Ph.D. in Geophysics</strong>, Southern Methodist University, USA (2021–Present)<br />
+            NASA FINESST Fellow; Dissertation focuses on subsurface geomechanics, deformation modeling, and energy-related hazards.
+          </p>
+
+          <p>
+            <strong>M.Tech. in Remote Sensing & GIS</strong>, Indian Institute of Technology Roorkee, India (2018–2020)<br />
+            Research in land subsidence, groundwater extraction, and InSAR time-series analysis.
+          </p>
+
+          <p>
+            <strong>B.Arch.</strong>, National Institute of Technology Calicut, India (2013–2018)<br />
+            Background in spatial design, infrastructure, and geospatial thinking.
+          </p>
         </div>
       </section>
 
       {/* --- RESEARCH EXPERIENCE --- */}
-      <section className="mb-10">
+      <section className="mb-12">
         <h2 className="text-xl font-semibold mb-3 border-b pb-2">Research Experience</h2>
-        <div className="space-y-2 text-sm">
-          <p>Research Assistant, Southern Methodist University</p>
-          <p>Research Assistant, IIT Roorkee</p>
-          <p>Research Intern, GFZ German Research Centre for Geosciences</p>
-          <p>Research Stay, Leibniz University Hannover (DAAD Fellow)</p>
+        <div className="space-y-3 text-sm">
+          <p>
+            <strong>Research Assistant</strong>, Southern Methodist University, USA (2021–Present)<br />
+            InSAR processing, pressure diffusion modeling, fault slip analysis, and evaluation of energy infrastructure hazards.
+          </p>
+
+          <p>
+            <strong>Research Assistant</strong>, IIT Roorkee, India (2018–2021)<br />
+            Urban subsidence, groundwater extraction, and regional deformation studies using InSAR and GNSS.
+          </p>
+
+          <p>
+            <strong>Research Intern</strong>, GFZ German Research Centre for Geosciences, Potsdam, Germany (2020)<br />
+            Land subsidence, InSAR deformation mapping, and multi-sensor geodetic analysis.
+          </p>
+
+          <p>
+            <strong>Research Intern</strong>, Leibniz University Hannover, Germany (2019–2020)<br />
+            DAAD-funded research on deformation monitoring & SAR data analysis.
+          </p>
         </div>
       </section>
 
       {/* --- RESEARCH FOCUS --- */}
-      <section className="mb-10">
+      <section className="mb-12">
         <h2 className="text-xl font-semibold mb-3 border-b pb-2">Research Focus</h2>
         <ul className="list-disc pl-6 text-sm space-y-1">
-          <li>Subsurface deformation, poroelasticity, and geomechanics</li>
-          <li>InSAR, GNSS, and multi-sensor geodetic monitoring</li>
-          <li>Hazards from injection, production, induced seismicity, and CO₂ storage</li>
-          <li>Urban, coastal, landslide, and mining-related deformation</li>
-          <li>Machine learning & physics-based modeling for hazard prediction</li>
+          <li>Subsurface deformation, geomechanics, and poroelastic modeling</li>
+          <li>InSAR, GNSS, and multi-sensor deformation time-series analysis</li>
+          <li>Wastewater injection, hydrocarbon production, CO₂ storage & induced hazards</li>
+          <li>Urban, coastal, landslide, and mining-related deformation processes</li>
+          <li>Machine learning for deformation pattern detection and hazard prediction</li>
+          <li>Energy infrastructure exposure & well integrity assessment</li>
         </ul>
       </section>
 
-      {/* --- POSITIONS OF RESPONSIBILITY / TEACHING --- */}
-      <section className="mb-10">
-        <h2 className="text-xl font-semibold mb-3 border-b pb-2">Teaching & Mentoring</h2>
+      {/* --- POSITIONS OF RESPONSIBILITY --- */}
+      <section className="mb-12">
+        <h2 className="text-xl font-semibold mb-3 border-b pb-2">Positions of Responsibility</h2>
         <div className="space-y-2 text-sm">
-          <p>Teaching Assistant — Remote Sensing, GIS, Radar Remote Sensing</p>
-          <p>Teaching Assistant — Photogrammetry & Earth Systems</p>
-          <p>InSAR labs and GNSS field instruction at SMU</p>
-          <p>Instructor: Google Earth Engine Workshop (2 days)</p>
+          <p>Teaching Assistant, Southern Methodist University — Remote Sensing, GIS, Radar, Photogrammetry</p>
+          <p>Teaching Assistant, Leibniz University Hannover — SAR applications & geodesy</p>
+          <p>Teaching Assistant, IIT Roorkee — Remote Sensing & Image Interpretation</p>
+          <p>Organizing Team, International Conference on Unmanned Aerial Systems (UASG 2020), IIT Roorkee</p>
+          <p>Senior Executive, National Technical Festival (TAFVA), NIT Calicut</p>
         </div>
       </section>
 
       {/* --- AWARDS --- */}
-      <section className="mb-10">
+      <section className="mb-12">
         <h2 className="text-xl font-semibold mb-3 border-b pb-2">Awards & Fellowships</h2>
         <div className="space-y-2 text-sm">
-          <p>NASA FINESST Fellowship</p>
-          <p>DAAD KOSPIE Research Fellowship</p>
+          <p>NASA FINESST Research Fellowship</p>
+          <p>DAAD KOSPIE Research Fellowship (Germany)</p>
+          <p>IEEE GRSS Travel Grant (IGARSS 2023, Los Angeles)</p>
+          <p>IEEE GRSS IDEA Microgrant (2023)</p>
+          <p>Gold Medal for highest grade in M.Tech (IIT Roorkee)</p>
+          <p>KoSinteF Research Grant, German Academic Exchange Service (DAAD)</p>
         </div>
       </section>
 
       {/* --- SOFTWARE SKILLS --- */}
-      <section className="mb-10">
+      <section className="mb-12">
         <h2 className="text-xl font-semibold mb-3 border-b pb-2">Software Skills</h2>
         <ul className="list-disc pl-6 text-sm space-y-1">
-          <li>InSAR: SNAP, ISCE2, MintPy, LiCSBAS, GAMMA</li>
-          <li>GIS: QGIS, ArcGIS Pro</li>
-          <li>Programming: Python, MATLAB, Bash, Git</li>
-          <li>Modeling: poroelastic & geomechanical workflows, numerical simulation</li>
+          <li><strong>InSAR:</strong> SNAP, ISCE2, MintPy, LiCSBAS, GAMMA</li>
+          <li><strong>GIS:</strong> QGIS, ArcGIS Pro</li>
+          <li><strong>Modeling:</strong> Poroelastic modeling, FEM workflows, hydro-mechanical simulations</li>
+          <li><strong>Programming:</strong> Python, MATLAB, Bash, Linux, SLURM HPC</li>
+          <li><strong>Other:</strong> GEE, COMSOL (basic), AutoCAD</li>
         </ul>
       </section>
 
       {/* --- PROFESSIONAL MEMBERSHIPS --- */}
-      <section className="mb-10">
+      <section className="mb-12">
         <h2 className="text-xl font-semibold mb-3 border-b pb-2">Professional Memberships</h2>
         <div className="space-y-2 text-sm">
-          <p>IEEE-GRSS</p>
+          <p>IEEE Geoscience and Remote Sensing Society (GRSS)</p>
           <p>American Geophysical Union (AGU)</p>
           <p>European Geosciences Union (EGU)</p>
-          <p>Registered Architect (Council of Architecture, India)</p>
+          <p>Registered Architect — Council of Architecture, India</p>
         </div>
       </section>
 
