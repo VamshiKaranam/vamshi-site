@@ -39,7 +39,7 @@ export default function Contact() {
 
           {/* LinkedIn */}
           <a
-            href="https://www.linkedin.com/in/vamshi-karanam/"
+            href="https://www.linkedin.com/in/vamshikaranam/"
             target="_blank"
             rel="noreferrer"
           >
