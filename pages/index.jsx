@@ -97,17 +97,6 @@ export default function Home() {
           <a href="/publications" className="text-sm font-medium text-sky-700 hover:underline">See all publications (30+)</a>
         </div>
       </section>
-
-      <footer className="max-w-5xl mx-auto px-6 py-8 border-t">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-sm">© {new Date().getFullYear()} Vamshi Karanam</div>
-          <div className="flex items-center gap-4">
-            <a href="mailto:vkaranam@smu.edu" className="text-sm hover:underline">vkaranam@smu.edu</a>
-            <a href="/contact" className="text-sm hover:underline">Contact</a>
-            <a href="/cv.pdf" className="text-sm hover:underline">CV</a>
-          </div>
-        </div>
-      </footer>
     </main>
   )
 }
