@@ -91,3 +91,23 @@ export default function Layout({ children }) {
     </div>
   );
 }
+{/* GLOBAL FOOTER */}
+<footer className="mt-16 border-t bg-white/60 backdrop-blur py-6">
+  <div className="max-w-5xl mx-auto px-4 text-center text-sm text-slate-600">
+
+    <p className="font-medium text-slate-700">© 2025 Vamshi Karanam</p>
+
+    <p className="mt-1">
+      <a href="mailto:vkaranam@smu.edu" className="text-sky-700 hover:underline">
+        vkaranam@smu.edu
+      </a>
+    </p>
+
+    <div className="mt-2 flex justify-center gap-6 text-sky-700">
+      <a href="/contact" className="hover:underline">Contact</a>
+      <a href="/cv.pdf" className="hover:underline" target="_blank">CV</a>
+    </div>
+
+  </div>
+</footer>
+
