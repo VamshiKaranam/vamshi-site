@@ -44,7 +44,7 @@ export default function Layout({ children }) {
 
           <Link href="/" className="flex items-center gap-2">
             <img
-              src="/headshot.jpg"
+              src="/headshot.png"
               alt="Vamshi Karanam"
               className="w-8 h-8 rounded-full object-cover border border-slate-200"
             />
