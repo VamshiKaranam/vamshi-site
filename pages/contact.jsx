@@ -1,9 +1,6 @@
 export default function Contact() {
   return (
-    <main className="max-w-3xl mx-auto px-6 py-16 text-slate-800">
-
-      <h1 className="text-3xl font-bold mb-6">Contact</h1>
-
+    <main 
       {/* --- Icon Links Section --- */}
       <section className="mb-10">
         <h2 className="text-xl font-semibold">Connect</h2>
