@@ -67,7 +67,7 @@ export default function Home() {
   <div className="mt-4 grid md:grid-cols-3 gap-4">
 
     {/* Subsurface deformation & geomechanics */}
-    <article className="p-4 border rounded-lg bg-white">
+    <article className="p-4 border rounded-lg bg-white text-center">
       <h3 className="font-semibold">Subsurface deformation & geomechanics</h3>
       <p className="mt-2 text-sm text-slate-600">
         Using InSAR, reservoir mechanics, and poroelastic modeling to analyze deformation associated with injection, 
@@ -76,7 +76,7 @@ export default function Home() {
     </article>
 
     {/* Energy infrastructure & environmental hazards */}
-    <article className="p-4 border rounded-lg bg-white">
+    <article className="p-4 border rounded-lg bg-white text-center">
       <h3 className="font-semibold">Energy infrastructure & environmental hazards</h3>
       <p className="mt-2 text-sm text-slate-600">
         Detecting blowouts, casing failures, subsidence, fault slip, and induced seismicity to assess vulnerability 
@@ -85,7 +85,7 @@ export default function Home() {
     </article>
 
     {/* Urban, coastal & environmental deformation */}
-    <article className="p-4 border rounded-lg bg-white">
+    <article className="p-4 border rounded-lg bg-white text-center">
       <h3 className="font-semibold">Urban, coastal & environmental deformation</h3>
       <p className="mt-2 text-sm text-slate-600">
         Monitoring land subsidence, groundwater extraction, coastal sinking, landslides, and mining-induced deformation 
