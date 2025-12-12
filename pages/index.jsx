@@ -11,7 +11,7 @@ export default function Home() {
           <a href="/about" className="hover:underline">About</a>
           <a href="/research" className="hover:underline">Research</a>
           <a href="/publications" className="hover:underline">Publications</a>
-          <a href="/media" className="hover:underline">Media</a>
+          <a href="/news" className="hover:underline">Media</a>
           <a href="/contact" className="font-medium text-sky-700 hover:underline">Contact</a>
         </div>
       </nav>
