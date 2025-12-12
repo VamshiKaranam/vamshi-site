@@ -51,7 +51,7 @@ export default function Home() {
                 <p className="mt-2 text-sm text-slate-600">
                   A high-resolution InSAR and geomechanics assessment of blowouts in the Permian Basin, published in GRL and widely cited in energy policy discussions.
                 </p>
-                <a href="https://doi.org/10.1029/2024GL109435" className="mt-4 inline-block text-sm text-sky-700 hover:underline">
+                <a href="https://doi.org/10.1029/2024GL109435" target="_blank" rel="noreferrer "className="mt-4 inline-block text-sm text-sky-700 hover:underline">
                   Read the study
                 </a>
               </div>
