@@ -4,19 +4,64 @@ export default function Contact() {
 
       <h1 className="text-3xl font-bold mb-6">Contact</h1>
 
+      {/* --- Icon Links Section --- */}
       <section className="mb-10">
-        <h2 className="text-xl font-semibold">Email</h2>
-        <p className="mt-2">
-          <a href="mailto:vkaranam@smu.edu" className="text-sky-700 underline">
-            vkaranam@smu.edu
+        <h2 className="text-xl font-semibold">Connect</h2>
+
+        <div className="flex items-center gap-8 mt-4">
+
+          {/* ResearchGate */}
+          <a
+            href="https://www.researchgate.net/profile/Vamshi-Karanam"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="/researchgate.png"
+              alt="ResearchGate"
+              className="w-10 h-10 hover:opacity-80 transition"
+            />
           </a>
-          <br />
-          <a href="mailto:ar.vamshikaranam@gmail.com" className="text-sky-700 underline">
-            ar.vamshikaranam@gmail.com
+
+          {/* Google Scholar */}
+          <a
+            href="https://scholar.google.com/citations?user=Wh0nbK0AAAAJ&hl=en"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="/scholar.png"
+              alt="Google Scholar"
+              className="w-10 h-10 hover:opacity-80 transition"
+            />
           </a>
-        </p>
+
+          {/* LinkedIn */}
+          <a
+            href="https://www.linkedin.com/in/vamshi-karanam/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="/linkedin.png"
+              alt="LinkedIn"
+              className="w-10 h-10 hover:opacity-80 transition"
+            />
+          </a>
+
+          {/* Email */}
+          <a href="mailto:vkaranam@smu.edu">
+            <img
+              src="/email.png"
+              alt="Email"
+              className="w-10 h-10 hover:opacity-80 transition"
+            />
+          </a>
+
+        </div>
       </section>
 
+      {/* Address Section */}
       <section className="mb-10">
         <h2 className="text-xl font-semibold">Address</h2>
         <p className="mt-2">
@@ -25,6 +70,7 @@ export default function Contact() {
         </p>
       </section>
 
+      {/* Map Section */}
       <section>
         <h2 className="text-xl font-semibold">Location</h2>
         <div className="mt-4 rounded-lg overflow-hidden shadow">
