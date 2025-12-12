@@ -1,6 +1,9 @@
 export default function Contact() {
   return (
-    <main 
+    <main className="max-w-3xl mx-auto px-6 py-16 text-slate-800">
+
+      <h1 className="text-3xl font-bold mb-6">Contact</h1>
+
       {/* --- Icon Links Section --- */}
       <section className="mb-10">
         <h2 className="text-xl font-semibold">Connect</h2>
@@ -9,7 +12,7 @@ export default function Contact() {
 
           {/* ResearchGate */}
           <a
-            href="https://www.researchgate.net/profile/Vamshi-Karanam"
+            href="https://www.researchgate.net/profile/Vamshi-Karanam-2"
             target="_blank"
             rel="noreferrer"
           >
