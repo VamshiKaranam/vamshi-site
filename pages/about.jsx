@@ -77,7 +77,7 @@ export default function About() {
           <p>Teaching Assistant, Leibniz University Hannover — SAR applications & geodesy</p>
           <p>Teaching Assistant, IIT Roorkee — Remote Sensing & Image Interpretation</p>
           <p>Organizing Team, International Conference on Unmanned Aerial Systems (UASG 2020), IIT Roorkee</p>
-          <p>Senior Executive, National Technical Festival (TAFVA), NIT Calicut</p>
+          <p>Senior Executive, National Technical Festival (TATVA), NIT Calicut</p>
         </div>
       </section>
 
@@ -87,7 +87,7 @@ export default function About() {
         <div className="space-y-2 text-sm">
           <p>NASA FINESST Research Fellowship</p>
           <p>DAAD KOSPIE Research Fellowship (Germany)</p>
-          <p>IEEE GRSS Travel Grant (IGARSS 2023, Los Angeles)</p>
+          <p>IEEE GRSS Travel Grant (IGARSS 2023)</p>
           <p>IEEE GRSS IDEA Microgrant (2023)</p>
           <p>Gold Medal for highest grade in M.Tech (IIT Roorkee)</p>
           <p>KoSinteF Research Grant, German Academic Exchange Service (DAAD)</p>
