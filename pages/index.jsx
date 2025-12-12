@@ -19,7 +19,7 @@ export default function Home() {
             </h1>
             
             <p className="mt-4 text-slate-700 max-w-xl">
-              My work integrates InSAR, poroelastic and geomechanical modeling, and machine learning to quantify deformation, assess risks to energy and environmental infrastructure, and understand fluid–rock interactions. I investigate well failures, induced seismicity, subsidence, landslides, coastal and mining deformation, and emerging applications such as CO₂ storage monitoring. NASA FINESST awardee with active collaborations cat UT Austin GFZ, IIT Roorkee, and the University of Cambridge.
+              My work integrates InSAR, poroelastic and geomechanical modeling, and machine learning to quantify deformation, assess risks to energy and environmental infrastructure, and understand fluid–rock interactions. I investigate well failures, induced seismicity, subsidence, landslides, coastal and mining deformation, and emerging applications such as CO₂ storage monitoring. I'm a NASA FINESST awardee with active collaborations at UT Austin, GFZ, IIT Roorkee, and the University of Cambridge.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -33,10 +33,6 @@ export default function Home() {
                 <Download size={16} /> CV
               </a>
             </div>
-
-            <p className="mt-6 text-xs text-slate-500">
-              Research featured in Bloomberg • Newsweek • BBC • Houston Chronicle • The Texas Tribune
-            </p>
           </div>
 
           {/* FEATURED WORK */}
