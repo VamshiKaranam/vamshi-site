@@ -1,6 +1,7 @@
 // pages/news.jsx
 import React from "react";
 
+// --- Full news list ---
 const newsList = [
   { date: "2024-11-04", author: "Chowdhury, S.", title: "Well Blowouts in Texas Prompt $100M Emergency Funding Plea", outlet: "Newsweek", url: "https://www.newsweek.com/texas-oil-blowouts-emergency-funding-leak-railroad-waste-1979859" },
   { date: "2024-10-16", author: "Drane, A.", title: "Who’s to blame for the geyser still erupting in West Texas? Documents start to unravel mystery.", outlet: "Houston Chronicle", url: "https://www.houstonchronicle.com/news/investigations/article/geyser-tx-railroad-commission-kinder-morgan-apache-19824265.php" },
@@ -16,23 +17,28 @@ const newsList = [
   { date: "2024-08-06", author: "SMU Dallas", title: "Study revisits Texas seismic activity occurring before 2017, confirming connection to wastewater injection.", outlet: "SMU News", url: "https://www.smu.edu/news/research/texas-seismic-activity-and-wastewater-injection" },
   { date: "2024-02-29", author: "Ramos, N.C.; Pskowski, M.", title: "“Nobody really knows what you’re supposed to do”: Leaking, exploding abandoned wells wreak havoc in West Texas.", outlet: "The Texas Tribune", url: "https://www.texastribune.org/2024/02/28/abandoned-oil-wells-west-texas-railroad-commission/" },
   { date: "2024-02-29", author: "Pskowski, M.", title: "West Texas Orphan Wells Are Leaking With Unknown Harms.", outlet: "Inside Climate News", url: "https://insideclimatenews.org/news/29022024/abandoned-oil-wells-west-texas-railroad-commission/" },
-  { date: "2023-09-07", author: "Hedden, A.", title: "Oil and gas is 'deforming' New Mexico's land, study says, as drilling set to grow.", outlet: "Carlsbad Current-Argus", url: "https://www.currentargus.com/story/news/2023/09/07/oil-gas-new-mexico-permian-basin-delaware-midland-texas-environment-souther-methodist-university/70729375007/" },
+  { date: "2023-09-07", author: "Hedden, A.", title: "Oil and gas is 'deforming' New Mexico's land, study says.", outlet: "Carlsbad Current-Argus", url: "https://www.currentargus.com/story/news/2023/09/07/oil-gas-new-mexico-permian-basin-delaware-midland-texas-environment-souther-methodist-university/70729375007/" },
   { date: "2023-08-31", author: "Staff", title: "Permian Basin oil and gas activity is increasing geological hazards.", outlet: "Center for Western Priorities", url: "https://westernpriorities.org/2023/08/permian-basin-oil-and-gas-activity-is-increasing-geological-hazards/" },
-  { date: "2023-08-30", author: "Grover, H.", title: "Researchers warn that changes in the Permian Basin surface due to oil and gas industry activities are leading to increasing number of geohazards.", outlet: "NM Political Report", url: "https://nmpoliticalreport.com/2023/08/30/researchers-warn-that-changes-in-the-permian-basin-surface-due-to-oil-and-gas-industry-activities-are-leading-to-increasing-number-of-geohazards/" },
+  { date: "2023-08-30", author: "Grover, H.", title: "Researchers warn that changes in the Permian Basin surface due to oil and gas industry activities are leading to increasing geohazards.", outlet: "NM Political Report", url: "https://nmpoliticalreport.com/2023/08/30/researchers-warn-that-changes-permian-basin-surface-due-to-oil-gas-industry-leading-geohazards/" },
   { date: "2023-01-22", author: "BBC", title: "How a Delhi district stopped the ground from sinking.", outlet: "BBC", url: "https://www.bbc.com/news/world-asia-india-64342196" },
   { date: "2022-05-09", author: "Alakananda, D.", title: "Groundwater pumping linked to land subsidence in India’s capital.", outlet: "Nature India", url: "https://www.nature.com/articles/d44151-022-00048-y" },
-  { date: "2022-03-24", author: "Dutta, S. R.", title: "Hidden crisis in India’s capital unveiled using satellite data.", outlet: "University of Cambridge", url: "http://www.eng.cam.ac.uk/news/hidden-crisis-indias-capital-unveiled-using-satellite-data" },
+  { date: "2022-03-24", author: "Dutta, S. R.", title: "Hidden crisis in India's capital unveiled using satellite data.", outlet: "University of Cambridge", url: "http://www.eng.cam.ac.uk/news/hidden-crisis-indias-capital-unveiled-using-satellite-data" },
   { date: "2022-03-18", author: "Garg, S.; Motagh, M.; Indu, J.; Karanam, V.", title: "Delhi, sinking?", outlet: "India Water Portal", url: "https://www.indiawaterportal.org/articles/delhi-sinking" },
-  { date: "2022-01-20", author: "ऋचीक मिश्रा", title: "Delhi-NCR: जमीन से निकला जा रहा है बेहिसाब पानी, खोखली हो गई धरती, धंस सकता है 100 वर्ग KM का इलाका.", outlet: "AajTak", url: "https://www.aajtak.in/science/photo/delhi-ncr-excessive-groundwater-extraction-causing-sink-know-its-impact-tstr-1396022-2022-01-20-1" },
-  { date: "2022-01-18", author: "Singh, P.", title: "Excessive groundwater extraction causing parts of Delhi-NCR to sink: Study.", outlet: "Hindustan Times", url: "https://www.hindustantimes.com/cities/delhi-news/excessive-groundwater-extraction-causing-parts-of-delhi-ncr-to-sink-study-101642441000326.html" },
-  { date: "2022-01-18", author: "DNA Web Team", title: "Thousands of acres of land in parts of Delhi NCR is sinking, here’s why.", outlet: "DNA India", url: "https://www.dnaindia.com/india/report-thousands-of-acres-of-land-in-parts-of-delhi-ncr-is-sinking-here-s-why-land-subsidence-igi-airport-gurgaon-2929059" }
+  { date: "2022-01-20", author: "ऋचीक मिश्रा", title: "Delhi-NCR:...100 वर्ग KM का इलाका.", outlet: "AajTak", url: "https://www.aajtak.in/science/photo/delhi-ncr-excessive-groundwater-extraction-causing-sink-know-its-impact-tstr-1396022-2022-01-20-1" },
+  { date: "2022-01-18", author: "Singh, P.", title: "Excessive groundwater extraction causing parts of Delhi-NCR to sink.", outlet: "Hindustan Times", url: "https://www.hindustantimes.com/cities/delhi-news/excessive-groundwater-extraction-causing-parts-delhi-ncr-to-sink-study" },
+  { date: "2022-01-18", author: "DNA Web Team", title: "Thousands of acres of land in Delhi NCR is sinking, here’s why.", outlet: "DNA India", url: "https://www.dnaindia.com/india/report-thousands-of-acres-land-delhi-ncr-is-sinking-here-s-why" }
+];
+
+// --- Featured stories ---
+const featured = [
+  newsList[0],   // Newsweek (Well Blowouts)
+  newsList[7],   // Houston Chronicle (More blowouts to come)
+  newsList[9]    // Texas Tribune (Ranchers reported abandoned wells...)
 ];
 
 function formatDate(d) {
-  // YYYY-MM-DD to Month D, YYYY
   try {
-    const dt = new Date(d);
-    return dt.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+    return new Date(d).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
   } catch {
     return d;
   }
@@ -41,27 +47,43 @@ function formatDate(d) {
 export default function News() {
   return (
     <main className="max-w-6xl mx-auto px-6 py-12 text-slate-800">
-      <h1 className="text-3xl font-bold mb-6">News & Media</h1>
 
-      <p className="text-sm text-slate-600 mb-6">A selection of media coverage and news items featuring or related to my work.</p>
+      <h1 className="text-3xl font-bold mb-8">News & Media Coverage</h1>
 
-      <div className="grid gap-4">
-        {newsList.map((n, i) => (
-          <article key={i} className="p-4 border rounded-lg bg-white">
-            <div className="flex items-start justify-between">
-              <div>
-                <a href={n.url} target="_blank" rel="noreferrer" className="text-sky-700 font-semibold hover:underline">
-                  {n.title}
-                </a>
-                <div className="text-xs text-slate-500 mt-1">
-                  {n.author} • {n.outlet} • {formatDate(n.date)}
-                </div>
-              </div>
-              <div className="text-xs text-slate-400 ml-4">{n.outlet}</div>
+      {/* Featured Section */}
+      <section className="mb-12">
+        <h2 className="text-xl font-semibold mb-4">Featured Stories</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          {featured.map((item, i) => (
+            <div key={i} className="p-4 border rounded-lg bg-white shadow-md">
+              <a href={item.url} target="_blank" rel="noreferrer" className="text-sky-700 font-semibold hover:underline text-lg">
+                {item.title}
+              </a>
+              <p className="text-xs text-slate-500 mt-2">
+                {item.outlet} • {formatDate(item.date)}
+              </p>
             </div>
-          </article>
-        ))}
-      </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Full News List */}
+      <section>
+        <h2 className="text-xl font-semibold mb-4">All News</h2>
+        <div className="grid gap-4">
+          {newsList.map((n, i) => (
+            <article key={i} className="p-4 border rounded-lg bg-white">
+              <a href={n.url} target="_blank" rel="noreferrer" className="text-sky-700 font-semibold hover:underline">
+                {n.title}
+              </a>
+              <div className="text-xs text-slate-500 mt-1">
+                {n.author} • {n.outlet} • {formatDate(n.date)}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
     </main>
   );
 }
