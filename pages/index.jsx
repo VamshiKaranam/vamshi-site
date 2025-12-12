@@ -13,14 +13,13 @@ export default function Home() {
             <p className="text-sm uppercase text-slate-500 tracking-wide">
               Geospatial Science • InSAR • Energy & Environmental Hazards
             </p>
-
+            
             <h1 className="mt-3 text-3xl md:text-4xl font-extrabold leading-tight">
-              I investigate how energy development and environmental processes drive deformation in the subsurface, and develop geospatial methods to quantify and forecast geohazards.
+              I study how natural and human activities deform the Earth’s surface and subsurface, and develop geospatial methods to monitor, model, and forecast geohazards.
             </h1>
-
+            
             <p className="mt-4 text-slate-700 max-w-xl">
-              My research integrates InSAR, physics-based poroelastic modeling, and machine learning to understand fluid–rock interaction, diagnose well and infrastructure failures, and characterize induced deformation across energy-producing regions. 
-              I am a NASA FINESST fellow with 30+ publications, and I collaborate extensively with GFZ, IIT Roorkee, and the University of Cambridge on satellite-based hazard monitoring.
+              My work integrates InSAR, poroelastic and geomechanical modeling, and machine learning to quantify deformation, assess risks to energy and environmental infrastructure, and understand fluid–rock interactions. I investigate well failures, induced seismicity, subsidence, landslides, coastal and mining deformation, and emerging applications such as CO₂ storage monitoring. I am a NASA FINESST fellow with 30+ publications and collaborations with GFZ, IIT Roorkee, and the University of Cambridge.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -63,33 +62,40 @@ export default function Home() {
 
       {/* RESEARCH AREAS */}
       <section className="max-w-5xl mx-auto px-6 py-10">
-        <h2 className="text-xl font-semibold">Research areas</h2>
+  <h2 className="text-xl font-semibold">Research areas</h2>
 
-        <div className="mt-4 grid md:grid-cols-3 gap-4">
+  <div className="mt-4 grid md:grid-cols-3 gap-4">
 
-          <article className="p-4 border rounded-lg bg-white">
-            <h3 className="font-semibold">Subsurface deformation & geomechanics</h3>
-            <p className="mt-2 text-sm text-slate-600">
-              Combining InSAR, reservoir mechanics, and poroelastic modeling to quantify deformation associated with injection, production, and stress perturbations.
-            </p>
-          </article>
+    {/* Subsurface deformation & geomechanics */}
+    <article className="p-4 border rounded-lg bg-white">
+      <h3 className="font-semibold">Subsurface deformation & geomechanics</h3>
+      <p className="mt-2 text-sm text-slate-600">
+        Using InSAR, reservoir mechanics, and poroelastic modeling to analyze deformation associated with injection, 
+        production, and CO₂ storage, and to understand the evolution of pressure, stress, and subsurface stability.
+      </p>
+    </article>
 
-          <article className="p-4 border rounded-lg bg-white">
-            <h3 className="font-semibold">Energy infrastructure and environmental hazards</h3>
-            <p className="mt-2 text-sm text-slate-600">
-              Identifying blowouts, casing failures, subsidence, and fault-related deformation to evaluate vulnerabilities in wells, pipelines, and surface facilities.
-            </p>
-          </article>
+    {/* Energy infrastructure & environmental hazards */}
+    <article className="p-4 border rounded-lg bg-white">
+      <h3 className="font-semibold">Energy infrastructure & environmental hazards</h3>
+      <p className="mt-2 text-sm text-slate-600">
+        Detecting blowouts, casing failures, subsidence, fault slip, and induced seismicity to assess vulnerability 
+        in wells, pipelines, and surface facilities across active energy basins.
+      </p>
+    </article>
 
-          <article className="p-4 border rounded-lg bg-white">
-            <h3 className="font-semibold">Urban deformation & environmental change</h3>
-            <p className="mt-2 text-sm text-slate-600">
-              Long-term monitoring of cities such as Delhi and Joshimath to assess the impacts of groundwater extraction, landslides, and anthropogenic loading.
-            </p>
-          </article>
+    {/* Urban, coastal & environmental deformation */}
+    <article className="p-4 border rounded-lg bg-white">
+      <h3 className="font-semibold">Urban, coastal & environmental deformation</h3>
+      <p className="mt-2 text-sm text-slate-600">
+        Monitoring land subsidence, groundwater extraction, coastal sinking, landslides, and mining-induced deformation 
+        in regions such as Delhi, Joshimath, and rapidly developing coastal corridors.
+      </p>
+    </article>
 
-        </div>
-      </section>
+  </div>
+</section>
+
 
       {/* PRESS & IMPACT */}
       <section className="max-w-5xl mx-auto px-6 py-8">
