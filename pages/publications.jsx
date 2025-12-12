@@ -134,10 +134,7 @@ const conferences = [
 
 function PubItem({ item }) {
   const highlightName = (text) => {
-    return text.replace(
-      /Karanam,\s*V\.?/g,
-      `<span class="text-sky-700 font-semibold">Karanam, V.</span>`
-    );
+    return text.replace(/Karanam,\s*V\.?/g, `<b>Karanam, V.</b>`);
   };
 
   return (
@@ -145,7 +142,7 @@ function PubItem({ item }) {
       className="mb-3"
       dangerouslySetInnerHTML={{
         __html: `
-        <strong>${highlightName(item.ref)}</strong>. 
+        ${highlightName(item.ref)}. 
         ${item.title} 
         <em>${item.outlet}</em>
         ${item.url ? ` • <a href="${item.url}" target="_blank" class="text-sky-700 hover:underline">link</a>` : ""}
@@ -155,6 +152,7 @@ function PubItem({ item }) {
     />
   );
 }
+
 
 
 export default function Publications() {
