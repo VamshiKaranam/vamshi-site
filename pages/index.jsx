@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Mail, Download, Globe } from 'lucide-react'
 
@@ -6,17 +5,22 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-800">
 
-
+      {/* HERO / INTRO */}
       <header className="max-w-5xl mx-auto px-6 py-12 md:py-20">
         <div className="grid md:grid-cols-2 gap-8 items-center">
+
           <div>
-            <p className="text-sm uppercase text-slate-500 tracking-wide">Architect → Geospatial Scientist</p>
+            <p className="text-sm uppercase text-slate-500 tracking-wide">
+              Geospatial Science • InSAR • Energy & Environmental Hazards
+            </p>
+
             <h1 className="mt-3 text-3xl md:text-4xl font-extrabold leading-tight">
-              I study how the subsurface responds to energy operations and turn satellite data into actionable intelligence.
+              I investigate how energy development and environmental processes drive deformation in the subsurface, and develop geospatial methods to quantify and forecast geohazards.
             </h1>
 
             <p className="mt-4 text-slate-700 max-w-xl">
-              I use InSAR, physics-based poroelastic modeling, and machine learning to detect deformation, diagnose well failures, and build predictive tools for industry and regulators. NASA FINESST fellow. 30+ publications. Global collaborations with GFZ, IIT Roorkee, and University of Cambridge.
+              My research integrates InSAR, physics-based poroelastic modeling, and machine learning to understand fluid–rock interaction, diagnose well and infrastructure failures, and characterize induced deformation across energy-producing regions. 
+              I am a NASA FINESST fellow with 30+ publications, and I collaborate extensively with GFZ, IIT Roorkee, and the University of Cambridge on satellite-based hazard monitoring.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -31,43 +35,69 @@ export default function Home() {
               </a>
             </div>
 
-            <p className="mt-6 text-xs text-slate-500">Selected media: Bloomberg • Newsweek • BBC • Houston Chronicle • The Texas Tribune</p>
+            <p className="mt-6 text-xs text-slate-500">
+              Research featured in Bloomberg • Newsweek • BBC • Houston Chronicle • The Texas Tribune
+            </p>
           </div>
 
+          {/* FEATURED WORK */}
           <div className="order-first md:order-last">
             <div className="w-full h-56 md:h-72 rounded-2xl bg-gradient-to-br from-sky-50 to-white shadow-md flex items-center justify-center">
               <div className="text-center px-6">
-                <div className="text-sm text-slate-500">Featured work</div>
-                <h3 className="mt-2 font-semibold text-lg">Geospatially resolved characterization of wastewater-induced blowouts</h3>
-                <p className="mt-2 text-sm text-slate-600">Published in Geophysical Research Letters — covered by Bloomberg and Newsweek.</p>
-                <a href="/publications#grl-2024" className="mt-4 inline-block text-sm text-sky-700 hover:underline">Read the paper</a>
+                <div className="text-sm text-slate-500">Recent publication</div>
+                <h3 className="mt-2 font-semibold text-lg">
+                  Satellite-based analysis of wastewater-induced well blowouts
+                </h3>
+                <p className="mt-2 text-sm text-slate-600">
+                  A high-resolution InSAR and geomechanics assessment of blowouts in the Permian Basin, published in GRL and widely cited in energy policy discussions.
+                </p>
+                <a href="/publications#grl-2024" className="mt-4 inline-block text-sm text-sky-700 hover:underline">
+                  Read the study
+                </a>
               </div>
             </div>
           </div>
+
         </div>
       </header>
 
+      {/* RESEARCH AREAS */}
       <section className="max-w-5xl mx-auto px-6 py-10">
-        <h2 className="text-xl font-semibold">Research highlights</h2>
+        <h2 className="text-xl font-semibold">Research areas</h2>
+
         <div className="mt-4 grid md:grid-cols-3 gap-4">
+
           <article className="p-4 border rounded-lg bg-white">
-            <h3 className="font-semibold">Permian Basin Blowouts</h3>
-            <p className="mt-2 text-sm text-slate-600">First geospatially resolved study linking wastewater injection to well blowouts; policy and industry impact.</p>
+            <h3 className="font-semibold">Subsurface deformation & geomechanics</h3>
+            <p className="mt-2 text-sm text-slate-600">
+              Combining InSAR, reservoir mechanics, and poroelastic modeling to quantify deformation associated with injection, production, and stress perturbations.
+            </p>
           </article>
+
           <article className="p-4 border rounded-lg bg-white">
-            <h3 className="font-semibold">Jharia Coalfields</h3>
-            <p className="mt-2 text-sm text-slate-600">Thermal and InSAR-based mapping of coal-fire induced deformation; DAAD-funded work and GFZ collaboration.</p>
+            <h3 className="font-semibold">Energy infrastructure and environmental hazards</h3>
+            <p className="mt-2 text-sm text-slate-600">
+              Identifying blowouts, casing failures, subsidence, and fault-related deformation to evaluate vulnerabilities in wells, pipelines, and surface facilities.
+            </p>
           </article>
+
           <article className="p-4 border rounded-lg bg-white">
-            <h3 className="font-semibold">Infrastructure Monitoring</h3>
-            <p className="mt-2 text-sm text-slate-600">Integrated InSAR, GNSS, and poroelastic modeling to assess subsidence and infrastructure exposure.</p>
+            <h3 className="font-semibold">Urban deformation & environmental change</h3>
+            <p className="mt-2 text-sm text-slate-600">
+              Long-term monitoring of cities such as Delhi and Joshimath to assess the impacts of groundwater extraction, landslides, and anthropogenic loading.
+            </p>
           </article>
+
         </div>
       </section>
 
+      {/* PRESS & IMPACT */}
       <section className="max-w-5xl mx-auto px-6 py-8">
         <h2 className="text-lg font-semibold">Press & impact</h2>
-        <p className="mt-3 text-sm text-slate-600">My research has been featured in:</p>
+        <p className="mt-3 text-sm text-slate-600">
+          My work contributes to understanding geohazards in some of the world’s most active energy basins and has informed state regulatory conversations, industry decisions, and national media coverage.
+        </p>
+
         <div className="mt-4 flex flex-wrap gap-4 items-center">
           <span className="px-3 py-2 bg-white rounded shadow text-sm">Bloomberg</span>
           <span className="px-3 py-2 bg-white rounded shadow text-sm">Newsweek</span>
@@ -77,8 +107,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* COLLABORATIONS */}
       <section className="max-w-5xl mx-auto px-6 py-8">
         <h2 className="text-lg font-semibold">Collaborations</h2>
+        <p className="mt-3 text-sm text-slate-600">
+          My research includes international collaborations in satellite geodesy, hazard monitoring, and deformation modeling with:
+        </p>
+
         <div className="mt-4 flex flex-wrap gap-4 items-center">
           <span className="px-3 py-2 bg-white rounded shadow text-sm">GFZ German Research Centre for Geosciences</span>
           <span className="px-3 py-2 bg-white rounded shadow text-sm">IIT Roorkee</span>
@@ -86,17 +121,32 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SELECTED Pubs */}
       <section className="max-w-5xl mx-auto px-6 py-10">
         <h2 className="text-lg font-semibold">Selected publications</h2>
+
         <ul className="mt-4 space-y-3 text-sm text-slate-700">
-          <li>Investigation of Oil Well Blowouts Triggered by Wastewater Injection in the Permian Basin, Geophysical Research Letters (2024).</li>
-          <li>Hydrocarbon production induced land deformation over Permian Basin, IJGEO (2023).</li>
-          <li>Multi-sensor remote sensing analysis of coal fire induced land subsidence in Jharia, IJGEO (2021).</li>
+          <li>
+            Satellite-based analysis of wastewater-driven blowouts in the Permian Basin, 
+            <em> Geophysical Research Letters</em> (2024).
+          </li>
+          <li>
+            Production-induced deformation and geomechanics across the Permian Basin, 
+            <em> International Journal of Applied Earth Observation and Geoinformation</em> (2023).
+          </li>
+          <li>
+            Coal-fire-driven deformation in the Jharia Coalfields, 
+            <em> International Journal of Applied Earth Observation and Geoinformation</em> (2021).
+          </li>
         </ul>
+
         <div className="mt-4">
-          <a href="/publications" className="text-sm font-medium text-sky-700 hover:underline">See all publications (30+)</a>
+          <a href="/publications" className="text-sm font-medium text-sky-700 hover:underline">
+            View full publication list (30+)
+          </a>
         </div>
       </section>
+
     </main>
   )
 }
