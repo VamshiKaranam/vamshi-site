@@ -53,6 +53,7 @@ export default function Layout({ children }) {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-5 text-sm">
+            <NavLink href="/index">Home</NavLink>
             <NavLink href="/about">About</NavLink>
             <NavLink href="/research">Research</NavLink>
             <NavLink href="/publications">Publications</NavLink>
@@ -76,6 +77,7 @@ export default function Layout({ children }) {
         {open && (
           <div className="md:hidden bg-white/95 border-t shadow-sm">
             <div className="max-w-5xl mx-auto px-4 py-3 flex flex-col gap-2 text-sm">
+              <NavLink href="/index">Home</NavLink>
               <NavLink href="/about">About</NavLink>
               <NavLink href="/research">Research</NavLink>
               <NavLink href="/publications">Publications</NavLink>
