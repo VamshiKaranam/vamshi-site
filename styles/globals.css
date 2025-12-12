@@ -1,7 +1,18 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* small custom tweaks */
-body { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+/* keep body font consistent */
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* ensure hero section can sit under transparent header */
+.hero-negative-margin {
+  margin-top: -1.25rem; /* optional fine-tune if hero needs to sit higher under transparent nav */
+}
+
+/* small shadow polish for cards */
+.card-shadow {
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
