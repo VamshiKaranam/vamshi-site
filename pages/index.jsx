@@ -5,16 +5,7 @@ import { Mail, Download, Globe } from 'lucide-react'
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-800">
-      <nav className="max-w-5xl mx-auto p-6 flex items-center justify-between">
-        <div className="text-lg font-semibold">Vamshi Karanam</div>
-        <div className="space-x-6 text-sm">
-          <a href="/about" className="hover:underline">About</a>
-          <a href="/research" className="hover:underline">Research</a>
-          <a href="/publications" className="hover:underline">Publications</a>
-          <a href="/news" className="hover:underline">Media</a>
-          <a href="/contact" className="font-medium text-sky-700 hover:underline">Contact</a>
-        </div>
-      </nav>
+
 
       <header className="max-w-5xl mx-auto px-6 py-12 md:py-20">
         <div className="grid md:grid-cols-2 gap-8 items-center">
