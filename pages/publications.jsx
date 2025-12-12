@@ -156,7 +156,6 @@ export default function Publications() {
         <ul className="list-none pl-0">
           {research.map((r, i) => <PubItem key={i} item={r} />)}
         </ul>
-        <p className="mt-4 text-sm text-slate-600">Full publication list and PDFs available in my CV. <a href="/cv.pdf" className="text-sky-700 hover:underline">Download CV</a>.</p>
       </section>
 
       <section>
