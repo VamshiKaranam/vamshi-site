@@ -33,13 +33,13 @@ export const site = {
     { label: 'Google Scholar', url: 'https://scholar.google.com/citations?user=Wh0nbK0AAAAJ&hl=en' },
     { label: 'ResearchGate', url: 'https://www.researchgate.net/profile/Vamshi-Karanam-2' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/vamshikaranam/' },
-    // Add when confirmed, e.g. { label: 'ORCID', url: 'https://orcid.org/0000-0000-0000-0000' },
+    { label: 'ORCID', url: 'https://orcid.org/0000-0002-6845-2578' },
   ],
 
-  // The research group. Leave name as null until it is decided; pages then
-  // describe the group by what it does instead of by a name.
+  // The research group. The name is a working title: change it here and it
+  // updates everywhere. Set it to null to describe the group without a name.
   group: {
-    name: null,
+    name: 'Earth Observation and Geohazards Lab',
     focus: 'Earth observation, geospatial science and natural hazards',
   },
 
@@ -50,7 +50,7 @@ export const site = {
 export const nav = [
   { href: '/research', label: 'Research' },
   { href: '/publications', label: 'Publications' },
-  { href: '/group', label: 'Group' },
+  { href: '/group', label: 'Lab' },
   { href: '/teaching', label: 'Teaching' },
   { href: '/news', label: 'Media' },
   { href: '/about', label: 'About' },

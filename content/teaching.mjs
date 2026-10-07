@@ -47,7 +47,7 @@ export const teachingStatement = null;
 // ── Research group ─────────────────────────────────────────────────────────
 export const group = {
   intro:
-    'I am building a research group at UA Little Rock that uses satellites to measure how the Earth’s surface is changing, and models to explain why. The group works on land subsidence, fluid-driven deformation and geohazards, with a computational geophysics and remote sensing lab being set up in the School of Physical Sciences.',
+    'We use satellites to measure how the Earth’s surface is changing, and models to explain why. The lab works on land subsidence, fluid-driven deformation and geohazards. It is new: its computational geophysics and remote sensing facilities are being set up in the School of Physical Sciences at UA Little Rock.',
   directions: [
     { name: 'Earth observation', detail: 'InSAR, GNSS and optical time series, from single sites to whole basins.' },
     { name: 'Geospatial science', detail: 'GIS, data fusion and machine learning for mapping exposure and risk.' },
@@ -56,8 +56,8 @@ export const group = {
   // People in the group. Add students as they join:
   //   { name: 'Full Name', role: 'M.S. student', topic: 'What they work on', photo: '/assets/img/people/name.jpg' }
   members: [],
-  // Set to a short paragraph to advertise specific openings, or leave null for the general invitation.
+  // Set to a short paragraph when you have positions to advertise. While it
+  // is null, the page says there are no openings yet.
   openings: null,
-  joining:
-    'I welcome enquiries from students interested in satellite remote sensing, GIS or geophysical modeling. Email me with your CV and a few lines about what you would like to work on.',
+  noOpenings: 'There are no student openings at the moment. When positions become available they will be posted here.',
 };

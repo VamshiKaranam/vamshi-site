@@ -29,11 +29,10 @@ The site marks missing items with a yellow "To add" note. They are:
 
 - **Research figures**: put images in `static/assets/img/research/` and set
   `figure.src` for each theme in `content/research.mjs`.
-- **Group name**: `group.name` in `content/site.mjs`.
 - **Course numbers, terms and syllabi**: `content/teaching.mjs`.
 - **Office hours**: `officeHours` in `content/site.mjs`.
-- **ORCID**: add it to `profiles` in `content/site.mjs`.
 - **Students**: `group.members` in `content/teaching.mjs`.
+- **Openings**: set `group.openings` in `content/teaching.mjs` when you have positions to advertise.
 
 To hide every "To add" note at once, set `showPlaceholders: false` in
 `content/site.mjs`.

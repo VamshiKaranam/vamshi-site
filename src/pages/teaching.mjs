@@ -43,11 +43,5 @@ ${band({
   </dl>
   <p>${teachingApproach}</p>`,
 })}
-
-${band({
-  title: 'For students',
-  body: html`<p>If you are in one of my classes and want to take a project further, or you are curious about research with satellite data, come and talk to me. The <a href="/group">research group</a> page explains what we work on.</p>
-  <p class="actions"><a class="btn btn-quiet" href="mailto:${site.email}">Email me</a></p>`,
-})}
 `;
 }

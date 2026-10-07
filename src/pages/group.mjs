@@ -8,7 +8,7 @@ export const route = '/group';
 export const file = 'group.html';
 export const title = site.group.name || 'Research group';
 export const description =
-  'The research group led by Vamshi Karanam at the University of Arkansas at Little Rock: earth observation, geospatial science and natural hazards.';
+  `${site.group.name || 'The research group'} at the University of Arkansas at Little Rock, led by Vamshi Karanam: earth observation, geospatial science and natural hazards.`;
 
 export function body() {
   return html`
@@ -52,11 +52,11 @@ ${band({
 })}
 
 ${band({
-  title: 'Join us',
-  body: html`${group.openings ? html`<p class="large">${group.openings}</p>` : ''}
-  <p${group.openings ? '' : html` class="large"`}>${group.joining}</p>
-  ${group.openings ? '' : todo('Specific openings (M.S., Ph.D., undergraduate research) and funding, if you want to advertise them.')}
-  <p class="actions"><a class="btn" href="mailto:${site.email}?subject=Joining%20the%20research%20group">Email ${site.email}</a></p>`,
+  title: 'Openings',
+  body: group.openings
+    ? html`<p class="large">${group.openings}</p>
+  <p class="actions"><a class="btn" href="mailto:${site.email}?subject=Joining%20the%20lab">Email ${site.email}</a></p>`
+    : html`<p>${group.noOpenings}</p>`,
 })}
 `;
 }

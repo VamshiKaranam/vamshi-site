@@ -114,12 +114,11 @@ ${band({
 })}
 
 ${band({
-  title: 'Work with me',
-  body: html`<p class="large">I’m building a research group in ${site.group.focus.toLowerCase()} at ${site.institutionShort}.</p>
-  <p>Students interested in satellite remote sensing, GIS or geophysical modeling are welcome to get in touch.</p>
+  title: 'The lab',
+  body: html`<p class="large">${site.group.name ? html`I lead the ${site.group.name} at ${site.institutionShort}, a new group working on` : html`I’m building a research group at ${site.institutionShort} working on`} ${site.group.focus.toLowerCase()}.</p>
   <p class="actions">
-    <a class="btn" href="/group">About the group</a>
-    <a class="btn btn-quiet" href="mailto:${site.email}">Email me</a>
+    <a class="btn" href="/group">About the lab</a>
+    <a class="btn btn-quiet" href="/contact">Contact</a>
   </p>`,
 })}
 `;
