@@ -30,7 +30,7 @@ ${pageHead({ title: 'About' })}
 </section>
 
 ${band({
-  title: 'The route here',
+  title: 'Career path',
   wide: true,
   body: html`<div class="map-scroll" tabindex="0" role="group" aria-label="Career map">${journeyMap()}</div>
   <ol class="journey">

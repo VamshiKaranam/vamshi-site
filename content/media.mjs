@@ -4,7 +4,7 @@
 
 export const stories = {
   blowouts: {
-    label: 'Well blowouts and wastewater, West Texas',
+    label: 'Well blowouts and wastewater injection, West Texas',
     summary:
       'Coverage of the Geophysical Research Letters study linking oil well blowouts in the Permian Basin to wastewater injection, and of leaking and erupting abandoned wells in the region.',
     doi: '10.1029/2024GL109435',
@@ -16,13 +16,13 @@ export const stories = {
     doi: '10.1785/0320240011',
   },
   permian: {
-    label: 'A deforming Permian Basin',
+    label: 'Ground deformation in the Permian Basin',
     summary:
       'Coverage of the InSAR analysis of ground deformation caused by oil and gas production across the Permian Basin of Texas and New Mexico.',
     doi: '10.1016/j.jag.2023.103424',
   },
   delhi: {
-    label: 'Delhi is sinking',
+    label: 'Land subsidence in Delhi',
     summary:
       'Coverage of the Scientific Reports study that mapped land subsidence around India’s capital and traced it to groundwater pumping.',
     doi: '10.1038/s41598-021-04193-9',

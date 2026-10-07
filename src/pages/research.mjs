@@ -58,14 +58,14 @@ export function body() {
   return html`
 ${pageHead({
   title: 'Research',
-  lede: 'The ground moves when fluid is pumped out of it or pushed into it, when coal burns beneath it, and when rock and ice creep downslope. I measure that motion from space, down to millimetres per year, and model what is happening underneath to explain it.',
+  lede: 'I study how the ground deforms when fluids are extracted or injected, when coal burns underground, and where slopes and rock glaciers creep. I measure the motion with satellite radar and use poroelastic models to explain it.',
 })}
 
 ${band({
-  title: 'How it works',
+  title: 'Approach',
   body: html`<p>A radar satellite images the same ground every week or two. If the surface has moved between two passes, the signal’s round trip changes by a fraction of a wavelength. Comparing the phase of the two images turns that fraction into a map of motion, called an interferogram. Stacking hundreds of them over years separates steady deformation from noise.</p>
   <figure class="fig fig-schematic">${schematic}<figcaption>Schematic, not to scale.</figcaption></figure>
-  <p>Measuring is half the job. To explain the motion I build poroelastic models, which link changes in fluid pressure underground to stress in the rock and to movement at the surface. When a model reproduces what the satellite saw, it constrains the pressures, hydraulic properties and faults that cannot be observed directly.</p>`,
+  <p>To explain the motion I build poroelastic models, which link changes in fluid pressure underground to stress in the rock and to movement at the surface. When a model reproduces what the satellite saw, it constrains the pressures, hydraulic properties and faults that cannot be observed directly.</p>`,
 })}
 
 ${themes.map((t) => band({
@@ -75,7 +75,7 @@ ${themes.map((t) => band({
     ${t.place ? html`<p class="theme-place"><i class="place">${t.place}</i></p>` : ''}
     <p class="large">${t.summary}</p>
     ${figure(t.figure, t.title)}
-    ${t.findings.length ? html`<h3>What we have found</h3><ul class="findings">${t.findings.map((f) => html`<li>${f}</li>`)}</ul>` : ''}
+    ${t.findings.length ? html`<h3>Key findings</h3><ul class="findings">${t.findings.map((f) => html`<li>${f}</li>`)}</ul>` : ''}
     ${t.dois.length ? html`<h3>Papers</h3><ul class="plain pub-list">${t.dois.map((d) => findPub(d)).filter(Boolean).map((p) => pubItem(p, { compact: true }))}</ul>` : ''}
   </div>`,
 }))}

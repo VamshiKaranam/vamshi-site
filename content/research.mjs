@@ -7,7 +7,7 @@
 export const themes = [
   {
     id: 'energy',
-    title: 'Fluids moving under energy basins',
+    title: 'Fluid-driven deformation in energy basins',
     place: 'Permian Basin, Texas and New Mexico',
     summary:
       'Oil and gas operations move enormous volumes of fluid through the subsurface. I use nearly a decade of Sentinel-1 radar to map where the ground of the Permian Basin is sinking or rising, and poroelastic models to connect that motion to production, wastewater injection, fault slip and failing wells.',
@@ -24,7 +24,7 @@ export const themes = [
   },
   {
     id: 'cities',
-    title: 'Sinking cities and groundwater',
+    title: 'Urban subsidence and groundwater',
     place: 'Delhi National Capital Region, India',
     summary:
       'When a city pumps groundwater faster than it is replenished, the aquifer compacts and the land above it sinks. With colleagues at GFZ Potsdam and in India, I mapped subsidence across Delhi and its neighbours using InSAR and in-situ data, identifying the hotspots that matter for urban safety and water management.',
@@ -40,7 +40,7 @@ export const themes = [
   },
   {
     id: 'terrain',
-    title: 'Mines, slopes and ice',
+    title: 'Mining, slopes and rock glaciers',
     place: 'Jharia, Joshimath and Southeastern Alaska',
     summary:
       'Some ground moves because of what lies beneath it or what flows across it. In the Jharia Coalfields I combined Landsat-8 thermal anomaly mapping with InSAR to measure the subsidence caused by underground coal fires. Related work tracks the sinking Himalayan town of Joshimath and the motion of rock glaciers in Southeastern Alaska.',
@@ -56,7 +56,7 @@ export const themes = [
   },
   {
     id: 'methods',
-    title: 'Methods for the next radar missions',
+    title: 'Methods for new SAR missions',
     place: null,
     summary:
       'NISAR distributes its imagery as geocoded products, which changes how ground motion has to be measured. I helped develop offset tracking on geocoded single-look complex images and 3D deformation workflows for NISAR, and I am building an integrated workflow that takes InSAR observations through to a calibrated 3D poroelastic model.',

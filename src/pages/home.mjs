@@ -1,10 +1,11 @@
-import { html, link, doiUrl } from '../html.mjs';
+import { html, link, formatDate } from '../html.mjs';
 import { band } from '../layout.mjs';
-import { portrait, siteMaps, findPub, pubItem } from '../components.mjs';
+import { portrait, siteMaps, pubItem } from '../components.mjs';
 import { site } from '../../content/site.mjs';
 import { publications } from '../../content/publications.mjs';
-import { media, stories } from '../../content/media.mjs';
+import { media } from '../../content/media.mjs';
 import { updates } from '../../content/about.mjs';
+import { themes } from '../../content/research.mjs';
 
 export const route = '/';
 export const file = 'index.html';
@@ -25,23 +26,42 @@ export const jsonLd = {
   knowsAbout: ['InSAR', 'Satellite geodesy', 'Land subsidence', 'Poroelastic modeling', 'Geohazards', 'GIS', 'Remote sensing'],
 };
 
+const sortKey = (d) => (d.length === 4 ? `${d}-12-31` : d);
+
 export function body() {
-  const featured = findPub(stories.blowouts.doi);
-  const blowoutOutlets = [...new Set(media.filter((m) => m.story === 'blowouts').map((m) => m.outlet))];
-  const journals = publications.filter((p) => p.type === 'journal');
-  const talks = publications.filter((p) => p.type === 'conference');
-  const recent = journals.slice(0, 3);
+  const recent = publications.filter((p) => p.type === 'journal').slice(0, 4);
+  const press = media.filter((m) => m.featured).sort((a, b) => sortKey(b.date).localeCompare(sortKey(a.date))).slice(0, 4);
+  const profile = (label) => site.profiles.find((p) => p.label === label);
 
   return html`
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-text">
-      <h1>Measuring how the ground moves, from orbit.</h1>
-      <p class="hero-lede">I’m Vamshi Karanam, ${site.title} at the ${site.institution}. I use satellite radar to find land that is sinking, rising or slipping, and physical models to work out what is driving it underground.</p>
-      <p class="actions">
-        <a class="btn" href="/research">Explore the research</a>
-        <a class="btn btn-quiet" href="${site.cv}">Download CV</a>
-      </p>
+<section class="intro">
+  <div class="wrap intro-grid">
+    ${portrait()}
+    <div>
+      <h1>${site.name}</h1>
+      <p class="intro-role"><strong>${site.title}</strong><br>${site.department}, ${site.institution}</p>
+      <div class="intro-bio">
+        <p>I study how the ground deforms in response to human activity: groundwater pumping beneath Delhi, oil and gas production and wastewater injection in West Texas, coal fires in eastern India. I measure the motion with satellite radar interferometry (InSAR) and GNSS, and use poroelastic models to work out what is driving it underground.</p>
+        <p>I joined UA Little Rock in 2026 after a Ph.D. in Geophysics at Southern Methodist University, where I held a NASA FINESST award.</p>
+      </div>
+      <ul class="intro-links">
+        <li><a href="mailto:${site.email}">${site.email}</a></li>
+        <li><a href="${site.cv}">CV</a></li>
+        ${['Google Scholar', 'ORCID'].map((l) => (profile(l) ? html`<li>${link(profile(l).url, l)}</li>` : ''))}
+        <li><a href="/about">More about me</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+${band({
+  title: 'Research',
+  body: html`<div class="research-grid">
+    <div>
+      <p>My work falls into four areas. Each combines satellite measurements of ground motion with models of the processes underneath.</p>
+      <ul class="plain theme-list">
+        ${themes.map((t) => html`<li><a href="/research#${t.id}">${t.title}</a>${t.place ? html`<i class="place">${t.place}</i>` : ''}</li>`)}
+      </ul>
     </div>
     <figure class="fringe" data-fringe>
       <div class="fringe-frame"><canvas width="720" height="540" aria-hidden="true"></canvas></div>
@@ -51,75 +71,45 @@ export function body() {
           <input id="fringe-range" type="range" min="0" max="30" step="0.5" value="14">
           <output for="fringe-range" data-fringe-out>14 cm is 5.1 fringes</output>
         </div>
-        <p>A simulated interferogram: sinking ground beside a patch of uplift, as a radar satellite would see them. Each full cycle of colour is 2.8 cm of motion along the line of sight of Sentinel-1. Drag the slider to deepen the bowl.</p>
+        <p>A simulated interferogram of sinking ground beside a patch of uplift. Each full cycle of colour is 2.8 cm of motion along the line of sight of Sentinel-1. Drag the slider to change the amount of motion.</p>
       </figcaption>
     </figure>
-  </div>
-</section>
-
-${band({
-  title: 'About',
-  body: html`<div class="about-grid">
-    ${portrait()}
-    <div>
-      <p class="large">I study how human activity reshapes the ground beneath cities and energy basins: groundwater pumping in Delhi, oil and gas production in West Texas, coal fires in eastern India.</p>
-      <p>The tools are satellite radar interferometry (InSAR), GNSS and GIS, combined with poroelastic models of the subsurface. I joined UA Little Rock in 2026 after a Ph.D. in Geophysics at Southern Methodist University, where I held a NASA FINESST award.</p>
-      <dl class="facts">
-        <div><dt>Journal articles</dt><dd>${journals.length}</dd></div>
-        <div><dt>Conference presentations</dt><dd>${talks.length}</dd></div>
-        <div><dt>News stories on the work</dt><dd>${media.length}</dd></div>
-      </dl>
-      <p class="actions"><a href="/about">More about me</a></p>
-    </div>
   </div>`,
 })}
 
 ${band({
-  title: 'Where I work',
+  title: 'Study areas',
   wide: true,
-  body: html`<p class="band-intro">Each marker is a place where the ground is moving, and where knowing how fast matters to the people living and working on it.</p>
-  ${siteMaps()}`,
+  body: siteMaps(),
 })}
 
 ${band({
-  title: 'Featured study',
-  body: html`<article class="feature">
-    <div>
-      <h3>Why old oil wells in West Texas are blowing out</h3>
-      <p>Across the Permian Basin, long-abandoned wells have started to leak and, in some cases, erupt. Using satellite radar and subsurface modeling, this study traced the blowouts to wastewater injection by the oil and gas industry.</p>
-      <ul class="plain pub-list">${pubItem(featured, { compact: true })}</ul>
-      <p class="actions">
-        ${link(doiUrl(featured.doi), 'Read the paper', 'btn')}
-        <a class="btn btn-quiet" href="/news">See the coverage</a>
-      </p>
-    </div>
-    <aside class="feature-press" aria-label="News outlets that reported on the study">
-      <p class="feature-press-head">Reported by</p>
-      <ul class="plain">${blowoutOutlets.map((o) => html`<li>${o}</li>`)}</ul>
-    </aside>
-  </article>`,
-})}
-
-${band({
-  title: 'Recent papers',
+  title: 'Recent publications',
   body: html`<ul class="plain pub-list">${recent.map((p) => pubItem(p, { compact: true }))}</ul>
   <p class="actions"><a href="/publications">All publications</a></p>`,
 })}
 
 ${band({
-  title: 'Latest',
+  title: 'In the news',
+  body: html`<ul class="plain news-list">
+    ${press.map((m) => html`<li class="news-item">
+      <p class="news-outlet">${m.outlet} <span class="when">${formatDate(m.date)}</span></p>
+      <p class="news-title"><a href="${m.url}" target="_blank" rel="noopener">${m.title}</a></p>
+    </li>`)}
+  </ul>
+  <p class="actions"><a href="/news">All ${media.length} stories</a></p>`,
+})}
+
+${band({
+  title: 'Updates',
   body: html`<ul class="plain updates">
     ${updates.map((u) => html`<li><span class="when">${u.year}</span><span>${u.url ? link(u.url, u.text) : u.text}</span></li>`)}
   </ul>`,
 })}
 
 ${band({
-  title: 'The lab',
-  body: html`<p class="large">${site.group.name ? html`I lead the ${site.group.name} at ${site.institutionShort}, a new group working on` : html`I’m building a research group at ${site.institutionShort} working on`} ${site.group.focus.toLowerCase()}.</p>
-  <p class="actions">
-    <a class="btn" href="/group">About the lab</a>
-    <a class="btn btn-quiet" href="/contact">Contact</a>
-  </p>`,
+  title: 'Lab',
+  body: html`<p>${site.group.name ? html`I lead the <a href="/group">${site.group.name}</a> at ${site.institutionShort}, a new group working on` : html`I’m building a <a href="/group">research group</a> at ${site.institutionShort} working on`} ${site.group.focus.toLowerCase()}.</p>`,
 })}
 `;
 }

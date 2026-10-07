@@ -6,6 +6,9 @@ const icon = {
   moon: raw('<svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.2A8 8 0 0 1 9.8 4a8 8 0 1 0 10.2 10.2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>'),
 };
 
+// The site mark: a subsidence bowl drawn as contour lines.
+const mark = raw('<svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="4"><circle cx="32" cy="32" r="28"/><circle cx="29" cy="34.5" r="19.5"/><circle cx="26.5" cy="36.5" r="11"/><circle cx="24.5" cy="38" r="3" fill="currentColor" stroke="none"/></svg>');
+
 // Runs before first paint so the saved theme never flashes.
 const themeScript = raw(`<script>(function(){var d=document.documentElement;d.classList.remove('no-js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t);}catch(e){}})();</script>`);
 
@@ -31,8 +34,9 @@ export function page({ route, title, description, body, assets, scripts = [], js
 <meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${site.url}/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F3F5F7" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0F1420" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111318" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="icon" type="image/png" sizes="48x48" href="/assets/img/favicon-48.png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/archivo-var.woff2">
@@ -46,7 +50,7 @@ ${jsonLd ? raw(`<script type="application/ld+json">${JSON.stringify(jsonLd).repl
 <header class="site-header">
   <div class="wrap header-row">
     <a class="brand" href="/"${route === '/' ? raw(' aria-current="page"') : ''}>
-      <img src="/assets/img/logo-96.png" width="34" height="34" alt="">
+      ${mark}
       <span>${site.name}</span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
