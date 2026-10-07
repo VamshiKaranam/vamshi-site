@@ -48,6 +48,7 @@ export const site = {
 };
 
 export const nav = [
+  { href: '/', label: 'Home' },
   { href: '/research', label: 'Research' },
   { href: '/publications', label: 'Publications' },
   { href: '/group', label: 'Lab' },

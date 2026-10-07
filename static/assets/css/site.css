@@ -185,7 +185,7 @@ ul.plain, ol.plain { list-style: none; padding: 0; }
   :root:not([data-theme="light"]) .theme-toggle .i-moon { display: block; }
 }
 
-@media (max-width: 959px) {
+@media (max-width: 1039px) {
   .nav-toggle { display: inline-flex; order: 3; }
   .theme-toggle { order: 2; }
   .header-row { flex-wrap: wrap; }
@@ -197,7 +197,7 @@ ul.plain, ol.plain { list-style: none; padding: 0; }
 }
 /* Without JavaScript the menu button can't open anything, so show the links. */
 html.no-js .nav-toggle, html.no-js .theme-toggle { display: none; }
-@media (max-width: 959px) { html.no-js .site-nav { display: block; } }
+@media (max-width: 1039px) { html.no-js .site-nav { display: block; } }
 
 /* ── Home introduction ────────────────────────────────────────────────────── */
 .intro { padding-block: clamp(2rem, 5vw, 3.75rem) clamp(2.5rem, 5vw, 4rem); }
