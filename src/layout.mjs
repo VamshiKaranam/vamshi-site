@@ -83,6 +83,15 @@ ${body}
       </ul>
     </div>
   </div>
+  <div class="wrap footer-compact">
+    <p class="footer-name">${site.name}</p>
+    <p>${site.title}, ${site.institutionShort}</p>
+    <p><a href="mailto:${site.email}">${site.email}</a></p>
+    <ul class="footer-links">
+      ${site.profiles.map((p) => html`<li><a href="${p.url}" target="_blank" rel="noopener">${p.label}</a></li>`)}
+      <li><a href="${site.cv}">CV</a></li>
+    </ul>
+  </div>
   <div class="wrap">
     <p class="footer-base">© ${year} ${site.name}. Last updated ${updated}.</p>
   </div>

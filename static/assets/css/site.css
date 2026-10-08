@@ -349,8 +349,10 @@ input[type="range"] { width: 100%; accent-color: var(--accent); height: 1.75rem;
 .theme-fig .fig { margin-top: 0.25rem; }
 .theme-fig .fig-slot { max-width: none; aspect-ratio: 4 / 3; }
 /* When the text is the shorter column (Approach), the text stays in view instead. */
-.theme-pair { grid-template-areas: "top fig"; grid-template-rows: auto; }
-.theme-pair .theme-top { position: sticky; top: 6rem; align-self: start; }
+@media (min-width: 800px) {
+  .theme-pair { grid-template-areas: "top fig"; grid-template-rows: auto; }
+  .theme-pair .theme-top { position: sticky; top: 6rem; align-self: start; }
+}
 /* On laptop and desktop screens, section titles stay pinned under the top bar
    while their section scrolls past, and figures stay pinned under the title. */
 @media (min-width: 1040px) {
@@ -480,10 +482,16 @@ html.no-js .filter-layout { grid-template-columns: minmax(0, 1fr); }
 .site-footer { margin-top: clamp(1.5rem, 4vw, 2.5rem); padding-block: 2rem 1.5rem; background: var(--surface); border-top: 1px solid var(--line); font-family: var(--sans); font-size: 0.9375rem; line-height: 1.6; color: var(--ink-2); }
 /* First column sits at the left edge, last at the right, the middle one between. */
 .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem 3rem; }
-/* On phones the footer's short blocks are centred, one above the other. */
+/* On phones a compact footer replaces the three columns: name, role, email
+   and profile links. Phone and office address stay on the Contact page. */
+.footer-compact { display: none; }
 @media (max-width: 699px) {
-  .footer-grid { flex-direction: column; align-items: center; text-align: center; }
-  .site-footer .footer-base { text-align: center; }
+  .footer-grid { display: none; }
+  .footer-compact { display: block; text-align: center; }
+  .footer-compact p + p { margin-top: 0.15rem; }
+  .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35rem 1.1rem; margin-top: 0.75rem; padding: 0; list-style: none; }
+  .site-footer { padding-block: 1.5rem 1.25rem; }
+  .site-footer .footer-base { text-align: center; margin-top: 1rem; padding-top: 0.75rem; }
 }
 .footer-name { font-weight: 700; font-stretch: 112%; font-size: 1.0625rem; color: var(--ink); }
 .footer-head { font-weight: 650; color: var(--ink); }
