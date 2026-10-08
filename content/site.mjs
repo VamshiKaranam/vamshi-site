@@ -3,7 +3,7 @@
 
 export const site = {
   // While true, the site shows "To add" notes wherever something is missing
-  // (figures, course numbers, office hours). Set to false to hide them all.
+  // (figures, course numbers, students). Set to false to hide them all.
   showPlaceholders: true,
 
   // Change this when the custom domain is live. It is used for the sitemap,
@@ -24,7 +24,6 @@ export const site = {
     lines: ['School of Physical Sciences', '2801 S. University Ave.', 'Little Rock, AR 72204'],
     mapUrl: 'https://maps.app.goo.gl/9XuugSWNexLgpjwG6',
   },
-  officeHours: null, // e.g. 'Tuesdays and Thursdays, 2–3:30 pm, or by appointment'
 
   cv: '/cv.pdf',
 

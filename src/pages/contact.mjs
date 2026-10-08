@@ -12,7 +12,7 @@ export function body() {
   return html`
 ${pageHead({
   title: 'Contact',
-  lede: 'Email is the best way to reach me, whether you are a student, a journalist or a potential collaborator.',
+  lede: 'Email is the best way to reach me.',
 })}
 
 <section class="band band-first">
@@ -30,7 +30,6 @@ ${pageHead({
         ${site.office.lines.map((l) => html`${l}<br>`)}
       </address>
       <p><a href="${site.office.mapUrl}" target="_blank" rel="noopener">Open in Google Maps</a></p>
-      ${site.officeHours ? html`<h2>Office hours</h2><p>${site.officeHours}</p>` : todo('Office hours.')}
     </div>
     <div class="contact-card">
       <h2>Profiles</h2>

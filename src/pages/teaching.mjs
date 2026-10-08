@@ -32,8 +32,7 @@ ${band({
         ${missing.length ? todo(`${missing.join(', ')}.`.replace(/^./, (ch) => ch.toUpperCase())) : ''}
       </li>`;
     })}
-  </ul>
-  ${site.officeHours ? html`<p>Office hours: ${site.officeHours}, ${site.office.room}.</p>` : todo('Office hours.')}`,
+  </ul>`,
 })}
 
 ${band({
