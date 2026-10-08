@@ -30,7 +30,7 @@ export const stories = {
 };
 
 export const media = [
-  { date: '2025', story: 'blowouts', outlet: 'Bloomberg', author: null, featured: true,
+  { date: '2025-09-16', story: 'blowouts', outlet: 'Bloomberg', author: 'Crowley, K.; Wethe, D.; Merrill, D.', featured: true,
     title: 'Texas Oil Boom Spawns a Toxic Crisis of the Industry’s Own Making',
     url: 'https://www.bloomberg.com/graphics/2025-permian-basin-geyser/' },
   { date: '2024-11-04', story: 'blowouts', outlet: 'Newsweek', author: 'Chowdhury, S.', featured: true,

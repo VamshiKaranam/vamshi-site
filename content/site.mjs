@@ -3,7 +3,7 @@
 
 export const site = {
   // While true, the site shows "To add" notes wherever something is missing
-  // (figures, course numbers, students). Set to false to hide them all.
+  // (the research figures). Set to false to hide them.
   showPlaceholders: true,
 
   // Change this when the custom domain is live. It is used for the sitemap,

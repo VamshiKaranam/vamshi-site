@@ -47,10 +47,11 @@ export const awards = [
   { year: '2018–2020', name: 'MHRD National Graduate Scholarship', from: 'Government of India' },
 ];
 
+// Listed in order of significance.
 export const service = [
-  { name: 'Manuscript reviewer', detail: 'IEEE Transactions on Geoscience and Remote Sensing, Engineering Geology, Advances in Space Research, Natural Hazards & Risk, Science of the Total Environment, Remote Sensing, and others' },
+  { name: 'Journal reviewer', detail: 'IEEE Transactions on Geoscience and Remote Sensing, Engineering Geology, Science of the Total Environment, Advances in Space Research, Natural Hazards & Risk, Remote Sensing, and others' },
+  { name: 'Conference organizing committee', detail: 'International Conference on Unmanned Aerial Systems in Geomatics (UASG), 2020' },
   { name: 'President, SEG SMU Student Chapter', detail: 'Society of Exploration Geophysicists, 2025' },
-  { name: 'Organizing committee', detail: 'International Conference on Unmanned Aerial Systems in Geomatics (UASG), 2020' },
-  { name: 'Member', detail: 'AGU, EGU, IEEE and AAPG' },
+  { name: 'Professional memberships', detail: 'AGU, EGU, IEEE and AAPG' },
   { name: 'Registered Architect', detail: 'Council of Architecture, India' },
 ];

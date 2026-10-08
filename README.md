@@ -29,9 +29,12 @@ The site marks missing items with a yellow "To add" note. They are:
 
 - **Research figures**: put images in `static/assets/img/research/` and set
   `figure.src` for each theme in `content/research.mjs`.
-- **Course numbers, terms and syllabi**: `content/teaching.mjs`.
-- **Students**: `group.members` in `content/teaching.mjs`.
-- **Openings**: set `group.openings` in `content/teaching.mjs` when you have positions to advertise.
+
+Other things you can switch on later, in `content/teaching.mjs`:
+
+- **Lab members**: add students to `group.members`; the People section then appears on the Lab page.
+- **Openings**: set `group.openings` when you have positions to advertise.
+- **Course details**: `code`, `level` and `terms` for each course.
 
 To hide every "To add" note at once, set `showPlaceholders: false` in
 `content/site.mjs`.

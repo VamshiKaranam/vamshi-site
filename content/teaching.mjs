@@ -1,6 +1,6 @@
 // Courses and the research group.
-// Fields set to null show as "to be added" notes on the preview; fill them in
-// or delete the course's field to hide the note.
+// Course number, level and terms are optional; when set they show under the
+// course name.
 
 export const courses = [
   {
@@ -10,7 +10,6 @@ export const courses = [
     description:
       'An introduction to how the Earth works: its materials, the processes that shape its surface, and the ways people depend on and alter the environment.',
     terms: null, // e.g. 'Fall 2026'
-    syllabus: null, // e.g. '/assets/docs/syllabus-earth-environment.pdf'
   },
   {
     name: 'Earth and the Environment Lab',
@@ -19,7 +18,6 @@ export const courses = [
     description:
       'The hands-on companion to the lecture: minerals and rocks, maps, and working with real environmental data.',
     terms: null,
-    syllabus: null,
   },
   {
     name: 'GIS I',
@@ -28,7 +26,6 @@ export const courses = [
     description:
       'A first course in geographic information systems: spatial data, map projections, analysis and cartography, taught through practical projects.',
     terms: null,
-    syllabus: null,
   },
 ];
 
@@ -41,9 +38,6 @@ export const earlierTeaching = [
 export const teachingApproach =
   'Across these courses I designed hands-on labs in InSAR processing and in field surveying with GNSS and total stations.';
 
-// Optional: a short teaching statement in your own words. Shown above the course list.
-export const teachingStatement = null;
-
 // ── Research group ─────────────────────────────────────────────────────────
 export const group = {
   intro:
@@ -53,7 +47,8 @@ export const group = {
     { name: 'Geospatial science', detail: 'GIS, data fusion and machine learning for mapping exposure and risk.' },
     { name: 'Natural and human-made hazards', detail: 'Subsidence, induced seismicity, failing wells, unstable slopes and mines.' },
   ],
-  // People in the group. Add students as they join:
+  // People in the group. The People section appears on the Lab page once at
+  // least one member is listed here. Add students as they join:
   //   { name: 'Full Name', role: 'M.S. student', topic: 'What they work on', photo: '/assets/img/people/name.jpg' }
   members: [],
   // Set to a short paragraph when you have positions to advertise. While it

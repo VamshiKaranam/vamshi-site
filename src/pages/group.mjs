@@ -28,7 +28,7 @@ ${band({
   <p><a href="/research">Read about current research</a></p>`,
 })}
 
-${band({
+${group.members.length ? band({
   title: 'People',
   body: html`<ul class="plain people">
     <li class="person">
@@ -47,9 +47,8 @@ ${band({
         ${m.topic ? html`<p>${m.topic}</p>` : ''}
       </div>
     </li>`)}
-  </ul>
-  ${group.members.length ? '' : todo('Students and collaborators, as they join. Add them in content/teaching.mjs.')}`,
-})}
+  </ul>`,
+}) : ''}
 
 ${band({
   title: 'Openings',
