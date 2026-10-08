@@ -34,7 +34,7 @@ Other things you can switch on later, in `content/teaching.mjs`:
 
 - **Lab members**: add students to `group.members`; the People section then appears on the Lab page.
 - **Openings**: set `group.openings` when you have positions to advertise.
-- **Course details**: `code`, `level` and `terms` for each course.
+- **Course details**: update `code`, `level` and `terms` for each course as terms change.
 
 To hide every "To add" note at once, set `showPlaceholders: false` in
 `content/site.mjs`.

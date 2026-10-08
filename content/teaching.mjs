@@ -5,27 +5,27 @@
 export const courses = [
   {
     name: 'Earth and the Environment',
-    code: null, // e.g. 'ERSC 1302'
+    code: 'GEOL 11203',
     level: null, // e.g. 'Undergraduate'
     description:
       'An introduction to how the Earth works: its materials, the processes that shape its surface, and the ways people depend on and alter the environment.',
-    terms: null, // e.g. 'Fall 2026'
+    terms: 'Fall 2026',
   },
   {
     name: 'Earth and the Environment Lab',
-    code: null,
+    code: 'GEOL 11201',
     level: null,
     description:
       'The hands-on companion to the lecture: minerals and rocks, maps, and working with real environmental data.',
-    terms: null,
+    terms: 'Fall 2026',
   },
   {
     name: 'GIS I',
-    code: null,
+    code: 'GEOL 42104',
     level: null,
     description:
       'A first course in geographic information systems: spatial data, map projections, analysis and cartography, taught through practical projects.',
-    terms: null,
+    terms: 'Fall 2026',
   },
 ];
 
