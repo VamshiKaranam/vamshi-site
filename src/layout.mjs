@@ -66,23 +66,6 @@ ${jsonLd ? raw(`<script type="application/ld+json">${JSON.stringify(jsonLd).repl
 ${body}
 </main>
 <footer class="site-footer">
-  <div class="wrap footer-grid">
-    <div>
-      <p class="footer-name">${site.name}</p>
-      <p>${site.title}<br>${site.department}<br>${site.institution}</p>
-    </div>
-    <div>
-      <p class="footer-head">Contact</p>
-      <p><a href="mailto:${site.email}">${site.email}</a><br>${site.phone}<br>${site.office.room}, ${site.office.lines[1]}<br>${site.office.lines[2]}</p>
-    </div>
-    <div>
-      <p class="footer-head">Elsewhere</p>
-      <ul class="plain">
-        ${site.profiles.map((p) => html`<li><a href="${p.url}" target="_blank" rel="noopener">${p.label}</a></li>`)}
-        <li><a href="${site.cv}">Curriculum vitae (PDF)</a></li>
-      </ul>
-    </div>
-  </div>
   <div class="wrap footer-compact">
     <p class="footer-name">${site.name}</p>
     <p>${site.title}, ${site.institutionShort}</p>
