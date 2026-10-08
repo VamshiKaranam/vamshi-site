@@ -1,6 +1,7 @@
 import { html, raw } from '../html.mjs';
 import { band, pageHead } from '../layout.mjs';
 import { figure, siteMaps, findPub, pubItem } from '../components.mjs';
+import { site } from '../../content/site.mjs';
 import { themes, methods, software, collaborators } from '../../content/research.mjs';
 
 export const route = '/research';
@@ -89,12 +90,12 @@ ${themes.map((t) => band({
   id: t.id,
   title: t.title,
   wide: true,
-  body: html`<div class="theme">
+  body: html`<div class="theme${t.figure?.src || site.showPlaceholders ? '' : ' theme-nofig'}">
     <div class="theme-top">
       ${t.place ? html`<p class="theme-place"><i class="place">${t.place}</i></p>` : ''}
       <p class="large">${t.summary}</p>
     </div>
-    <div class="theme-fig">${figure(t.figure, t.title)}</div>
+    ${t.figure?.src || site.showPlaceholders ? html`<div class="theme-fig">${figure(t.figure, t.title)}</div>` : ''}
     <div class="theme-rest">
       ${t.findings.length ? html`<h3>Key findings</h3><ul class="findings">${t.findings.map((f) => html`<li>${f}</li>`)}</ul>` : ''}
       ${t.dois.length ? html`<h3>Papers</h3><ul class="plain pub-list">${t.dois.map((d) => findPub(d)).filter(Boolean).map((p) => pubItem(p, { compact: true }))}</ul>` : ''}

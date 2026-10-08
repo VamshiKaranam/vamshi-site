@@ -343,6 +343,7 @@ input[type="range"] { width: 100%; accent-color: var(--accent); height: 1.75rem;
 /* ── Research ─────────────────────────────────────────────────────────────── */
 .theme { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); grid-template-areas: "top fig" "rest fig"; grid-template-rows: auto 1fr; gap: 0 clamp(1.5rem, 4vw, 3rem); }
 .theme-top { grid-area: top; }
+.theme-nofig { grid-template-columns: minmax(0, 1fr); grid-template-areas: "top" "rest"; max-width: 46rem; }
 .theme-rest { grid-area: rest; }
 /* The figure stays in view beside the text while the findings and papers scroll past. */
 .theme-fig { grid-area: fig; position: sticky; top: 6rem; align-self: start; }

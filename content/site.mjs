@@ -4,7 +4,7 @@
 export const site = {
   // While true, the site shows "To add" notes wherever something is missing
   // (the research figures). Set to false to hide them.
-  showPlaceholders: true,
+  showPlaceholders: false,
 
   // Change this when the custom domain is live. It is used for the sitemap,
   // canonical links and the preview image shown when the site is shared.
