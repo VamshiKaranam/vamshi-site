@@ -22,8 +22,7 @@ export const site = {
   office: {
     room: 'ETAS 329R',
     lines: ['School of Physical Sciences', '2801 S. University Ave.', 'Little Rock, AR 72204'],
-    mapUrl:
-      'https://www.google.com/maps/search/?api=1&query=Engineering+Technology+and+Applied+Science+UA+Little+Rock+2801+S+University+Ave+Little+Rock+AR+72204',
+    mapUrl: 'https://maps.app.goo.gl/9XuugSWNexLgpjwG6',
   },
   officeHours: null, // e.g. 'Tuesdays and Thursdays, 2–3:30 pm, or by appointment'
 
