@@ -12,12 +12,6 @@ export const description =
   'Vamshi Karanam trained as an architect, then in geospatial engineering and geophysics. He is now Assistant Professor of Geology at the University of Arkansas at Little Rock.';
 export const jsonLd = person;
 
-// One line per entry: what, where, when. An optional note runs underneath.
-const row = (what, where, when, note = null) => html`<li>
-  <p class="cv-role">${what}</p><p class="cv-org">${where}</p><p class="when">${when}</p>
-  ${note ? html`<p class="cv-detail">${note}</p>` : ''}
-</li>`;
-
 export function body() {
   return html`
 ${pageHead({ title: 'About' })}
@@ -49,25 +43,31 @@ ${band({
 
 ${band({
   title: 'Positions',
-  wide: true,
   body: html`<ul class="plain cv-list">
-    ${positions.map((p) => row(p.role, p.org, p.years))}
+    ${positions.map((p) => html`<li>
+      <p class="when">${p.years}</p>
+      <div><p class="cv-role">${p.role}</p><p class="cv-org">${p.org}</p>${p.detail ? html`<p class="cv-detail">${p.detail}</p>` : ''}</div>
+    </li>`)}
   </ul>`,
 })}
 
 ${band({
   title: 'Education',
-  wide: true,
   body: html`<ul class="plain cv-list">
-    ${education.map((e) => row(e.degree, e.org, e.years, e.detail ? (e.url ? link(e.url, e.detail) : e.detail) : null))}
+    ${education.map((e) => html`<li>
+      <p class="when">${e.years}</p>
+      <div><p class="cv-role">${e.degree}</p><p class="cv-org">${e.org}</p>${e.detail ? html`<p class="cv-detail">${e.url ? link(e.url, e.detail) : e.detail}</p>` : ''}</div>
+    </li>`)}
   </ul>`,
 })}
 
 ${band({
   title: 'Grants and awards',
-  wide: true,
   body: html`<ul class="plain cv-list">
-    ${awards.map((a) => row(a.url ? link(a.url, a.name) : a.name, a.from, a.year))}
+    ${awards.map((a) => html`<li>
+      <p class="when">${a.year}</p>
+      <div><p class="cv-role">${a.url ? link(a.url, a.name) : a.name}</p><p class="cv-org">${a.from}</p></div>
+    </li>`)}
   </ul>`,
 })}
 
