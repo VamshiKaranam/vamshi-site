@@ -67,12 +67,11 @@ ${band({
       <div class="fringe-frame"><canvas width="720" height="540" aria-hidden="true"></canvas></div>
       <figcaption>
         <div class="fringe-control">
-          <label for="fringe-range">Ground motion</label>
+          <label for="fringe-range">Peak ground motion</label>
           <input id="fringe-range" type="range" min="0" max="30" step="0.5" value="14">
           <output for="fringe-range" data-fringe-out>14 cm is 5.1 fringes</output>
-          <button type="button" class="fringe-play" data-fringe-play hidden>Pause</button>
         </div>
-        <p>A simulated interferogram of sinking ground beside a patch of uplift. Each full cycle of colour is 2.8 cm of motion along the line of sight of Sentinel-1. Pause the animation or drag the slider to set the motion yourself.</p>
+        <p>A simulated interferogram of sinking ground beside a patch of uplift. Each full cycle of colour is 2.8 cm of motion along the line of sight of Sentinel-1. Drag the slider to change the amount of motion.</p>
       </figcaption>
     </figure>
   </div>`,
