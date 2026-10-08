@@ -81,41 +81,68 @@
 
   function set(cm) { draw(cm); label(cm); }
 
-  var target = parseFloat(range.value);
-  range.addEventListener('input', function () {
+  // Motion: the bowl slowly deepens and relaxes in a loop. The loop runs only
+  // while the figure is on screen, stops when the visitor drags the slider or
+  // presses Pause, and never starts on its own if the device asks for reduced
+  // motion (the Play button still lets the visitor start it).
+  var playBtn = fig.querySelector('[data-fringe-play]');
+  var LOW = 2, HIGH = 24, PERIOD = 9000;     // cm, cm, ms for one deepen-and-relax cycle
+  var raf = 0, playing = false, visible = false, phase = 0, lastTs = null;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function cmAt(ph) {                         // smooth ease in and out between LOW and HIGH
+    return LOW + (HIGH - LOW) * (0.5 - 0.5 * Math.cos(2 * Math.PI * ph));
+  }
+  function frame(ts) {
+    if (lastTs !== null) phase = (phase + (ts - lastTs) / PERIOD) % 1;
+    lastTs = ts;
+    var cm = cmAt(phase);
+    range.value = cm;
+    set(cm);
+    raf = requestAnimationFrame(frame);
+  }
+  function run() {
     cancelAnimationFrame(raf);
+    lastTs = null;
+    if (playing && visible) raf = requestAnimationFrame(frame);
+  }
+  function setPlaying(on) {
+    playing = on;
+    if (playBtn) {
+      playBtn.textContent = on ? 'Pause' : 'Play';
+      playBtn.setAttribute('aria-label', on ? 'Pause the animation' : 'Play the animation');
+    }
+    run();
+  }
+  // Start the loop from the slider's current value, so it never jumps.
+  function syncPhase() {
+    var v = Math.min(HIGH, Math.max(LOW, parseFloat(range.value)));
+    phase = Math.acos(1 - 2 * (v - LOW) / (HIGH - LOW)) / (2 * Math.PI);
+  }
+
+  range.addEventListener('input', function () {
+    setPlaying(false);
     set(parseFloat(range.value));
   });
-
-  // One entrance: the bowl deepens from flat ground to its starting value.
-  // It waits until the figure is on screen, so visitors actually see it.
-  var raf = 0, started = false;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function play() {
-    if (started) return;
-    started = true;
-    var start = null, DURATION = 2600;
-    var step = function (ts) {
-      if (start === null) start = ts;
-      var t = Math.min(1, (ts - start) / DURATION);
-      var cm = target * (1 - Math.pow(1 - t, 3));
-      range.value = cm;
-      set(cm);
-      if (t < 1) raf = requestAnimationFrame(step);
-      else { range.value = target; set(target); }
-    };
-    raf = requestAnimationFrame(step);
+  if (playBtn) {
+    playBtn.hidden = false;
+    playBtn.addEventListener('click', function () {
+      if (!playing) syncPhase();
+      setPlaying(!playing);
+    });
   }
-  range.addEventListener('input', function () { started = true; });
 
-  if (reduce || !('IntersectionObserver' in window)) {
-    set(target);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      visible = entries.some(function (e) { return e.isIntersecting; });
+      run();
+    }, { threshold: 0.3 }).observe(canvas);
   } else {
-    range.value = 0;
-    set(0);
-    var io = new IntersectionObserver(function (entries) {
-      if (entries.some(function (e) { return e.isIntersecting; })) { io.disconnect(); play(); }
-    }, { threshold: 0.6 });
-    io.observe(canvas);
+    visible = true;
   }
+
+  phase = 0;                                  // start from almost flat ground
+  set(cmAt(0));
+  range.value = cmAt(0);
+  setPlaying(!reduce);
 })();

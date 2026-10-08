@@ -238,7 +238,9 @@ html.no-js .nav-toggle, html.no-js .theme-toggle { display: none; }
 .fringe canvas { width: 100%; height: 100%; }
 .fringe figcaption { padding-top: 0.6rem; }
 .fringe figcaption p { margin-top: 0.6rem; font-size: var(--step--1); line-height: 1.5; color: var(--muted); font-family: var(--sans); }
-.fringe-control { display: grid; grid-template-columns: 1fr auto; gap: 0.2rem 1rem; align-items: center; font-family: var(--sans); font-size: 0.9375rem; }
+.fringe-control { display: grid; grid-template-columns: 1fr auto auto; gap: 0.2rem 0.9rem; align-items: center; font-family: var(--sans); font-size: 0.9375rem; }
+.fringe-play { min-width: 4.5rem; min-height: 2.25rem; padding: 0.2rem 0.8rem; background: transparent; color: var(--ink); border: 1px solid var(--line-strong); border-radius: var(--radius); font-family: var(--sans); font-size: 0.875rem; font-weight: 600; cursor: pointer; }
+.fringe-play:hover { border-color: var(--ink); }
 .fringe-control label { font-weight: 600; }
 .fringe-control input { grid-column: 1 / -1; grid-row: 2; }
 .fringe-control output { font-variant-numeric: tabular-nums; color: var(--ink-2); text-align: right; }
