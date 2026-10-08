@@ -88,24 +88,34 @@
   });
 
   // One entrance: the bowl deepens from flat ground to its starting value.
-  var raf = 0;
+  // It waits until the figure is on screen, so visitors actually see it.
+  var raf = 0, started = false;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce) {
-    set(target);
-  } else {
+  function play() {
+    if (started) return;
+    started = true;
     var start = null, DURATION = 2600;
-    range.value = 0;
     var step = function (ts) {
       if (start === null) start = ts;
       var t = Math.min(1, (ts - start) / DURATION);
-      var eased = 1 - Math.pow(1 - t, 3);
-      var cm = target * eased;
+      var cm = target * (1 - Math.pow(1 - t, 3));
       range.value = cm;
       set(cm);
       if (t < 1) raf = requestAnimationFrame(step);
       else { range.value = target; set(target); }
     };
-    set(0);
     raf = requestAnimationFrame(step);
+  }
+  range.addEventListener('input', function () { started = true; });
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    set(target);
+  } else {
+    range.value = 0;
+    set(0);
+    var io = new IntersectionObserver(function (entries) {
+      if (entries.some(function (e) { return e.isIntersecting; })) { io.disconnect(); play(); }
+    }, { threshold: 0.6 });
+    io.observe(canvas);
   }
 })();

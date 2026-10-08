@@ -161,7 +161,9 @@ ul.plain, ol.plain { list-style: none; padding: 0; }
 :root[data-theme="dark"] .btn:hover { color: var(--paper); }
 
 /* ── Header ───────────────────────────────────────────────────────────────── */
-.site-header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.site-header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); transition: transform 0.25s ease; }
+/* On smaller screens the bar slides away while scrolling down and returns on scrolling up. */
+.site-header.is-hidden { transform: translateY(-100%); }
 .header-row { display: flex; align-items: center; gap: 1rem; min-height: 4.5rem; }
 .brand { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--ink); text-decoration: none; font-family: var(--sans); font-weight: 700; font-stretch: 104%; font-size: 1.1875rem; letter-spacing: -0.01em; margin-right: auto; }
 .brand:hover { color: var(--ink); }
@@ -209,6 +211,10 @@ html.no-js .nav-toggle, html.no-js .theme-toggle { display: none; }
 @media (max-width: 699px) {
   .intro-grid { grid-template-columns: minmax(0, 1fr); }
   .intro-grid > .portrait { max-width: 12.5rem; }
+  /* On phones the links become a tidy two-column list; email gets its own row. */
+  .intro-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--line); }
+  .intro-links li { padding: 0.75rem 1rem 0.75rem 0; border-bottom: 1px solid var(--line); }
+  .intro-links li:first-child { grid-column: 1 / -1; }
 }
 
 /* ── The interferogram figure ─────────────────────────────────────────────── */

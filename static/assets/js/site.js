@@ -18,6 +18,25 @@
   // Mobile menu
   var navToggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('site-nav');
+
+  // On smaller screens, hide the top bar while scrolling down and bring it
+  // back as soon as the visitor scrolls up, like a phone browser's address bar.
+  var header = document.querySelector('.site-header');
+  var small = window.matchMedia('(max-width: 1039px)');
+  if (header) {
+    var lastY = window.scrollY;
+    var show = function () { header.classList.remove('is-hidden'); };
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY;
+      var menuOpen = nav && nav.classList.contains('is-open');
+      if (!small.matches || menuOpen || y <= header.offsetHeight) { show(); }
+      else if (y > lastY + 6) { header.classList.add('is-hidden'); }
+      else if (y < lastY - 6) { show(); }
+      if (Math.abs(y - lastY) > 6) lastY = y;
+    }, { passive: true });
+    header.addEventListener('focusin', show);
+    small.addEventListener('change', show);
+  }
   if (navToggle && nav) {
     navToggle.addEventListener('click', function () {
       var open = nav.classList.toggle('is-open');
