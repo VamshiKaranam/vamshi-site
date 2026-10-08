@@ -95,7 +95,7 @@ const maps = {
     lines: lines(states110, [-180, 5, -40, 80], 1),
   },
   // South Asia panel: coastline only, no political boundaries.
-  southAsia: { box: [50, -5, 110, 46], land: polygons(land50, [50, -5, 110, 46], 2) },
+  southAsia: { box: [40, -10, 125, 50], land: polygons(land50, [40, -10, 125, 50], 2) },
 };
 
 for (const [name, data] of Object.entries(maps)) {

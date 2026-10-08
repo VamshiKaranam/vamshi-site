@@ -277,10 +277,13 @@ input[type="range"] { width: 100%; accent-color: var(--accent); height: 1.75rem;
 /* Maps across the full width, the site descriptions in columns underneath. */
 .sitemap { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
 .sitemap-maps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: start; }
-.sitemap-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); gap: 0.6rem 2rem; }
+.sitemap-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); gap: 0.5rem 2rem; }
 .map-panel { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
 .map-panel figcaption { padding: 0.5rem 0.75rem; border-top: 1px solid var(--line); font-family: var(--sans); font-size: var(--step--1); color: var(--muted); }
 .map { width: 100%; height: auto; background: var(--paper); }
+/* Study-area maps take their height from the window, so the maps and the site
+   descriptions fit on one screen; extra width shows more of the surrounding map. */
+.sitemap .map { height: clamp(10rem, (100vh - 33rem) * 0.667, 14.5rem); }
 .map-grid { fill: none; stroke: var(--grid); stroke-width: 1; }
 .map-land { fill: var(--land); stroke: var(--coast); stroke-width: 0.8; stroke-linejoin: round; }
 .map-water { fill: var(--paper); stroke: var(--coast); stroke-width: 0.6; }
@@ -345,6 +348,15 @@ input[type="range"] { width: 100%; accent-color: var(--accent); height: 1.75rem;
 .theme-fig { grid-area: fig; position: sticky; top: 6rem; align-self: start; }
 .theme-fig .fig { margin-top: 0.25rem; }
 .theme-fig .fig-slot { max-width: none; aspect-ratio: 4 / 3; }
+/* When the text is the shorter column (Approach), the text stays in view instead. */
+.theme-pair { grid-template-areas: "top fig"; grid-template-rows: auto; }
+.theme-pair .theme-top { position: sticky; top: 6rem; align-self: start; }
+/* On laptop and desktop screens, section titles stay pinned under the top bar
+   while their section scrolls past, and figures stay pinned under the title. */
+@media (min-width: 1040px) {
+  .band-wide .band-title { position: sticky; top: 4.5rem; z-index: 5; background: var(--paper); padding-block: 0.6rem; margin-top: -0.6rem; }
+  .theme-fig, .theme-pair .theme-top { top: 8.25rem; }
+}
 @media (max-width: 799px) {
   .theme { grid-template-columns: minmax(0, 1fr); grid-template-areas: "top" "fig" "rest"; grid-template-rows: auto; }
   .theme-fig { position: static; }

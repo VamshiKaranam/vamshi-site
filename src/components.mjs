@@ -76,14 +76,14 @@ function marker([x, y], { id, name, side = 'right', kind = 'site', sub = null })
 }
 
 const regions = {
-  northAmerica: { title: 'North America', center: [45, -106], view: [-138, 24, -72, 63], step: 10 },
-  southAsia: { title: 'South Asia', center: [22, 82], view: [65, 7, 100, 36], step: 10 },
+  northAmerica: { title: 'North America', center: [44, -108], view: [-130, 25, -86, 62], step: 10 },
+  southAsia: { title: 'South Asia', center: [21, 81], view: [68, 6, 94, 35], step: 10 },
 };
 
 export function regionMap(name) {
   const r = regions[name];
   const geo = loadGeo(name);
-  const { project, width, height } = fit(laea(r.center[0], r.center[1]), r.view, 440, 450);
+  const { project, width, height } = fit(laea(r.center[0], r.center[1]), r.view, 440, 290);
   const here = sites.filter((s) => s.region === name);
   const label = `Map of ${r.title} showing study sites: ${here.map((s) => s.name).join(', ')}.`;
   return html`<svg class="map" viewBox="0 0 ${width} ${height}" role="img" aria-label="${label}">
@@ -106,7 +106,6 @@ export function siteMaps() {
     ${sites.map((s) => html`<li data-site="${s.id}">
       <p class="site-name"><i class="place">${s.name}</i> <span class="coords">${formatLatLon(s.lat, s.lon)}</span></p>
       <p class="site-what">${s.what}</p>
-      <p class="site-theme"><a href="/research#${s.theme}">${themeName[s.theme]}</a></p>
     </li>`)}
   </ul>
 </div>`;
