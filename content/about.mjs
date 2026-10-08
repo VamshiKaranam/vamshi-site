@@ -15,29 +15,6 @@ export const updates = [
   { year: 2025, text: 'Research featured in Bloomberg’s “Texas Oil Boom Spawns a Toxic Crisis of the Industry’s Own Making.”', url: 'https://www.bloomberg.com/graphics/2025-permian-basin-geyser/' },
 ];
 
-// The stops drawn on the career map, in the order they happened.
-export const journey = [
-  { id: 'calicut', lat: 11.32, lon: 75.93, place: 'Calicut, India', years: '2013–2018',
-    what: 'Bachelor of Architecture, National Institute of Technology Calicut', label: 'right' },
-  { id: 'roorkee', lat: 29.87, lon: 77.89, place: 'Roorkee, India', years: '2018–2021',
-    what: 'M.Tech in Geospatial Engineering (Gold Medal) and Research Assistant, Indian Institute of Technology Roorkee', label: 'right' },
-  { id: 'germany', lat: 52.38, lon: 11.4, place: 'Hannover and Potsdam, Germany', years: '2019–2020',
-    what: 'Visiting Researcher, Leibniz University Hannover, then Research Intern, GFZ German Research Centre for Geosciences', label: 'right' },
-  { id: 'dallas', lat: 32.84, lon: -96.78, place: 'Dallas, Texas', years: '2021–2025',
-    what: 'Ph.D. in Geophysics and Research Assistant, SMU Radar Lab, Southern Methodist University', label: 'left' },
-  { id: 'littlerock', lat: 34.72, lon: -92.34, place: 'Little Rock, Arkansas', years: '2026–present',
-    what: 'Assistant Professor of Geology, University of Arkansas at Little Rock', label: 'right' },
-];
-// The legs drawn on the map: from, to, and how far the line bows (positive
-// bows upward, negative downward; this only keeps lines clear of the labels).
-export const journeyLegs = [
-  ['calicut', 'roorkee', 0.5],
-  ['roorkee', 'germany', 1],
-  ['germany', 'roorkee', 0.5],
-  ['roorkee', 'dallas', -1],
-  ['dallas', 'littlerock', 0],
-];
-
 export const positions = [
   { years: '2026–present', role: 'Assistant Professor of Geology', org: 'University of Arkansas at Little Rock',
     detail: 'Teaching Earth and the Environment, its lab, and GIS I. Research on InSAR- and GNSS-based deformation monitoring and poroelastic modeling of environmental and energy-related hazards.' },

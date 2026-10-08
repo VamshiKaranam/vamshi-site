@@ -1,8 +1,8 @@
 import { html, link } from '../html.mjs';
 import { band, pageHead } from '../layout.mjs';
-import { portrait, journeyMap } from '../components.mjs';
+import { portrait } from '../components.mjs';
 import { site } from '../../content/site.mjs';
-import { bio, journey, positions, education, awards, service } from '../../content/about.mjs';
+import { bio, positions, education, awards, service } from '../../content/about.mjs';
 import { jsonLd as person } from './home.mjs';
 
 export const route = '/about';
@@ -28,18 +28,6 @@ ${pageHead({ title: 'About' })}
     </div>
   </div>
 </section>
-
-${band({
-  title: 'Career path',
-  wide: true,
-  body: html`<div class="map-scroll" tabindex="0" role="group" aria-label="Career map">${journeyMap()}</div>
-  <ol class="journey">
-    ${journey.map((j) => html`<li>
-      <p class="journey-place"><i class="place">${j.place}</i> <span class="when">${j.years}</span></p>
-      <p>${j.what}</p>
-    </li>`)}
-  </ol>`,
-})}
 
 ${band({
   title: 'Positions',

@@ -68,24 +68,6 @@ ${band({
   <p>To explain the motion I build poroelastic models, which link changes in fluid pressure underground to stress in the rock and to movement at the surface. When a model reproduces what the satellite saw, it constrains the pressures, hydraulic properties and faults that cannot be observed directly.</p>`,
 })}
 
-${themes.map((t) => band({
-  id: t.id,
-  title: t.title,
-  body: html`<div class="theme">
-    ${t.place ? html`<p class="theme-place"><i class="place">${t.place}</i></p>` : ''}
-    <p class="large">${t.summary}</p>
-    ${figure(t.figure, t.title)}
-    ${t.findings.length ? html`<h3>Key findings</h3><ul class="findings">${t.findings.map((f) => html`<li>${f}</li>`)}</ul>` : ''}
-    ${t.dois.length ? html`<h3>Papers</h3><ul class="plain pub-list">${t.dois.map((d) => findPub(d)).filter(Boolean).map((p) => pubItem(p, { compact: true }))}</ul>` : ''}
-  </div>`,
-}))}
-
-${band({
-  title: 'Study areas',
-  wide: true,
-  body: siteMaps(),
-})}
-
 ${band({
   title: 'Methods',
   body: html`<dl class="deflist">
@@ -95,6 +77,29 @@ ${band({
   <dl class="deflist deflist-tight">
     ${software.map((s) => html`<div><dt>${s.group}</dt><dd>${s.items.join(', ')}</dd></div>`)}
   </dl>`,
+})}
+
+${themes.map((t) => band({
+  id: t.id,
+  title: t.title,
+  wide: true,
+  body: html`<div class="theme">
+    <div class="theme-top">
+      ${t.place ? html`<p class="theme-place"><i class="place">${t.place}</i></p>` : ''}
+      <p class="large">${t.summary}</p>
+    </div>
+    <div class="theme-fig">${figure(t.figure, t.title)}</div>
+    <div class="theme-rest">
+      ${t.findings.length ? html`<h3>Key findings</h3><ul class="findings">${t.findings.map((f) => html`<li>${f}</li>`)}</ul>` : ''}
+      ${t.dois.length ? html`<h3>Papers</h3><ul class="plain pub-list">${t.dois.map((d) => findPub(d)).filter(Boolean).map((p) => pubItem(p, { compact: true }))}</ul>` : ''}
+    </div>
+  </div>`,
+}))}
+
+${band({
+  title: 'Study areas',
+  wide: true,
+  body: siteMaps(),
 })}
 
 ${band({

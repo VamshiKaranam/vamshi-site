@@ -1,9 +1,8 @@
 import { html, raw, esc, doiUrl } from './html.mjs';
-import { laea, equalEarth, fit, pathFrom, graticule, loadGeo, formatLatLon } from './geo.mjs';
+import { laea, fit, pathFrom, graticule, loadGeo, formatLatLon } from './geo.mjs';
 import { site } from '../content/site.mjs';
 import { publications } from '../content/publications.mjs';
 import { sites, home, themes } from '../content/research.mjs';
-import { journey, journeyLegs } from '../content/about.mjs';
 
 // ── Placeholders ───────────────────────────────────────────────────────────
 // Shown only while site.showPlaceholders is true.
@@ -111,35 +110,4 @@ export function siteMaps() {
     </li>`)}
   </ul>
 </div>`;
-}
-
-export function journeyMap() {
-  const geo = loadGeo('world');
-  const view = [-128, 2, 102, 63];
-  const { project, width, height } = fit(equalEarth(-13), view, 920);
-  const pos = Object.fromEntries(journey.map((j) => [j.id, project([j.lon, j.lat])]));
-  // Legs are drawn as gentle arcs in map space, in the order of the journey.
-  let legs = '';
-  for (const [from, to, bend] of journeyLegs) {
-    const a = pos[from], b = pos[to];
-    const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2;
-    const len = Math.hypot(b[0] - a[0], b[1] - a[1]);
-    const bulge = Math.min(90, len * 0.22) * bend;
-    legs += `M${a[0].toFixed(1)},${a[1].toFixed(1)}Q${mx.toFixed(1)},${(my - bulge).toFixed(1)} ${b[0].toFixed(1)},${b[1].toFixed(1)}`;
-  }
-  const label = `World map tracing the path from ${journey.map((j) => j.place).join(' to ')}.`;
-  return html`<svg class="map map-journey" viewBox="0 0 ${width} ${height}" role="img" aria-label="${label}">
-  <path class="map-grid" d="${pathFrom(graticule([-180, -60, 180, 84], 30), project, false)}"/>
-  <path class="map-land" d="${pathFrom(geo.land, project, true)}"/>
-  <path class="map-route" d="${legs}"/>
-  ${journey.map((j, i) => {
-    const [x, y] = pos[j.id];
-    const dx = j.label === 'left' ? -15 : 15;
-    return html`<g class="map-stop">
-      <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="10" class="map-stop-dot"/>
-      <text x="${x.toFixed(1)}" y="${(y + 4.3).toFixed(1)}" text-anchor="middle" class="map-stop-num">${i + 1}</text>
-      <text x="${(x + dx).toFixed(1)}" y="${(y + 5).toFixed(1)}" text-anchor="${j.label === 'left' ? 'end' : 'start'}" class="map-label">${j.place.split(',')[0]}</text>
-    </g>`;
-  })}
-</svg>`;
 }

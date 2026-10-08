@@ -1,6 +1,6 @@
 import { html, link, formatDate } from '../html.mjs';
 import { band } from '../layout.mjs';
-import { portrait, siteMaps, pubItem } from '../components.mjs';
+import { portrait, pubItem } from '../components.mjs';
 import { site } from '../../content/site.mjs';
 import { publications } from '../../content/publications.mjs';
 import { media } from '../../content/media.mjs';
@@ -11,7 +11,7 @@ export const route = '/';
 export const file = 'index.html';
 export const title = site.name;
 export const description = site.description;
-export const scripts = ['/assets/js/fringe.js', '/assets/js/maps.js'];
+export const scripts = ['/assets/js/fringe.js'];
 
 export const jsonLd = {
   '@context': 'https://schema.org',
@@ -75,12 +75,6 @@ ${band({
       </figcaption>
     </figure>
   </div>`,
-})}
-
-${band({
-  title: 'Study areas',
-  wide: true,
-  body: siteMaps(),
 })}
 
 ${band({
