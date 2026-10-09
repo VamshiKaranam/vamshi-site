@@ -67,6 +67,11 @@ function coverage(story) {
   return html`<p class="study-press">In the news: ${outlets.join(', ')} and others. <a href="/news#story-${story}">All ${items.length} stories</a></p>`;
 }
 
+// A large divider that separates the parts of the page.
+const partHead = (title, sub) => html`<section class="part-head">
+  <div class="wrap"><h2>${title}</h2>${sub ? html`<p>${sub}</p>` : ''}</div>
+</section>`;
+
 const hasFig = (f) => f?.src || site.showPlaceholders;
 
 function study(st) {
@@ -205,8 +210,6 @@ ${band({
   </div>`,
 })}
 
-${themeBand(themes[0])}
-
 ${band({
   title: 'Methods',
   wide: true,
@@ -218,6 +221,13 @@ ${band({
     ${software.map((s) => html`<div><dt>${s.group}</dt><dd>${s.items.join(', ')}</dd></div>`)}
   </dl>`,
 })}
+
+${partHead('Current research', 'What I am working on now')}
+
+${themeBand(themes[0])}
+
+${partHead('Other projects', 'Earlier and ongoing work beyond the Permian Basin')}
+
 
 ${themes.slice(1).map(themeBand)}
 
