@@ -1,5 +1,6 @@
 // "Drill a well": an interactive interferogram on the Research page.
-// Each well is a point pressure source (Mogi model) at the chosen depth.
+// Each well is a point pressure source (Mogi model) at the chosen depth,
+// with peak uplift (1 - nu) dV / (pi d^2) for a volume change dV (nu = 0.25).
 // Extraction lowers pressure and the ground sinks; injection raises it and
 // the ground rises. The field is shown as wrapped Sentinel-1 C-band phase.
 // A simulation for illustration, not data.
@@ -12,14 +13,17 @@
   var modeButtons = fig.querySelectorAll('[data-mode]');
   var depthInput = fig.querySelector('[data-depth]');
   var depthOut = fig.querySelector('[data-depth-out]');
+  var volInput = fig.querySelector('[data-volume]');
+  var volOut = fig.querySelector('[data-volume-out]');
   var readout = fig.querySelector('[data-readout]');
   var clearBtn = fig.querySelector('[data-clear]');
   var randomBtn = fig.querySelector('[data-random]');
 
-  // Model grid: 12 km x 8 km at 1/30 km per cell, drawn smoothly onto the canvas.
-  var W = 360, H = 240, KM = 30;               // cells per km
+  // Model grid: 30 km x 20 km at 12 cells per km, drawn smoothly onto the canvas.
+  var W = 360, H = 240, KM = 12;               // cells per km
   var FRINGE_CM = 2.77;                         // half the C-band wavelength
-  var PEAK_CM_AT_1KM = 10;                      // peak motion of one well at 1 km depth
+  var NU = 0.25;                                // Poisson's ratio
+  var BBL_PER_M3 = 6.2898;
   var MAX_WELLS = 12;
   var buf = document.createElement('canvas');
   buf.width = W; buf.height = H;
@@ -63,7 +67,8 @@
     los.fill(0);
     for (var w = 0; w < wells.length; w++) {
       var wl = wells[w], d = wl.depth * KM;
-      var amp = wl.sign * PEAK_CM_AT_1KM / (wl.depth * wl.depth);
+      var dm = wl.depth * 1000;
+      var amp = wl.sign * 100 * (1 - NU) * wl.volume * 1e6 / (Math.PI * dm * dm);   // peak, cm
       for (var y = 0; y < H; y++) {
         var dy = y - wl.y;
         for (var x = 0; x < W; x++) {
@@ -105,14 +110,14 @@
       ctx.stroke();
     }
 
-    // Scale bar: 2 km.
-    var bar = 2 * KM * sx, bx = 12 * u, by = ch - 12 * u;
+    // Scale bar: 5 km.
+    var bar = 5 * KM * sx, bx = 12 * u, by = ch - 12 * u;
     ctx.fillStyle = 'rgba(255,255,255,0.85)';
     ctx.fillRect(bx - 6 * u, by - 20 * u, bar + 12 * u, 27 * u);
     ctx.fillStyle = '#1a1c20';
     ctx.fillRect(bx, by, bar, 3 * u);
     ctx.font = '600 ' + (12 * u) + 'px Archivo, system-ui, sans-serif';
-    ctx.fillText('2 km', bx, by - 5 * u);
+    ctx.fillText('5 km', bx, by - 5 * u);
 
     if (!wells.length) {
       readout.textContent = 'Click or tap the map to drill a well.';
@@ -137,7 +142,7 @@
   window.addEventListener('resize', function () { fit(); draw(); });
 
   function addWell(x, y) {
-    wells.push({ x: x, y: y, depth: parseFloat(depthInput.value), sign: mode === 'extract' ? -1 : 1 });
+    wells.push({ x: x, y: y, depth: parseFloat(depthInput.value), volume: parseFloat(volInput.value), sign: mode === 'extract' ? -1 : 1 });
     if (wells.length > MAX_WELLS) wells.shift();
     update();
   }
@@ -154,15 +159,22 @@
   });
   function depthLabel() { depthOut.textContent = parseFloat(depthInput.value).toFixed(1) + ' km'; }
   depthInput.addEventListener('input', depthLabel);
+  function fmt(n) { return n >= 10 ? Math.round(n) : (Math.round(n * 10) / 10); }
+  function volLabel() {
+    var v = parseFloat(volInput.value);
+    volOut.textContent = fmt(v) + ' million m³ (' + fmt(v * BBL_PER_M3) + ' million bbl)';
+  }
+  volInput.addEventListener('input', volLabel);
   clearBtn.addEventListener('click', function () { wells = []; update(); });
   randomBtn.addEventListener('click', function () { addWell(30 + Math.random() * (W - 60), 30 + Math.random() * (H - 60)); });
 
   // Start with one production well and one injection well so the idea is clear.
   depthLabel();
+  volLabel();
   fit();
   wells = [
-    { x: W * 0.40, y: H * 0.55, depth: 1.2, sign: -1 },
-    { x: W * 0.72, y: H * 0.38, depth: 0.9, sign: 1 }
+    { x: W * 0.38, y: H * 0.56, depth: 1.5, volume: 2, sign: -1 },
+    { x: W * 0.70, y: H * 0.38, depth: 1, volume: 0.5, sign: 1 }
   ];
   update();
 })();
