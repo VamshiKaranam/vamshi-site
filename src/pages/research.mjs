@@ -125,7 +125,6 @@ ${band({
       <span class="try-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
     </button>
     <div class="try-text">
-      <p class="try-eyebrow">Interactive · about 2 minutes</p>
       <h3>Drill your own wells</h3>
       <p>Pump fluid out of the ground or inject it, choose how much and how deep, and see the interferogram a radar satellite would record.</p>
       <p><button type="button" class="try-btn" data-wells-open>Start the simulation <span aria-hidden="true">→</span></button></p>
