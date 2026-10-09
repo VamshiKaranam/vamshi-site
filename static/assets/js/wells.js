@@ -163,10 +163,11 @@
     var limit = niceLimit(0.5 * Math.max(Math.abs(lo), Math.abs(hi)));
     paint(mapCtx, canvas, view, limit, dpr);
     var cyc = BANDS[band].cm;
-    ifgScale.textContent = 'cm, one colour cycle in ' + BANDS[band].name;
+    ifgScale.textContent = 'Phase in radians (cm in brackets); one colour cycle = ' + cyc + ' cm in ' + BANDS[band].name;
+    var phases = ['−π', '−π/2', '0', 'π/2', 'π'];
     Array.prototype.forEach.call(ifgTicks, function (t, i) {
-      var v = cyc * i / 4;
-      t.textContent = i === 0 ? '0' : v.toFixed(1);
+      var v = cyc * (i - 2) / 4;
+      t.textContent = i === 2 ? '0' : phases[i] + ' (' + (v > 0 ? '+' : '−') + Math.abs(v).toFixed(1) + ')';
     });
     var ticks = [-limit, -limit / 2, 0, limit / 2, limit];
     Array.prototype.forEach.call(dispTicks, function (t, i) {
