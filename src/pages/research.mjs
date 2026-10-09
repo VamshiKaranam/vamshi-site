@@ -2,7 +2,7 @@ import { html, raw } from '../html.mjs';
 import { band, pageHead } from '../layout.mjs';
 import { figure, siteMaps, findPub, pubItem } from '../components.mjs';
 import { site } from '../../content/site.mjs';
-import { themes, methods, software, collaborators } from '../../content/research.mjs';
+import { themes, methods, software } from '../../content/research.mjs';
 import { media } from '../../content/media.mjs';
 
 export const route = '/research';
@@ -147,12 +147,6 @@ ${band({
   title: 'Study areas',
   wide: true,
   body: siteMaps(),
-})}
-
-${band({
-  title: 'Collaborators',
-  wide: true,
-  body: html`<p>This work is done with colleagues at ${collaborators.slice(0, -1).join(', ')} and ${collaborators[collaborators.length - 1]}.</p>`,
 })}
 `;
 }

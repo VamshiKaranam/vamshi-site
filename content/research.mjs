@@ -163,11 +163,3 @@ export const software = [
   { group: 'GIS and modeling', items: ['ArcGIS Pro', 'QGIS', 'COMSOL Multiphysics', 'GBIS', 'AutoCAD'] },
   { group: 'Programming', items: ['Python', 'MATLAB', 'Bash', 'Google Earth Engine'] },
 ];
-
-export const collaborators = [
-  'the SMU Radar Lab',
-  'the GFZ German Research Centre for Geosciences',
-  'UT Austin',
-  'IIT Roorkee',
-  'the University of Cambridge',
-];
