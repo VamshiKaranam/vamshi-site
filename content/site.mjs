@@ -42,7 +42,7 @@ export const site = {
   },
 
   description:
-    'Vamshi Karanam is an Assistant Professor of Geology at the University of Arkansas at Little Rock. He uses satellite radar (InSAR), GNSS and poroelastic modeling to study land subsidence, fluid-driven deformation and geohazards.',
+    'Vamshi Karanam is an Assistant Professor of Geology at the University of Arkansas at Little Rock. He uses satellite radar (InSAR), GNSS and geomechanical modeling to study fluid-driven deformation and geohazards, with a focus on the Permian Basin of Texas and New Mexico.',
 };
 
 export const nav = [

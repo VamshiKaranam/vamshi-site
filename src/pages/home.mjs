@@ -41,7 +41,7 @@ export function body() {
       <h1>${site.name}</h1>
       <p class="intro-role"><strong>${site.title}</strong><br>${site.department}, ${site.institution}</p>
       <div class="intro-bio">
-        <p>I study how the ground deforms in response to human activity: groundwater pumping beneath Delhi, oil and gas production and wastewater injection in West Texas, coal fires in eastern India. I measure the motion with satellite radar interferometry (InSAR) and GNSS, and use poroelastic models to work out what is driving it underground.</p>
+        <p>I study how the ground deforms when fluids are pumped out of or into the subsurface. Most of my work is in the Permian Basin of West Texas and New Mexico, where oil and gas production and wastewater injection make the land sink and rise, reactivate faults and push old wells to blow out. I measure the motion with satellite radar interferometry (InSAR) and GNSS, and use geomechanical models to work out what is driving it underground. I have also worked on groundwater-driven subsidence beneath Delhi and coal fires in eastern India.</p>
         <p>I joined UA Little Rock in 2026 after a Ph.D. in Geophysics at Southern Methodist University, where I held a NASA FINESST award.</p>
       </div>
       <ul class="intro-links">
@@ -58,7 +58,7 @@ ${band({
   title: 'Research',
   body: html`<div class="research-grid">
     <div>
-      <p>My work falls into four areas. Each combines satellite measurements of ground motion with models of the processes underneath.</p>
+      <p>My main focus is fluid-driven deformation in the Permian Basin. Each area combines satellite measurements of ground motion with models of the processes underneath.</p>
       <ul class="plain theme-list">
         ${themes.map((t) => html`<li><a href="/research#${t.id}">${t.title}</a>${t.place ? html`<i class="place">${t.place}</i>` : ''}</li>`)}
       </ul>

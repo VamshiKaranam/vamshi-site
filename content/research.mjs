@@ -7,20 +7,66 @@
 export const themes = [
   {
     id: 'energy',
-    title: 'Fluid-driven deformation in energy basins',
-    place: 'Permian Basin, Texas and New Mexico',
+    title: 'Fluid-driven deformation in the Permian Basin',
+    place: 'West Texas and southeastern New Mexico',
     summary:
-      'Oil and gas operations move enormous volumes of fluid through the subsurface. I use nearly a decade of Sentinel-1 radar to map where the ground of the Permian Basin is sinking or rising, and poroelastic models to connect that motion to production, wastewater injection, fault slip and failing wells.',
+      'The Permian Basin is one of the most productive oil and gas regions in the United States. Production, wastewater disposal and a dense network of old wells have changed the pressure underground, and the ground surface records it. Using Sentinel-1 radar from 2016 onward, I map where the basin is sinking or rising and link that motion to production, injection, faults and failing wells.',
     findings: [
-      'Pressure from wastewater injection can travel through hydrogeologic structures and reach old wells. At one blowout site the surface was rising before the well failed, which suggests uplift can warn of fluid building up underground.',
-      'Subsidence in the northern Delaware Basin is driven mainly by hydrocarbon production, and a 3D poroelastic model calibrated against InSAR reproduces it.',
-      'In the southern Delaware Basin, deformation lines up with relocated earthquakes, pointing to slip on shallow normal faults.',
+      'Ground motion is widespread across the basin. The Delaware Basin sinks over large areas, while the Midland Basin and the Central Basin Platform show smaller, local features.',
+      'In the northern Delaware Basin, subsidence is driven mainly by oil and gas production, which analytical source models tied to production records reproduce.',
     ],
-    dois: ['10.1029/2024GL109435', '10.1016/j.jag.2023.103424', '10.1785/0320240011', '10.1029/2024EA004027'],
+    dois: ['10.1016/j.jag.2023.103424'],
     figure: {
-      src: null,
-      suggestion: 'InSAR velocity map of the Permian Basin, or the uplift time series before the blowout',
+      src: '/assets/img/research/permian-basin-2016-2021.jpg',
+      webp: '/assets/img/research/permian-basin-2016-2021.webp',
+      full: '/assets/img/research/permian-basin-2016-2021-full.jpg',
+      width: 1200, height: 1096,
+      alt: 'Map of average vertical ground motion across the Permian Basin from 2016 to 2021. Large areas of the Delaware Basin, straddling the Texas–New Mexico line, are red (sinking up to about 3 cm a year), with a few blue patches of uplift. The Midland Basin shows scattered orange spots; the Central Basin Platform between them is mostly stable.',
+      caption: 'Average vertical ground motion, 2016–2021, from Sentinel-1 InSAR. Red is sinking, blue is rising.',
     },
+    studies: [
+      {
+        id: 'faults',
+        title: 'Faults and earthquakes in the southern Delaware Basin',
+        place: 'Reeves, Pecos and Ward counties, Texas',
+        text: [
+          'In the southern Delaware Basin the ground does not sink in smooth bowls. It breaks into narrow bands of subsidence and uplift that line up with seismic lineaments mapped from relocated TexNet earthquakes.',
+          'Cross-sections show the sharpest changes in surface motion sitting above clusters of shallow earthquakes. Together they point to seismic and aseismic slip on shallow normal faults, with faults steering where fluid pressure spreads.',
+        ],
+        dois: ['10.1029/2024EA004027', '10.1785/0320240011'],
+        figure: {
+          src: '/assets/img/research/delaware-faults-earthquakes.jpg',
+          webp: '/assets/img/research/delaware-faults-earthquakes.webp',
+          full: '/assets/img/research/delaware-faults-earthquakes-full.jpg',
+          width: 1400, height: 1244,
+          wide: true,
+          alt: 'Map of cumulative InSAR displacement in the southern Delaware Basin with seismic lineaments drawn as magenta lines, subsidence features labelled S and uplift features U, and four cross-section lines. Beside and below the map, profiles along each cross-section compare surface displacement for 2016–2018 and 2016–2022 with the depths of earthquakes beneath them.',
+          caption: 'Surface displacement (2016–2022) and seismic lineaments in the southern Delaware Basin, with cross-sections comparing ground motion to earthquake depths. Open the figure for full resolution.',
+        },
+      },
+      {
+        id: 'blowout',
+        title: 'Uplift before a well blowout at Tubbs Corner',
+        place: 'Crane County, Texas',
+        text: [
+          'Before an old well at Tubbs Corner blew out in January 2022, the ground around it had risen by more than 40 cm. The uplift grew with wastewater disposal at injection wells to the northwest and spread toward the blowout site.',
+          'Modeling the motion as two pressurised sills (penny-shaped cracks) places the source at about 425 m depth, far shallower than the disposal zone more than a kilometre down. Wastewater appears to have migrated upward into shallower layers. The same model reproduces the 3 cm drop of the ground as pressure escaped during the blowout.',
+          'Uplift like this is visible from space before a well fails, which makes InSAR a practical way to watch for pressure building up around old wells.',
+        ],
+        dois: ['10.1029/2024GL109435'],
+        // News coverage of this work, from content/media.mjs.
+        story: 'blowouts',
+        figure: {
+          src: '/assets/img/research/tubbs-corner-model.jpg',
+          webp: '/assets/img/research/tubbs-corner-model.webp',
+          full: '/assets/img/research/tubbs-corner-model-full.jpg',
+          width: 1400, height: 883,
+          wide: true,
+          alt: 'Two rows of three maps around the Tubbs Corner well: InSAR observation, two-sill model and residual. Top row: subsidence of up to 3 cm during the January 2022 blowout, fitted with an RMSE of 2 mm. Bottom row: up to 40 cm of cumulative uplift from January 2020 to May 2023, fitted with an RMSE of 2 cm. Sill centres are marked alpha and beta.',
+          caption: 'Two-sill model of the Tubbs Corner site: (a) the January 2022 blowout, (b) cumulative uplift from January 2020 to May 2023.',
+        },
+      },
+    ],
   },
   {
     id: 'cities',

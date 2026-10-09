@@ -1,9 +1,9 @@
 // Biography, career history, awards and service.
 
 export const bio = [
-  'I am an Assistant Professor of Geology at the University of Arkansas at Little Rock. I use satellite radar interferometry (InSAR), GNSS and GIS to study land subsidence, groundwater- and fluid-driven deformation, critical-zone processes, and the hazards they create for people and infrastructure.',
+  'I am an Assistant Professor of Geology at the University of Arkansas at Little Rock. I use satellite radar interferometry (InSAR), GNSS and GIS to study how the ground deforms when fluids are extracted or injected, from oil and gas basins such as the Permian to cities that pump groundwater, and the hazards this creates for people and infrastructure.',
   'My research combines satellite geodesy with physics-based poroelastic modeling and geospatial analytics to understand how human activity reshapes sedimentary basins and cities. Before joining UA Little Rock I completed a Ph.D. in Geophysics at Southern Methodist University, where I studied well blowouts and ground deformation in the Permian Basin and held a NASA FINESST award.',
-  'I trained first as an architect, then moved to geospatial engineering at IIT Roorkee and to radar remote sensing in Germany at Leibniz University Hannover and GFZ Potsdam. At UA Little Rock I teach remote sensing, environmental science and GIS, and I am setting up a computational geophysics and remote sensing research program.',
+  'I trained first as an architect, then moved to geospatial engineering at IIT Roorkee and to radar remote sensing in Germany at Leibniz University Hannover and GFZ Potsdam. At UA Little Rock I teach Earth and the Environment and GIS, and I am setting up a computational geophysics and remote sensing research program.',
 ];
 
 // Shown on the home page. Newest first. `url` is optional.

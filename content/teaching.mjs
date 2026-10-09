@@ -41,7 +41,7 @@ export const teachingApproach =
 // ── Research group ─────────────────────────────────────────────────────────
 export const group = {
   intro:
-    'We use satellites to measure how the Earth’s surface is changing, and models to explain why. The lab works on land subsidence, fluid-driven deformation and geohazards. It is new: its computational geophysics and remote sensing facilities are being set up in the School of Physical Sciences at UA Little Rock.',
+    'We use satellites to measure how the Earth’s surface is changing, and models to explain why. The lab works on fluid-driven deformation in energy basins such as the Permian, land subsidence and other geohazards. It is new: its computational geophysics and remote sensing facilities are being set up in the School of Physical Sciences at UA Little Rock.',
   directions: [
     { name: 'Earth observation', detail: 'InSAR, GNSS and optical time series, from single sites to whole basins.' },
     { name: 'Geospatial science', detail: 'GIS, data fusion and machine learning for mapping exposure and risk.' },

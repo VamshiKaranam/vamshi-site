@@ -13,8 +13,12 @@ export function todo(text) {
 
 export function figure(fig, fallbackAlt) {
   if (fig && fig.src) {
-    return html`<figure class="fig">
-  <img src="${fig.src}" alt="${fig.alt || fallbackAlt}" loading="lazy">
+    const img = html`<picture>
+    ${fig.webp ? html`<source type="image/webp" srcset="${fig.webp}">` : ''}
+    <img src="${fig.src}" alt="${fig.alt || fallbackAlt}" loading="lazy" decoding="async"${fig.width ? html` width="${fig.width}" height="${fig.height}"` : ''}>
+  </picture>`;
+    return html`<figure class="fig${fig.wide ? ' fig-wide' : ''}">
+  ${fig.full ? html`<a class="fig-link" href="${fig.full}" target="_blank" rel="noopener" title="Open full-resolution image">${img}</a>` : img}
   ${fig.caption ? html`<figcaption>${fig.caption}</figcaption>` : ''}
 </figure>`;
   }

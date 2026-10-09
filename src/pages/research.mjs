@@ -3,12 +3,13 @@ import { band, pageHead } from '../layout.mjs';
 import { figure, siteMaps, findPub, pubItem } from '../components.mjs';
 import { site } from '../../content/site.mjs';
 import { themes, methods, software, collaborators } from '../../content/research.mjs';
+import { media } from '../../content/media.mjs';
 
 export const route = '/research';
 export const file = 'research.html';
 export const title = 'Research';
 export const description =
-  'Research on land subsidence, fluid-driven deformation and geohazards using InSAR, GNSS and poroelastic modeling: the Permian Basin, Delhi, the Jharia Coalfields and beyond.';
+  'Research on fluid-driven deformation and geohazards in the Permian Basin using InSAR, GNSS and geomechanical modeling, along with work on Delhi, the Jharia Coalfields and beyond.';
 export const scripts = ['/assets/js/maps.js'];
 
 // How InSAR turns two radar passes into a measurement of ground motion.
@@ -55,12 +56,66 @@ const schematic = raw(`<svg class="schematic" viewBox="0 0 480 500" role="img" a
   </g>
 </svg>`);
 
+const papers = (dois) => (dois.length
+  ? html`<h3>Papers</h3><ul class="plain pub-list">${dois.map((d) => findPub(d)).filter(Boolean).map((p) => pubItem(p, { compact: true }))}</ul>`
+  : '');
+
+function coverage(story) {
+  const items = media.filter((m) => m.story === story);
+  if (!items.length) return '';
+  const outlets = [...new Set(items.filter((m) => m.featured).map((m) => m.outlet))].slice(0, 4);
+  return html`<p class="study-press">In the news: ${outlets.join(', ')} and others. <a href="/news#story-${story}">All ${items.length} stories</a></p>`;
+}
+
+const hasFig = (f) => f?.src || site.showPlaceholders;
+
+function study(st) {
+  const wide = st.figure?.wide;
+  return html`<div class="study" id="${st.id}">
+  <div class="theme${wide ? ' theme-stack' : hasFig(st.figure) ? '' : ' theme-nofig'}">
+    <div class="theme-top">
+      <h3 class="study-title">${st.title}</h3>
+      ${st.place ? html`<p class="theme-place"><i class="place">${st.place}</i></p>` : ''}
+      ${st.text.map((t) => html`<p>${t}</p>`)}
+    </div>
+    ${!wide && hasFig(st.figure) ? html`<div class="theme-fig">${figure(st.figure, st.title)}</div>` : ''}
+    <div class="theme-rest">
+      ${wide ? figure(st.figure, st.title) : ''}
+      ${papers(st.dois)}
+      ${st.story ? coverage(st.story) : ''}
+    </div>
+  </div>
+</div>`;
+}
+
+function themeBand(t) {
+  return band({
+    id: t.id,
+    title: t.title,
+    wide: true,
+    body: html`<div class="theme${hasFig(t.figure) ? '' : ' theme-nofig'}">
+    <div class="theme-top">
+      ${t.place ? html`<p class="theme-place"><i class="place">${t.place}</i></p>` : ''}
+      <p class="large">${t.summary}</p>
+    </div>
+    ${hasFig(t.figure) ? html`<div class="theme-fig">${figure(t.figure, t.title)}</div>` : ''}
+    <div class="theme-rest">
+      ${t.findings.length ? html`<h3>Key findings</h3><ul class="findings">${t.findings.map((f) => html`<li>${f}</li>`)}</ul>` : ''}
+      ${papers(t.dois)}
+    </div>
+  </div>
+  ${(t.studies || []).map(study)}`,
+  });
+}
+
 export function body() {
   return html`
 ${pageHead({
   title: 'Research',
-  lede: 'I study how the ground deforms when fluids are extracted or injected, when coal burns underground, and where slopes and rock glaciers creep. I measure the motion with satellite radar and use poroelastic models to explain it.',
+  lede: 'Most of my work is in the Permian Basin of West Texas and New Mexico, where I use satellite radar and geomechanical models to track how oil and gas production and wastewater injection move the ground, and what that means for faults, wells and infrastructure. I also study groundwater-driven subsidence in cities, mining and slope hazards, and methods for new radar missions.',
 })}
+
+${themeBand(themes[0])}
 
 ${band({
   title: 'Approach',
@@ -86,22 +141,7 @@ ${band({
   </dl>`,
 })}
 
-${themes.map((t) => band({
-  id: t.id,
-  title: t.title,
-  wide: true,
-  body: html`<div class="theme${t.figure?.src || site.showPlaceholders ? '' : ' theme-nofig'}">
-    <div class="theme-top">
-      ${t.place ? html`<p class="theme-place"><i class="place">${t.place}</i></p>` : ''}
-      <p class="large">${t.summary}</p>
-    </div>
-    ${t.figure?.src || site.showPlaceholders ? html`<div class="theme-fig">${figure(t.figure, t.title)}</div>` : ''}
-    <div class="theme-rest">
-      ${t.findings.length ? html`<h3>Key findings</h3><ul class="findings">${t.findings.map((f) => html`<li>${f}</li>`)}</ul>` : ''}
-      ${t.dois.length ? html`<h3>Papers</h3><ul class="plain pub-list">${t.dois.map((d) => findPub(d)).filter(Boolean).map((p) => pubItem(p, { compact: true }))}</ul>` : ''}
-    </div>
-  </div>`,
-}))}
+${themes.slice(1).map(themeBand)}
 
 ${band({
   title: 'Study areas',

@@ -65,7 +65,7 @@ ${pageHead({
     ${storyOrder.map((k) => {
       const s = stories[k];
       const paper = s.doi ? findPub(s.doi) : null;
-      return html`<section class="story" data-filter-group>
+      return html`<section class="story" id="story-${k}" data-filter-group>
         <div class="story-head">
           <h2>${s.label}</h2>
           <p>${s.summary}</p>
