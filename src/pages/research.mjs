@@ -116,18 +116,7 @@ ${pageHead({
 })}
 
 ${band({
-  title: 'Approach',
-  wide: true,
-  body: html`<div class="theme theme-pair">
-    <div class="theme-top">
-      <p>A radar satellite images the same ground every week or two. If the surface has moved between two passes, the signal’s round trip changes by a fraction of a wavelength. Comparing the phase of the two images turns that fraction into a map of motion, called an interferogram. Stacking hundreds of them over years separates steady deformation from noise.</p>
-      <p>To explain the motion I build poroelastic models, which link changes in fluid pressure underground to stress in the rock and to movement at the surface. When a model reproduces what the satellite saw, it constrains the pressures, hydraulic properties and faults that cannot be observed directly.</p>
-    </div>
-    <div class="theme-fig"><figure class="fig fig-schematic">${schematic}<figcaption>Schematic, not to scale.</figcaption></figure></div>
-  </div>`,
-})}
-
-${band({
+  id: 'try-it',
   title: 'Try it yourself',
   wide: true,
   cls: 'needs-js',
@@ -203,6 +192,18 @@ ${band({
     </div>
   </div>
 </dialog>
+
+${band({
+  title: 'Approach',
+  wide: true,
+  body: html`<div class="theme theme-pair">
+    <div class="theme-top">
+      <p>A radar satellite images the same ground every week or two. If the surface has moved between two passes, the signal’s round trip changes by a fraction of a wavelength. Comparing the phase of the two images turns that fraction into a map of motion, called an interferogram. Stacking hundreds of them over years separates steady deformation from noise.</p>
+      <p>To explain the motion I build poroelastic models, which link changes in fluid pressure underground to stress in the rock and to movement at the surface. When a model reproduces what the satellite saw, it constrains the pressures, hydraulic properties and faults that cannot be observed directly.</p>
+    </div>
+    <div class="theme-fig"><figure class="fig fig-schematic">${schematic}<figcaption>Schematic, not to scale.</figcaption></figure></div>
+  </div>`,
+})}
 
 ${themeBand(themes[0])}
 

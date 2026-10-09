@@ -248,14 +248,19 @@
 
   // The pop-up.
   var dialog = root.closest('dialog');
-  Array.prototype.forEach.call(openBtns, function (b) {
-    b.addEventListener('click', function () {
-      depthLabel(); volLabel();
-      dialog.showModal();
-      document.documentElement.classList.add('lightbox-open');
-      fit(); update();
-    });
-  });
+  function openSim() {
+    depthLabel(); volLabel();
+    dialog.showModal();
+    document.documentElement.classList.add('lightbox-open');
+    fit(); update();
+  }
+  Array.prototype.forEach.call(openBtns, function (b) { b.addEventListener('click', openSim); });
+  // A link to /research#drill (from the home page) opens the simulation directly.
+  if (location.hash === '#drill') {
+    var card = document.getElementById('try-it');
+    if (card) card.scrollIntoView();
+    openSim();
+  }
   dialog.querySelector('[data-wells-close]').addEventListener('click', function () { dialog.close(); });
   dialog.addEventListener('close', function () { document.documentElement.classList.remove('lightbox-open'); });
   dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
