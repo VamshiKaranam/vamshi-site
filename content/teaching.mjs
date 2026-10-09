@@ -2,6 +2,15 @@
 // Course number, level and terms are optional; when set they show under the
 // course name.
 
+// Photo at the top of the Teaching page. Set to null to hide.
+export const fieldPhoto = {
+  src: '/assets/img/guadalupe-devils-hall.jpg',
+  webp: '/assets/img/guadalupe-devils-hall.webp',
+  width: 1400, height: 933,
+  alt: 'Vamshi Karanam standing on pale limestone boulders in a canyon, below tall layered limestone cliffs, with sotol and shrubs around him and a blue sky above.',
+  caption: 'Devil’s Hall, Guadalupe Mountains National Park, Texas. The cliffs are part of the Permian Capitan Reef.',
+};
+
 export const courses = [
   {
     name: 'Earth and the Environment',
