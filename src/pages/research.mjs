@@ -127,14 +127,30 @@ ${band({
   </div>`,
 })}
 
-${themeBand(themes[0])}
-
 ${band({
-  title: 'Try it: drill a well',
+  title: 'Try it yourself',
   wide: true,
-  body: html`<div class="wells" data-wells>
-    <div class="wells-side">
-      <p>Pumping fluid out of the ground lowers the pressure in the rock and the surface sinks; injecting raises it and the surface rises. Click or tap the map to drill wells.</p>
+  cls: 'needs-js',
+  body: html`<div class="try-card">
+    <canvas class="try-preview" width="360" height="240" data-wells-preview aria-hidden="true"></canvas>
+    <div class="try-text">
+      <h3>Drill your own wells</h3>
+      <p>Pump fluid out of the ground or inject it, choose how much and how deep, and see what a radar satellite would record. A two-minute simulation.</p>
+      <p><button type="button" class="btn try-btn" data-wells-open hidden>Start the simulation</button></p>
+    </div>
+  </div>`,
+})}
+
+<dialog class="wells-dialog" aria-labelledby="wells-title">
+  <div class="wells-shell" data-wells>
+    <header class="wells-head">
+      <div>
+        <h2 id="wells-title">Drill a well</h2>
+        <p>Extracting fluid lowers the pressure underground and the ground sinks; injecting raises it and the ground rises. Click or tap either map to drill.</p>
+      </div>
+      <button type="button" class="lightbox-close wells-close" data-wells-close aria-label="Close">×</button>
+    </header>
+    <div class="wells-layout">
       <div class="wells-controls">
         <div class="band-switch" role="group" aria-label="Well type">
           <button type="button" class="chip" data-mode="extract" aria-pressed="true">Extract (sinks)</button>
@@ -150,16 +166,38 @@ ${band({
           <input id="wells-depth" type="range" min="0.5" max="5" step="0.1" value="1" data-depth>
           <output for="wells-depth" data-depth-out>1.0 km</output>
         </div>
+        <div class="fringe-control">
+          <span class="ctl-label">Radar band</span>
+          <div class="band-switch" role="group" aria-label="Radar band">
+            <button type="button" class="chip" data-wband="X" aria-pressed="false">X</button>
+            <button type="button" class="chip" data-wband="C" aria-pressed="true">C</button>
+            <button type="button" class="chip" data-wband="L" aria-pressed="false">L</button>
+          </div>
+        </div>
         <p class="wells-status" data-readout aria-live="polite"></p>
         <p class="wells-buttons"><button type="button" class="btn btn-quiet" data-random>Random well</button> <button type="button" class="btn btn-quiet" data-clear>Clear</button></p>
       </div>
+      <div class="wells-views">
+        <figure class="wells-view">
+          <figcaption class="view-title">Interferogram <span>what the satellite records</span></figcaption>
+          <div class="wells-frame"><canvas data-view="ifg" width="720" height="480" role="img" aria-label="Simulated interferogram. Click to add a well."></canvas></div>
+          <div class="cbar cbar-phase" aria-hidden="true"></div>
+          <p class="cbar-label" data-ifg-scale>One colour cycle = 2.77 cm, C-band (Sentinel-1)</p>
+        </figure>
+        <figure class="wells-view">
+          <figcaption class="view-title">Displacement <span>what it is processed into</span></figcaption>
+          <div class="wells-frame"><canvas data-view="disp" width="720" height="480" role="img" aria-label="Simulated displacement map. Click to add a well."></canvas></div>
+          <div class="cbar cbar-div" aria-hidden="true"></div>
+          <div class="cbar-ticks"><span data-disp-tick></span><span data-disp-tick></span><span data-disp-tick></span><span data-disp-tick></span><span data-disp-tick></span></div>
+          <p class="cbar-label">cm along the radar line of sight: red sinking, blue rising</p>
+        </figure>
+      </div>
     </div>
-    <figure class="wells-fig">
-      <div class="wells-frame"><canvas width="900" height="600" aria-label="Simulated interferogram. Click to add a well." role="img"></canvas></div>
-      <figcaption>Simulation, not data. Each well is a point pressure source (Mogi model) seen by C-band radar like Sentinel-1; each colour cycle is 2.8 cm of motion. Deeper or smaller sources make wider, gentler patterns.</figcaption>
-    </figure>
-  </div>`,
-})}
+    <p class="wells-note">Simulation, not data. Each well is a point pressure source (the Mogi model); the volume is the change in volume of the pressurised rock, which is not the same as the volume injected or produced.</p>
+  </div>
+</dialog>
+
+${themeBand(themes[0])}
 
 ${band({
   title: 'Methods',

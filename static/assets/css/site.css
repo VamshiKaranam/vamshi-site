@@ -243,20 +243,45 @@ html.no-js .nav-toggle, html.no-js .theme-toggle { display: none; }
 .fringe-control input { grid-column: 1 / -1; grid-row: 2; }
 .fringe-control output { font-variant-numeric: tabular-nums; color: var(--ink-2); text-align: right; }
 html.no-js .fringe-control, html.no-js .band-switch, html.no-js .wells-controls { display: none; }
-.wells { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 1.25rem clamp(1.5rem, 3vw, 2.5rem); align-items: start; }
-.wells-side > p { margin-bottom: 1rem; }
-.wells-fig { margin: 0; max-width: min(100%, calc((100vh - 13rem) * 1.5)); }
+html.no-js .needs-js { display: none; }
+.try-card { display: grid; grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); gap: 1.25rem 1.75rem; align-items: center; padding: 1rem; border: 1px solid var(--line-strong); border-radius: var(--radius); max-width: 52rem; }
+.try-preview { display: block; width: 100%; aspect-ratio: 3 / 2; height: auto; border-radius: var(--radius); }
+.try-text h3 { margin: 0 0 0.4rem; font-size: var(--step-1); }
+.try-text p { margin: 0; }
+.try-text p + p { margin-top: 0.9rem; }
+.try-btn { font-size: 1rem; padding: 0.6rem 1.2rem; }
+@media (max-width: 599px) { .try-card { grid-template-columns: minmax(0, 1fr); } }
+.wells-dialog { width: min(76rem, calc(100vw - 2rem)); max-width: none; max-height: calc(100dvh - 2rem); padding: 0; border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--paper); color: var(--ink); overflow: auto; }
+.wells-dialog::backdrop { background: rgba(12, 14, 18, 0.72); }
+.wells-shell { padding: clamp(1rem, 2.5vw, 1.5rem); }
+.wells-head { display: flex; justify-content: space-between; gap: 1rem; align-items: start; margin-bottom: 1rem; }
+.wells-head h2 { margin: 0 0 0.25rem; font-size: var(--step-1); }
+.wells-head p { margin: 0; color: var(--ink-2); max-width: 60ch; font-size: 0.9375rem; }
+.wells-head .wells-close { position: static; flex: none; color: var(--ink); background: transparent; border: 1px solid var(--line-strong); }
+.wells-head .wells-close:hover { border-color: var(--ink); }
+.wells-layout { display: grid; grid-template-columns: minmax(0, 16rem) minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+.wells-views { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.wells-view { margin: 0; }
+.view-title { font-family: var(--sans); font-weight: 650; font-size: 0.9375rem; margin-bottom: 0.4rem; }
+.view-title span { font-weight: 400; color: var(--muted); }
 .wells-frame { aspect-ratio: 3 / 2; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); cursor: crosshair; touch-action: manipulation; }
 .wells-frame canvas { display: block; width: 100%; height: 100%; }
-.wells-fig figcaption { margin-top: 0.5rem; font-family: var(--sans); font-size: var(--step--1); line-height: 1.45; color: var(--muted); }
-.wells-controls .fringe-control { grid-template-columns: 1fr; margin-top: 0.75rem; }
+.cbar { height: 0.7rem; margin-top: 0.5rem; border-radius: 2px; border: 1px solid var(--line); }
+.cbar-phase { background: linear-gradient(90deg, rgb(122,80,184) 0%, rgb(61,127,196) 20%, rgb(55,167,160) 40%, rgb(216,191,71) 62%, rgb(224,112,63) 80%, rgb(207,80,144) 91%, rgb(122,80,184) 100%); }
+.cbar-div { background: linear-gradient(90deg, rgb(158,1,66) 0%, rgb(230,86,60) 17%, rgb(251,172,98) 34%, rgb(248,246,238) 50%, rgb(164,214,152) 66%, rgb(61,148,189) 83%, rgb(84,64,160) 100%); }
+.cbar-ticks { display: flex; justify-content: space-between; font-family: var(--sans); font-size: 0.8125rem; font-variant-numeric: tabular-nums; color: var(--ink-2); margin-top: 0.15rem; }
+.cbar-label { margin: 0.2rem 0 0; font-family: var(--sans); font-size: 0.8125rem; color: var(--muted); }
+.wells-controls .fringe-control { grid-template-columns: 1fr; margin-top: 0.85rem; }
 .wells-controls .fringe-control input { grid-row: auto; }
 .wells-controls .fringe-control output { grid-column: auto; text-align: left; font-size: 0.875rem; }
 .wells-controls .band-switch { margin-bottom: 0; }
-.wells-status { margin-top: 0.75rem; font-family: var(--sans); font-size: 0.875rem; color: var(--ink); min-height: 2.6em; }
+.ctl-label { font-weight: 600; }
+.wells-status { margin-top: 0.85rem; font-family: var(--sans); font-size: 0.875rem; color: var(--ink); min-height: 2.6em; }
 .wells-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
 .wells-buttons .btn { min-height: 2.25rem; padding: 0.3rem 0.9rem; }
-@media (max-width: 799px) { .wells { grid-template-columns: minmax(0, 1fr); gap: 1rem; } .wells-side { display: contents; } .wells-side > p { order: 1; margin: 0; } .wells-fig { order: 2; max-width: none; } .wells-controls { order: 3; } }
+.wells-note { margin-top: 1rem; font-family: var(--sans); font-size: 0.8125rem; color: var(--muted); }
+@media (max-width: 1000px) { .wells-layout { grid-template-columns: minmax(0, 1fr); } .wells-views { order: -1; } }
+@media (max-width: 640px) { .wells-views { grid-template-columns: minmax(0, 1fr); } .wells-dialog { width: 100vw; max-height: 100dvh; border-radius: 0; } }
 .band-switch { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
 .fringe-control output { grid-column: 1 / -1; text-align: left; }
 input[type="range"] { width: 100%; accent-color: var(--accent); height: 1.75rem; margin: 0; }
