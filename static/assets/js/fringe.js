@@ -12,7 +12,15 @@
   if (!ctx) return;
 
   var W = 360, H = 270;                 // model grid; scaled up smoothly to the canvas
-  var FRINGE_CM = 2.77;                 // half the Sentinel-1 C-band wavelength (5.55 cm)
+  // One fringe is half the radar wavelength.
+  var BANDS = {
+    X: { cm: 1.55, name: 'X-band' },                 // 3.1 cm, e.g. TerraSAR-X
+    C: { cm: 2.77, name: 'C-band (Sentinel-1)' },    // 5.55 cm
+    L: { cm: 11.9, name: 'L-band (NISAR)' }          // 23.8 cm
+  };
+  var band = 'C';
+  var FRINGE_CM = BANDS[band].cm;
+  var bandButtons = fig.querySelectorAll('[data-band]');
   var buf = document.createElement('canvas');
   buf.width = W; buf.height = H;
   var bctx = buf.getContext('2d');
@@ -76,12 +84,22 @@
   function label(cm) {
     var fr = cm / FRINGE_CM;
     var frText = fr < 0.05 ? 'no fringes' : (Math.round(fr * 10) / 10) + (Math.abs(fr - 1) < 0.05 ? ' fringe' : ' fringes');
-    out.textContent = (Math.round(cm * 10) / 10) + ' cm is ' + frText;
+    out.textContent = (Math.round(cm * 10) / 10) + ' cm is ' + frText + ' in ' + BANDS[band].name;
   }
 
   function set(cm) { draw(cm); label(cm); }
 
   var target = parseFloat(range.value);
+  Array.prototype.forEach.call(bandButtons, function (b) {
+    b.addEventListener('click', function () {
+      band = b.getAttribute('data-band');
+      FRINGE_CM = BANDS[band].cm;
+      Array.prototype.forEach.call(bandButtons, function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+      cancelAnimationFrame(raf);
+      started = true;
+      set(parseFloat(range.value));
+    });
+  });
   range.addEventListener('input', function () {
     cancelAnimationFrame(raf);
     set(parseFloat(range.value));

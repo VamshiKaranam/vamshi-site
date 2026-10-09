@@ -66,12 +66,17 @@ ${band({
     <figure class="fringe" data-fringe>
       <div class="fringe-frame"><canvas width="720" height="540" aria-hidden="true"></canvas></div>
       <figcaption>
+        <div class="band-switch" role="group" aria-label="Radar band">
+          <button type="button" class="chip" data-band="X" aria-pressed="false">X-band</button>
+          <button type="button" class="chip" data-band="C" aria-pressed="true">C-band</button>
+          <button type="button" class="chip" data-band="L" aria-pressed="false">L-band</button>
+        </div>
         <div class="fringe-control">
           <label for="fringe-range">Peak ground motion</label>
           <input id="fringe-range" type="range" min="0" max="30" step="0.5" value="14">
-          <output for="fringe-range" data-fringe-out>14 cm is 5.1 fringes</output>
+          <output for="fringe-range" data-fringe-out>14 cm is 5.1 fringes in C-band (Sentinel-1)</output>
         </div>
-        <p>A simulated interferogram of sinking ground beside a patch of uplift. Each full cycle of colour is 2.8 cm of motion along the line of sight of Sentinel-1. Drag the slider to change the amount of motion.</p>
+        <p>A simulated interferogram of sinking ground beside a patch of uplift. Each full cycle of colour is half the radar wavelength: 1.6 cm in X-band, 2.8 cm in C-band (Sentinel-1) and 11.9 cm in L-band (NISAR). Drag the slider or switch bands: the same motion makes many fringes at short wavelengths and few at long ones.</p>
       </figcaption>
     </figure>
   </div>`,

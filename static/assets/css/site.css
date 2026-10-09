@@ -242,7 +242,17 @@ html.no-js .nav-toggle, html.no-js .theme-toggle { display: none; }
 .fringe-control label { font-weight: 600; }
 .fringe-control input { grid-column: 1 / -1; grid-row: 2; }
 .fringe-control output { font-variant-numeric: tabular-nums; color: var(--ink-2); text-align: right; }
-html.no-js .fringe-control { display: none; }
+html.no-js .fringe-control, html.no-js .band-switch, html.no-js .wells-controls { display: none; }
+.wells { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.5rem clamp(1.5rem, 4vw, 3rem); align-items: start; }
+.wells-frame { aspect-ratio: 3 / 2; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); cursor: crosshair; touch-action: manipulation; }
+.wells-frame canvas { display: block; width: 100%; height: 100%; }
+.wells-fig figcaption { padding-top: 0.75rem; }
+.wells-controls .fringe-control output { grid-column: auto; text-align: right; }
+.wells-status { margin-top: 0.6rem; font-family: var(--sans); font-size: 0.9375rem; color: var(--ink); min-height: 1.4em; }
+.wells-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.6rem; }
+@media (max-width: 799px) { .wells { grid-template-columns: minmax(0, 1fr); } }
+.band-switch { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
+.fringe-control output { grid-column: 1 / -1; text-align: left; }
 input[type="range"] { width: 100%; accent-color: var(--accent); height: 1.75rem; margin: 0; }
 
 /* ── Bands: a title in the margin, content beside it ──────────────────────── */

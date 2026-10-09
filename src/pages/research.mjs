@@ -10,7 +10,7 @@ export const file = 'research.html';
 export const title = 'Research';
 export const description =
   'Research on fluid-driven deformation and geohazards in the Permian Basin using InSAR, GNSS and geomechanical modeling, along with work on Delhi, the Jharia Coalfields and beyond.';
-export const scripts = ['/assets/js/maps.js', '/assets/js/lightbox.js'];
+export const scripts = ['/assets/js/maps.js', '/assets/js/lightbox.js', '/assets/js/wells.js'];
 
 // How InSAR turns two radar passes into a measurement of ground motion.
 const schematic = raw(`<svg class="schematic" viewBox="0 0 480 500" role="img" aria-labelledby="sch-t sch-d">
@@ -124,6 +124,36 @@ ${band({
       <p>To explain the motion I build poroelastic models, which link changes in fluid pressure underground to stress in the rock and to movement at the surface. When a model reproduces what the satellite saw, it constrains the pressures, hydraulic properties and faults that cannot be observed directly.</p>
     </div>
     <div class="theme-fig"><figure class="fig fig-schematic">${schematic}<figcaption>Schematic, not to scale.</figcaption></figure></div>
+  </div>`,
+})}
+
+${band({
+  title: 'Try it: drill a well',
+  wide: true,
+  body: html`<div class="wells">
+    <div class="wells-text">
+      <p>Pumping fluid out of the ground lowers the pressure in the rock and the surface sinks. Injecting fluid raises it and the surface rises. Click or tap the map to drill wells and watch the interferogram change.</p>
+      <p>Choose whether each new well extracts or injects, and how deep it is. Deep sources spread their effect over a wider area with less motion; shallow ones make tight, intense bowls. Nearby wells add up, which is why real basins show such complex patterns.</p>
+    </div>
+    <figure class="fringe wells-fig" data-wells>
+      <div class="wells-frame"><canvas width="900" height="600" aria-label="Simulated interferogram. Click to add a well." role="img"></canvas></div>
+      <figcaption>
+        <div class="wells-controls">
+          <div class="band-switch" role="group" aria-label="Well type">
+            <button type="button" class="chip" data-mode="extract" aria-pressed="true">Extract (ground sinks)</button>
+            <button type="button" class="chip" data-mode="inject" aria-pressed="false">Inject (ground rises)</button>
+          </div>
+          <div class="fringe-control">
+            <label for="wells-depth">Depth of the next well</label>
+            <output for="wells-depth" data-depth-out>1.0 km</output>
+            <input id="wells-depth" type="range" min="0.5" max="3" step="0.1" value="1" data-depth>
+          </div>
+          <p class="wells-status" data-readout aria-live="polite"></p>
+          <p class="wells-buttons"><button type="button" class="btn btn-quiet" data-random>Add a well at random</button> <button type="button" class="btn btn-quiet" data-clear>Clear all wells</button></p>
+        </div>
+        <p>Simulation, not data: point pressure sources (the Mogi model) seen by a Sentinel-1-like C-band radar, where each colour cycle is 2.8 cm of motion toward or away from the satellite.</p>
+      </figcaption>
+    </figure>
   </div>`,
 })}
 
