@@ -127,6 +127,8 @@ ${band({
   </div>`,
 })}
 
+${themeBand(themes[0])}
+
 ${band({
   title: 'Try it: drill a well',
   wide: true,
@@ -158,8 +160,6 @@ ${band({
     </figure>
   </div>`,
 })}
-
-${themeBand(themes[0])}
 
 ${band({
   title: 'Methods',
