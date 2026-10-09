@@ -150,8 +150,8 @@ ${band({
         </div>
         <div class="fringe-control">
           <label for="wells-volume">Volume change</label>
-          <input id="wells-volume" type="range" min="0.1" max="5" step="0.1" value="1" data-volume>
-          <output for="wells-volume" data-volume-out>1 million m³ (6.3 million bbl)</output>
+          <input id="wells-volume" type="range" min="0.1" max="5" step="0.1" value="0.5" data-volume>
+          <output for="wells-volume" data-volume-out>0.5 million m³ (3.1 million bbl)</output>
         </div>
         <div class="fringe-control">
           <label for="wells-depth">Depth</label>

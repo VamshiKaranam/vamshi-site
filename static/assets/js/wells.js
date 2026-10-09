@@ -237,8 +237,8 @@
   });
 
   var startWells = [
-    { x: W * 0.38, y: H * 0.56, depth: 1.5, volume: 2, sign: -1 },
-    { x: W * 0.70, y: H * 0.38, depth: 1, volume: 0.5, sign: 1 }
+    { x: W * 0.36, y: H * 0.58, depth: 1.2, volume: 0.4, sign: -1 },
+    { x: W * 0.70, y: H * 0.36, depth: 0.8, volume: 0.2, sign: 1 }
   ];
   function reset() { wells = startWells.map(function (w) { return Object.assign({}, w); }); }
 
