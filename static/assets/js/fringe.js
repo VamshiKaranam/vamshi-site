@@ -14,7 +14,7 @@
   var W = 360, H = 270;                 // model grid; scaled up smoothly to the canvas
   // One fringe is half the radar wavelength.
   var BANDS = {
-    X: { cm: 1.55, name: 'X-band' },                 // 3.1 cm, e.g. TerraSAR-X
+    X: { cm: 1.55, name: 'X-band (TerraSAR-X)' },    // 3.1 cm
     C: { cm: 2.77, name: 'C-band (Sentinel-1)' },    // 5.55 cm
     L: { cm: 11.9, name: 'L-band (NISAR)' }          // 23.8 cm
   };
