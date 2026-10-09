@@ -116,18 +116,6 @@ ${pageHead({
 })}
 
 ${band({
-  title: 'Approach',
-  wide: true,
-  body: html`<div class="theme theme-pair">
-    <div class="theme-top">
-      <p>A radar satellite images the same ground every week or two. If the surface has moved between two passes, the signal’s round trip changes by a fraction of a wavelength. Comparing the phase of the two images turns that fraction into a map of motion, called an interferogram. Stacking hundreds of them over years separates steady deformation from noise.</p>
-      <p>To explain the motion I build poroelastic models, which link changes in fluid pressure underground to stress in the rock and to movement at the surface. When a model reproduces what the satellite saw, it constrains the pressures, hydraulic properties and faults that cannot be observed directly.</p>
-    </div>
-    <div class="theme-fig"><figure class="fig fig-schematic">${schematic}<figcaption>Schematic, not to scale.</figcaption></figure></div>
-  </div>`,
-})}
-
-${band({
   title: 'Try it yourself',
   wide: true,
   cls: 'needs-js',
@@ -170,23 +158,23 @@ ${band({
           <input id="wells-depth" type="range" min="0.5" max="5" step="0.1" value="1" data-depth>
           <output for="wells-depth" data-depth-out>1.0 km</output>
         </div>
-        <div class="fringe-control">
-          <span class="ctl-label">Radar band</span>
-          <div class="band-switch" role="group" aria-label="Radar band">
-            <button type="button" class="chip" data-wband="X" aria-pressed="false">X</button>
-            <button type="button" class="chip" data-wband="C" aria-pressed="true">C</button>
-            <button type="button" class="chip" data-wband="L" aria-pressed="false">L</button>
-          </div>
-        </div>
         <p class="wells-status" data-readout aria-live="polite"></p>
         <p class="wells-buttons"><button type="button" class="btn btn-quiet" data-random>Random well</button> <button type="button" class="btn btn-quiet" data-clear>Clear</button></p>
     <p class="wells-note">Simulation, not data: each well is a point pressure source (Mogi model). Volume is the change in volume of the pressurised rock, not the volume pumped.</p>
       </div>
       <figure class="wells-view">
-        <div class="view-switch band-switch" role="group" aria-label="Map view">
-          <button type="button" class="chip" data-view-btn="ifg" aria-pressed="true">Interferogram</button>
-          <button type="button" class="chip" data-view-btn="disp" aria-pressed="false">Displacement</button>
-          <span class="view-hint" data-view-hint>what the satellite records</span>
+        <div class="view-tabs" role="group" aria-label="Map view">
+          <div class="view-tab is-active" data-tab="ifg">
+            <button type="button" class="view-tab-btn" data-view-btn="ifg" aria-pressed="true">Interferogram</button>
+            <span class="band-dots" role="group" aria-label="Radar band">
+              <button type="button" data-wband="X" aria-pressed="false" title="X-band, e.g. TerraSAR-X">X</button>
+              <button type="button" data-wband="C" aria-pressed="true" title="C-band, e.g. Sentinel-1">C</button>
+              <button type="button" data-wband="L" aria-pressed="false" title="L-band, e.g. NISAR">L</button>
+            </span>
+          </div>
+          <div class="view-tab" data-tab="disp">
+            <button type="button" class="view-tab-btn" data-view-btn="disp" aria-pressed="false">Displacement</button>
+          </div>
         </div>
         <div class="wells-frame"><canvas data-map width="900" height="600" role="img" aria-label="Simulated map. Click to add a well."></canvas></div>
         <div data-legend="ifg">
@@ -202,6 +190,18 @@ ${band({
     </div>
   </div>
 </dialog>
+
+${band({
+  title: 'Approach',
+  wide: true,
+  body: html`<div class="theme theme-pair">
+    <div class="theme-top">
+      <p>A radar satellite images the same ground every week or two. If the surface has moved between two passes, the signal’s round trip changes by a fraction of a wavelength. Comparing the phase of the two images turns that fraction into a map of motion, called an interferogram. Stacking hundreds of them over years separates steady deformation from noise.</p>
+      <p>To explain the motion I build poroelastic models, which link changes in fluid pressure underground to stress in the rock and to movement at the surface. When a model reproduces what the satellite saw, it constrains the pressures, hydraulic properties and faults that cannot be observed directly.</p>
+    </div>
+    <div class="theme-fig"><figure class="fig fig-schematic">${schematic}<figcaption>Schematic, not to scale.</figcaption></figure></div>
+  </div>`,
+})}
 
 ${themeBand(themes[0])}
 

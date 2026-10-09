@@ -14,7 +14,7 @@
   var canvas = root.querySelector('[data-map]');
   var mapCtx = canvas.getContext('2d');
   var viewButtons = root.querySelectorAll('[data-view-btn]');
-  var viewHint = root.querySelector('[data-view-hint]');
+  var tabs = root.querySelectorAll('[data-tab]');
   var legends = { ifg: root.querySelector('[data-legend="ifg"]'), disp: root.querySelector('[data-legend="disp"]') };
   var view = 'ifg';
   var modeButtons = root.querySelectorAll('[data-mode]');
@@ -55,10 +55,11 @@
     [0.00, 122, 80, 184], [0.20, 61, 127, 196], [0.40, 55, 167, 160],
     [0.62, 216, 191, 71], [0.80, 224, 112, 63], [0.91, 207, 80, 144], [1.00, 122, 80, 184]
   ]);
-  // Displacement: red for sinking, blue for rising, pale at zero.
+  // Displacement: the Spectral scale used in the research figures,
+  // dark red for sinking through pale yellow to purple-blue for rising.
   var divLut = makeLut([
-    [0.00, 158, 1, 66], [0.17, 230, 86, 60], [0.34, 251, 172, 98], [0.50, 248, 246, 238],
-    [0.66, 164, 214, 152], [0.83, 61, 148, 189], [1.00, 84, 64, 160]
+    [0.0, 158, 1, 66], [0.1, 213, 62, 79], [0.2, 244, 109, 67], [0.3, 253, 174, 97], [0.4, 254, 230, 160],
+    [0.5, 250, 250, 236], [0.6, 232, 245, 172], [0.7, 171, 221, 164], [0.8, 102, 194, 165], [0.9, 50, 136, 189], [1.0, 94, 79, 162]
   ]);
 
   // A little atmosphere and speckle so the interferogram looks real.
@@ -199,14 +200,19 @@
     });
   }
   group(modeButtons, 'data-mode', function (v) { mode = v; });
-  group(bandButtons, 'data-wband', function (v) { band = v; draw(); });
-  group(viewButtons, 'data-view-btn', function (v) {
+  function setView(v) {
     view = v;
     legends.ifg.hidden = v !== 'ifg';
     legends.disp.hidden = v !== 'disp';
-    viewHint.textContent = v === 'ifg' ? 'what the satellite records' : 'what it is processed into';
+    Array.prototype.forEach.call(tabs, function (t) { t.classList.toggle('is-active', t.getAttribute('data-tab') === v); });
+    Array.prototype.forEach.call(viewButtons, function (o) { o.setAttribute('aria-pressed', o.getAttribute('data-view-btn') === v ? 'true' : 'false'); });
     draw();
+  }
+  Array.prototype.forEach.call(viewButtons, function (b) {
+    b.addEventListener('click', function () { setView(b.getAttribute('data-view-btn')); });
   });
+  // Choosing a band also switches to the interferogram, where bands matter.
+  group(bandButtons, 'data-wband', function (v) { band = v; setView('ifg'); });
   function depthLabel() { depthOut.textContent = parseFloat(depthInput.value).toFixed(1) + ' km'; }
   function volLabel() {
     var v = parseFloat(volInput.value);

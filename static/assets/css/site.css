@@ -270,15 +270,22 @@ html.no-js .needs-js { display: none; }
 .wells-layout { display: grid; grid-template-columns: minmax(0, 16rem) minmax(0, 1fr); gap: 1.5rem; align-items: start; }
 .wells-view { max-width: calc((100dvh - 21rem) * 1.5); }
 .wells-view { margin: 0; }
-.view-switch { align-items: center; margin-bottom: 0.5rem; }
-.view-hint { font-family: var(--sans); font-size: 0.875rem; color: var(--muted); margin-left: 0.25rem; }
+.view-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem; }
+.view-tab { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.25rem; border: 1px solid var(--line-strong); border-radius: 999px; background: transparent; }
+.view-tab.is-active { background: var(--ink); border-color: var(--ink); }
+.view-tab-btn { min-height: 2rem; padding: 0.2rem 0.75rem; background: none; border: 0; border-radius: 999px; font-family: var(--sans); font-size: 0.9375rem; font-weight: 600; color: var(--ink-2); cursor: pointer; }
+.view-tab.is-active .view-tab-btn { color: var(--paper); }
+.band-dots { display: inline-flex; gap: 0.25rem; }
+.band-dots button { width: 2rem; height: 2rem; padding: 0; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--paper); color: var(--ink-2); font-family: var(--sans); font-size: 0.8125rem; font-weight: 700; cursor: pointer; }
+.band-dots button[aria-pressed="true"] { background: #f2c94c; border-color: #f2c94c; color: #14171c; }
+.view-tab.is-active .band-dots button[aria-pressed="false"] { background: transparent; border-color: color-mix(in srgb, var(--paper) 45%, transparent); color: var(--paper); }
 .view-title { font-family: var(--sans); font-weight: 650; font-size: 0.9375rem; margin-bottom: 0.4rem; }
 .view-title span { font-weight: 400; color: var(--muted); }
 .wells-frame { aspect-ratio: 3 / 2; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); cursor: crosshair; touch-action: manipulation; }
 .wells-frame canvas { display: block; width: 100%; height: 100%; }
 .cbar { height: 0.7rem; margin-top: 0.5rem; border-radius: 2px; border: 1px solid var(--line); }
 .cbar-phase { background: linear-gradient(90deg, rgb(122,80,184) 0%, rgb(61,127,196) 20%, rgb(55,167,160) 40%, rgb(216,191,71) 62%, rgb(224,112,63) 80%, rgb(207,80,144) 91%, rgb(122,80,184) 100%); }
-.cbar-div { background: linear-gradient(90deg, rgb(158,1,66) 0%, rgb(230,86,60) 17%, rgb(251,172,98) 34%, rgb(248,246,238) 50%, rgb(164,214,152) 66%, rgb(61,148,189) 83%, rgb(84,64,160) 100%); }
+.cbar-div { background: linear-gradient(90deg, #9e0142 0%, #d53e4f 10%, #f46d43 20%, #fdae61 30%, #fee6a0 40%, #fafaec 50%, #e8f5ac 60%, #abdda4 70%, #66c2a5 80%, #3288bd 90%, #5e4fa2 100%); }
 .cbar-ticks { display: flex; justify-content: space-between; font-family: var(--sans); font-size: 0.8125rem; font-variant-numeric: tabular-nums; color: var(--ink-2); margin-top: 0.15rem; }
 .cbar-label { margin: 0.2rem 0 0; font-family: var(--sans); font-size: 0.8125rem; color: var(--muted); }
 .wells-controls .fringe-control { grid-template-columns: 1fr; margin-top: 0.7rem; }
