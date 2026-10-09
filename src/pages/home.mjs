@@ -73,11 +73,11 @@ ${band({
         </div>
         <div class="fringe-control">
           <label for="fringe-range">Peak ground motion</label>
-          <input id="fringe-range" type="range" min="0" max="30" step="0.5" value="14">
-          <output for="fringe-range" data-fringe-out>14 cm is 5.1 fringes in C-band (Sentinel-1)</output>
+          <input id="fringe-range" type="range" min="0" max="30" step="0.1" value="8.3">
+          <output for="fringe-range" data-fringe-out>8.3 cm is 3 fringes in C-band (Sentinel-1)</output>
         </div>
         <p>A simulated interferogram: sinking ground beside a patch of uplift. One colour cycle is half the radar wavelength.</p>
-        <p class="fringe-more"><a class="try-btn" href="/research#drill">Try drilling your own wells <span aria-hidden="true">→</span></a></p>
+        <p class="fringe-more"><a class="fringe-try" href="/research#drill">Try drilling your own wells <span aria-hidden="true">→</span></a></p>
       </figcaption>
     </figure>
   </div>`,

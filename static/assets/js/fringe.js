@@ -112,7 +112,7 @@
   function play() {
     if (started) return;
     started = true;
-    var start = null, DURATION = 2600;
+    var start = null, DURATION = 6000;
     var step = function (ts) {
       if (start === null) start = ts;
       var t = Math.min(1, (ts - start) / DURATION);
