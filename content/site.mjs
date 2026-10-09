@@ -8,7 +8,7 @@ export const site = {
 
   // Change this when the custom domain is live. It is used for the sitemap,
   // canonical links and the preview image shown when the site is shared.
-  url: 'https://vamshikaranam.vercel.app',
+  url: 'https://vamshikaranam.com',
 
   name: 'Vamshi Karanam',
   title: 'Assistant Professor of Geology',
