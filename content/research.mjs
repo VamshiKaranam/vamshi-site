@@ -67,35 +67,25 @@ export const themes = [
     ],
   },
   {
-    id: 'terrain',
-    title: 'Mining, slopes and rock glaciers',
-    place: 'Jharia, Joshimath and Southeastern Alaska',
+    id: 'jharia',
+    title: 'Coal fires and mine subsidence',
+    place: 'Jharia Coalfields, Jharkhand, India',
     summary:
-      'Some ground moves because of what lies beneath it or what flows across it. In the Jharia Coalfields I combined Landsat-8 thermal anomaly mapping with InSAR to measure the subsidence caused by underground coal fires. Related work tracks the sinking Himalayan town of Joshimath and the motion of rock glaciers in Southeastern Alaska.',
+      'Jharia is one of India’s most important coalfields, and coal fires have burned beneath it for over a century. The fires hollow out the coal seams, and the ground above sags and collapses into mines, roads and homes. For my master’s research I combined thermal, optical and radar satellite data with GIS to map where the fires burn and how fast the ground is sinking.',
     findings: [
-      'Underground coal fires are causing land subsidence in the Jharia Coalfields that can be measured from space.',
-      'Rock glacier motion in Southeastern Alaska varies in space and time with hydrometeorology and topography.',
+      'Landsat-8 thermal infrared data, with emissivity from its optical bands, mapped temperature anomalies of up to 25 °C from the fires.',
+      'Persistent scatterer InSAR on 60 Sentinel-1 images, corrected for the atmosphere, measured subsidence of up to about 20 cm a year.',
+      'About 80% of the sinking ground in the mines also lies over coal fires, a strong link between the two hazards.',
+      'Combining both hazard maps with land cover in GIS singled out Kusunda, Keshalpur and Bararee as the most critically affected collieries, with subsidence spreading toward settlements and transport routes.',
     ],
-    dois: ['10.1016/j.jag.2021.102439', '10.57757/IUGG23-4938', '10.1029/2025JF008895'],
+    dois: ['10.1016/j.jag.2021.102439', '10.5194/egusphere-egu21-14419', '10.5194/egusphere-egu2020-21118'],
     figure: {
-      src: null,
-      suggestion: 'Thermal anomaly and subsidence maps of Jharia side by side, or a field photo',
-    },
-  },
-  {
-    id: 'terrain',
-    title: 'Mining, slopes and rock glaciers',
-    place: 'Jharia, Joshimath and Southeastern Alaska',
-    summary:
-      'Some ground moves because of what lies beneath it or what flows across it. In the Jharia Coalfields I combined Landsat-8 thermal anomaly mapping with InSAR to measure the subsidence caused by underground coal fires. Related work tracks the sinking Himalayan town of Joshimath and the motion of rock glaciers in Southeastern Alaska.',
-    findings: [
-      'Underground coal fires are causing land subsidence in the Jharia Coalfields that can be measured from space.',
-      'Rock glacier motion in Southeastern Alaska varies in space and time with hydrometeorology and topography.',
-    ],
-    dois: ['10.1016/j.jag.2021.102439', '10.57757/IUGG23-4938', '10.1029/2025JF008895'],
-    figure: {
-      src: null,
-      suggestion: 'Thermal anomaly and subsidence maps of Jharia side by side, or a field photo',
+      src: '/assets/img/research/jharia-hazards.jpg',
+      webp: '/assets/img/research/jharia-hazards.webp',
+      full: '/assets/img/research/jharia-hazards-full.jpg',
+      width: 1200, height: 688,
+      alt: 'Map of the Jharia Coalfields coloured by combined coal fire and subsidence hazard, from low (dark blue) to very high (red). The high and very high zones cluster along the northern and eastern parts of the coalfield.',
+      caption: 'Combined coal fire and subsidence hazard across the Jharia Coalfields, from thermal anomaly and InSAR maps. Karanam et al. (2021), CC BY 4.0.',
     },
   },
   {
@@ -113,6 +103,18 @@ export const themes = [
       src: null,
       suggestion: 'Subsidence map of Delhi NCR with the main hotspots labelled',
     },
+  },
+  {
+    id: 'terrain',
+    title: 'Slopes, sinking towns and rock glaciers',
+    place: 'Joshimath, India, and Southeastern Alaska',
+    summary:
+      'Mountain ground moves too. With colleagues at GFZ Potsdam I used InSAR and ground surveys to track the subsidence of Joshimath, a Himalayan town whose buildings cracked as the slope beneath it sank, and helped measure how rock glaciers in Southeastern Alaska flow.',
+    findings: [
+      'Rock glacier motion in Southeastern Alaska varies in space and time with hydrometeorology and topography.',
+    ],
+    dois: ['10.1029/2025JF008895', '10.57757/IUGG23-4938', '10.5194/egusphere-egu23-15976'],
+    figure: { src: null, suggestion: 'InSAR map of Joshimath or of the Alaska rock glaciers' },
   },
   {
     id: 'methods',
@@ -156,7 +158,7 @@ export const sites = [
     label: 'right',
   },
   {
-    id: 'jharia', region: 'southAsia', lat: 23.74, lon: 86.41, theme: 'terrain',
+    id: 'jharia', region: 'southAsia', lat: 23.74, lon: 86.41, theme: 'jharia',
     name: 'Jharia Coalfields', where: 'Jharkhand, India',
     what: 'Subsidence from underground coal fires and mining.',
     label: 'right',

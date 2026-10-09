@@ -1,6 +1,6 @@
 // Publications. To add one, copy an entry and change the fields.
 //   type:   'journal' | 'conference' | 'preparation' | 'thesis'
-//   themes: any of 'energy', 'cities', 'terrain', 'methods' (see content/research.mjs)
+//   themes: any of 'energy', 'jharia', 'cities', 'terrain', 'methods' (see content/research.mjs)
 //   note:   optional, e.g. 'Oral', 'Poster', 'Invited'
 // Your own name is highlighted automatically wherever "Karanam, V." appears.
 
@@ -56,7 +56,7 @@ export const publications = [
     doi: '10.1038/s41598-021-04193-9',
   },
   {
-    type: 'journal', year: 2021, themes: ['terrain'],
+    type: 'journal', year: 2021, themes: ['jharia'],
     authors: 'Karanam, V.; Motagh, M.; Garg, S.; Jain, K.',
     title: 'Multi-sensor remote sensing analysis of coal fire induced land subsidence in Jharia Coalfields, Jharkhand, India',
     venue: 'International Journal of Applied Earth Observation and Geoinformation', details: '102, 102439',
@@ -145,13 +145,13 @@ export const publications = [
     doi: '10.5194/egusphere-egu23-2152',
   },
   {
-    type: 'conference', year: 2021, themes: ['terrain'], note: 'Poster',
+    type: 'conference', year: 2021, themes: ['jharia'], note: 'Poster',
     authors: 'Karanam, V.; Motagh, M.; Garg, S.; Jain, K.',
     title: 'Combined Effect of Mining, Subsidence and Coal Fires in Jharkhand, India Investigated using Satellite Remote Sensing and Data Fusion',
     venue: 'AGU Fall Meeting 2021', details: 'NH15D-0481',
   },
   {
-    type: 'conference', year: 2021, themes: ['terrain'],
+    type: 'conference', year: 2021, themes: ['jharia'],
     authors: 'Karanam, V.; Garg, S.; Motagh, M.; Jain, K.',
     title: 'The Risk of Coal Fires and Land Subsidence in Jharia Coalfields, India, Analysed Using Remote Sensing Techniques',
     venue: 'EGU General Assembly 2021', details: 'EGU21-14419',
@@ -165,7 +165,7 @@ export const publications = [
     doi: '10.5194/egusphere-egu21-15694',
   },
   {
-    type: 'conference', year: 2021, themes: ['terrain'],
+    type: 'conference', year: 2021, themes: ['jharia'],
     authors: 'Karanam, V.; Garg, S.; Motagh, M.; Jain, K.',
     title: 'Coal Fire Induced Land Subsidence in Jharia Coalfields, India, Investigated Using Thermal Anomaly Mapping and Persistent Scatterer Interferometry',
     venue: 'FRINGE Workshop 2021',
@@ -177,7 +177,7 @@ export const publications = [
     venue: 'FRINGE Workshop 2021',
   },
   {
-    type: 'conference', year: 2020, themes: ['terrain'],
+    type: 'conference', year: 2020, themes: ['jharia'],
     authors: 'Karanam, V.; Motagh, M.; Jain, K.',
     title: 'Land Subsidence in Jharia Coalfields, Jharkhand, India – Detection, Estimation and Analysis Using Persistent Scatterer Interferometry',
     venue: 'EGU General Assembly 2020', details: 'EGU2020-21118',
