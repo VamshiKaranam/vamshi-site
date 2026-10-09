@@ -5,7 +5,7 @@ import { media, stories } from '../../content/media.mjs';
 
 export const route = '/news';
 export const file = 'news.html';
-export const title = 'Media';
+export const title = 'Press';
 export const description =
   'News coverage of research by Vamshi Karanam: Permian Basin well blowouts, induced earthquakes in West Texas, and land subsidence in Delhi.';
 export const scripts = ['/assets/js/filter.js'];
@@ -29,7 +29,7 @@ export function body() {
 
   return html`
 ${pageHead({
-  title: 'Media',
+  title: 'Press',
   lede: `${media.length} stories from ${outlets.size} outlets have reported on this research, from regional papers in Texas and New Mexico to Reuters, Bloomberg and the BBC.`,
 })}
 

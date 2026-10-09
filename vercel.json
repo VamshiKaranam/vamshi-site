@@ -10,6 +10,7 @@
     { "source": "/index", "destination": "/", "permanent": true },
     { "source": "/news/:slug", "destination": "/news", "permanent": true },
     { "source": "/media", "destination": "/news", "permanent": false },
+    { "source": "/press", "destination": "/news", "permanent": false },
     { "source": "/lab", "destination": "/group", "permanent": false }
   ],
   "headers": [

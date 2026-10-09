@@ -51,7 +51,7 @@ export const nav = [
   { href: '/publications', label: 'Publications' },
   { href: '/group', label: 'Lab' },
   { href: '/teaching', label: 'Teaching' },
-  { href: '/news', label: 'Media' },
+  { href: '/news', label: 'Press' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
