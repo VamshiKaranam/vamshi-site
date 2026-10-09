@@ -77,7 +77,7 @@ ${band({
           <output for="fringe-range" data-fringe-out>14 cm is 5.1 fringes in C-band (Sentinel-1)</output>
         </div>
         <p>A simulated interferogram of sinking ground beside a patch of uplift. Each full cycle of colour is half the radar wavelength: 1.6 cm in X-band (TerraSAR-X), 2.8 cm in C-band (Sentinel-1) and 11.9 cm in L-band (NISAR). Drag the slider or switch bands: the same motion makes many fringes at short wavelengths and few at long ones.</p>
-        <p class="fringe-more"><a href="/research#drill">Drill your own wells and watch the fringes form <span aria-hidden="true">→</span></a></p>
+        <p class="fringe-more"><a href="/research#drill">Try drilling your own wells <span aria-hidden="true">→</span></a></p>
       </figcaption>
     </figure>
   </div>`,
