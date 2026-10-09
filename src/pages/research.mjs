@@ -2,7 +2,7 @@ import { html, raw } from '../html.mjs';
 import { band, pageHead } from '../layout.mjs';
 import { figure, siteMaps, findPub, pubItem } from '../components.mjs';
 import { site } from '../../content/site.mjs';
-import { themes, methods, software } from '../../content/research.mjs';
+import { themes, methods } from '../../content/research.mjs';
 import { media } from '../../content/media.mjs';
 
 export const route = '/research';
@@ -210,10 +210,7 @@ ${band({
   body: html`<dl class="deflist">
     ${methods.map((m) => html`<div><dt>${m.name}</dt><dd>${m.detail}</dd></div>`)}
   </dl>
-  <h3>Software</h3>
-  <dl class="deflist deflist-tight">
-    ${software.map((s) => html`<div><dt>${s.group}</dt><dd>${s.items.join(', ')}</dd></div>`)}
-  </dl>`,
+`,
 })}
 
 ${partHead('Current research', 'What I am working on now')}
