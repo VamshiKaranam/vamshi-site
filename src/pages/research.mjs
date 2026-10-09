@@ -160,7 +160,7 @@ export function body() {
         </div>
         <p class="wells-status" data-readout aria-live="polite"></p>
         <p class="wells-buttons"><button type="button" class="btn btn-quiet" data-random>Random well</button> <button type="button" class="btn btn-quiet" data-clear>Clear</button></p>
-    <p class="wells-note">Simulation, not data: each well is a point pressure source (Mogi model). Volume is the change in volume of the pressurised rock, not the volume pumped.</p>
+    <p class="wells-note">Simulation, not data. Each well is a simple point pressure source in an elastic half-space (the Mogi model), and nearby wells just add up. Real reservoirs behave poroelastically: pressure diffuses through layered, faulted rock over time, so the ground responds in more complex ways. Volume is the change in volume of the pressurised rock, not the volume pumped.</p>
       </div>
       <figure class="wells-view">
         <div class="view-tabs" role="group" aria-label="Map view">

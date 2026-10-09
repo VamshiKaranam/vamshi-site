@@ -159,8 +159,8 @@
   function fmt(n) { return n >= 10 ? Math.round(n) : (Math.round(n * 10) / 10); }
 
   function draw() {
-    // Saturate at about half the peak, as published maps do, so bowls read clearly.
-    var limit = niceLimit(0.5 * Math.max(Math.abs(lo), Math.abs(hi)));
+    // Fixed colour scale, -10 to +10 cm; larger motion saturates.
+    var limit = 10;
     paint(mapCtx, canvas, view, limit, dpr);
     var cyc = BANDS[band].cm;
     ifgScale.textContent = 'Phase in radians (cm in brackets); one colour cycle = ' + cyc + ' cm in ' + BANDS[band].name;
