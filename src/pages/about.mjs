@@ -18,7 +18,13 @@ ${pageHead({ title: 'About' })}
 
 <section class="band band-first">
   <div class="wrap about-grid about-grid-page">
-    ${portrait()}
+    ${candid ? html`<figure class="candid">
+        <picture>
+          <source type="image/webp" srcset="${candid.webp}">
+          <img src="${candid.src}" alt="${candid.alt}" width="${candid.width}" height="${candid.height}" decoding="async">
+        </picture>
+        <figcaption>${candid.caption}</figcaption>
+      </figure>` : portrait()}
     <div>
       ${bio.map((p, i) => html`<p${i === 0 ? html` class="large"` : ''}>${p}</p>`)}
       <p class="actions">
@@ -26,13 +32,6 @@ ${pageHead({ title: 'About' })}
         <a class="btn btn-quiet" href="/contact">Contact</a>
       </p>
     </div>
-    ${candid ? html`<figure class="candid">
-        <picture>
-          <source type="image/webp" srcset="${candid.webp}">
-          <img src="${candid.src}" alt="${candid.alt}" width="${candid.width}" height="${candid.height}" loading="lazy" decoding="async">
-        </picture>
-        <figcaption>${candid.caption}</figcaption>
-      </figure>` : ''}
   </div>
 </section>
 
