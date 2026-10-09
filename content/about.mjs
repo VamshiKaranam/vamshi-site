@@ -6,6 +6,15 @@ export const bio = [
   'I trained first as an architect, then moved to geospatial engineering at IIT Roorkee and to radar remote sensing in Germany at Leibniz University Hannover and GFZ Potsdam. At UA Little Rock I teach Earth and the Environment and GIS, and I am setting up a computational geophysics and remote sensing research program.',
 ];
 
+// A candid photo shown under the bio on the About page. Set to null to hide.
+export const candid = {
+  src: '/assets/img/nisar-igarss-2023.jpg',
+  webp: '/assets/img/nisar-igarss-2023.webp',
+  width: 800, height: 890,
+  alt: 'Vamshi Karanam smiling beside a gold scale model of the NISAR satellite, with its large mesh radar antenna, at the NASA exhibit.',
+  caption: 'With a model of NISAR, the NASA–ISRO radar satellite, at IGARSS 2023 in Pasadena.',
+};
+
 // Shown on the home page. Newest first. `url` is optional.
 export const updates = [
   { year: 2026, text: 'Joined the University of Arkansas at Little Rock as Assistant Professor of Geology.' },

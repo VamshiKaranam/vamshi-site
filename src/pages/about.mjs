@@ -2,7 +2,7 @@ import { html, link } from '../html.mjs';
 import { band, pageHead } from '../layout.mjs';
 import { portrait } from '../components.mjs';
 import { site } from '../../content/site.mjs';
-import { bio, positions, education, awards, service } from '../../content/about.mjs';
+import { bio, candid, positions, education, awards, service } from '../../content/about.mjs';
 import { jsonLd as person } from './home.mjs';
 
 export const route = '/about';
@@ -26,6 +26,13 @@ ${pageHead({ title: 'About' })}
         <a class="btn btn-quiet" href="/contact">Contact</a>
       </p>
     </div>
+    ${candid ? html`<figure class="candid">
+        <picture>
+          <source type="image/webp" srcset="${candid.webp}">
+          <img src="${candid.src}" alt="${candid.alt}" width="${candid.width}" height="${candid.height}" loading="lazy" decoding="async">
+        </picture>
+        <figcaption>${candid.caption}</figcaption>
+      </figure>` : ''}
   </div>
 </section>
 
