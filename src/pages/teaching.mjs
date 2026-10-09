@@ -13,17 +13,23 @@ export function body() {
   return html`
 ${pageHead({ title: 'Teaching' })}
 
-${band({
-  cls: 'band-first',
-  title: `Courses at ${site.institutionShort}`,
-  body: html`${fieldPhoto ? html`<figure class="fig field-photo">
+${fieldPhoto ? html`<section class="band band-first band-photo">
+  <div class="wrap band-grid">
+    <div class="band-title" aria-hidden="true"></div>
+    <div class="band-body"><figure class="fig field-photo">
     <picture>
       <source type="image/webp" srcset="${fieldPhoto.webp}">
       <img src="${fieldPhoto.src}" alt="${fieldPhoto.alt}" width="${fieldPhoto.width}" height="${fieldPhoto.height}" decoding="async">
     </picture>
     <figcaption>${fieldPhoto.caption}</figcaption>
-  </figure>` : ''}
-  <ul class="plain course-list">
+  </figure></div>
+  </div>
+</section>` : ''}
+
+${band({
+  cls: fieldPhoto ? '' : 'band-first',
+  title: `Courses at ${site.institutionShort}`,
+  body: html`<ul class="plain course-list">
     ${courses.map((c) => html`<li class="course">
       <h3>${c.name}</h3>
       ${c.code || c.level || c.terms ? html`<p class="course-meta">${[c.code, c.level, c.terms].filter(Boolean).join(', ')}</p>` : ''}
