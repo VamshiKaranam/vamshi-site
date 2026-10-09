@@ -285,7 +285,7 @@ html.no-js .needs-js { display: none; }
 .wells-frame canvas { display: block; width: 100%; height: 100%; }
 .cbar { height: 0.7rem; margin-top: 0.5rem; border-radius: 2px; border: 1px solid var(--line); }
 .cbar-phase { background: linear-gradient(90deg, rgb(122,80,184) 0%, rgb(61,127,196) 20%, rgb(55,167,160) 40%, rgb(216,191,71) 62%, rgb(224,112,63) 80%, rgb(207,80,144) 91%, rgb(122,80,184) 100%); }
-.cbar-div { background: linear-gradient(90deg, #9e0142 0%, #d53e4f 10%, #f46d43 20%, #fdae61 30%, #fee6a0 40%, #fafaec 50%, #e8f5ac 60%, #abdda4 70%, #66c2a5 80%, #3288bd 90%, #5e4fa2 100%); }
+.cbar-div { background: linear-gradient(90deg, #9e0142 0%, #d53e4f 10%, #f46d43 20%, #fdae61 30%, #fee6a0 40%, #ffffff 50%, #e8f5ac 60%, #abdda4 70%, #66c2a5 80%, #3288bd 90%, #5e4fa2 100%); }
 .cbar-ticks { display: flex; justify-content: space-between; font-family: var(--sans); font-size: 0.8125rem; font-variant-numeric: tabular-nums; color: var(--ink-2); margin-top: 0.15rem; }
 .cbar-label { margin: 0.2rem 0 0; font-family: var(--sans); font-size: 0.8125rem; color: var(--muted); }
 .wells-controls .fringe-control { grid-template-columns: 1fr; margin-top: 0.7rem; }

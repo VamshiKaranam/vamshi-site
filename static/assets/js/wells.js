@@ -37,7 +37,6 @@
     L: { cm: 11.9, name: 'L-band (NISAR)' }
   };
   var band = 'C';
-  var MAX_WELLS = 12;
 
   function makeLut(stops) {
     var lut = new Uint8Array(256 * 3);
@@ -60,7 +59,7 @@
   // dark red for sinking through pale yellow to purple-blue for rising.
   var divLut = makeLut([
     [0.0, 158, 1, 66], [0.1, 213, 62, 79], [0.2, 244, 109, 67], [0.3, 253, 174, 97], [0.4, 254, 230, 160],
-    [0.5, 250, 250, 236], [0.6, 232, 245, 172], [0.7, 171, 221, 164], [0.8, 102, 194, 165], [0.9, 50, 136, 189], [1.0, 94, 79, 162]
+    [0.5, 255, 255, 255], [0.6, 232, 245, 172], [0.7, 171, 221, 164], [0.8, 102, 194, 165], [0.9, 50, 136, 189], [1.0, 94, 79, 162]
   ]);
 
   // A little atmosphere and speckle so the interferogram looks real.
@@ -81,21 +80,26 @@
   var mode = 'extract';
   var lo = 0, hi = 0;
 
-  function compute() {
-    los.fill(0);
-    for (var w = 0; w < wells.length; w++) {
-      var wl = wells[w], d = wl.depth * KM, dm = wl.depth * 1000;
-      var amp = wl.sign * 100 * (1 - NU) * wl.volume * 1e6 / (Math.PI * dm * dm);
-      for (var y = 0; y < H; y++) {
-        var dy = y - wl.y;
-        for (var x = 0; x < W; x++) {
-          var dx = x - wl.x, R2 = dx * dx + dy * dy + d * d;
-          los[y * W + x] += amp * (d * d / (R2 * Math.sqrt(R2))) * (d * cosI + dx * sinI * 0.55);
-        }
+  // Add one well's motion to the running total, so any number of wells stays fast.
+  function addField(wl) {
+    var d = wl.depth * KM, dm = wl.depth * 1000;
+    var amp = wl.sign * 100 * (1 - NU) * wl.volume * 1e6 / (Math.PI * dm * dm);
+    for (var y = 0; y < H; y++) {
+      var dy = y - wl.y;
+      for (var x = 0; x < W; x++) {
+        var dx = x - wl.x, R2 = dx * dx + dy * dy + d * d;
+        los[y * W + x] += amp * (d * d / (R2 * Math.sqrt(R2))) * (d * cosI + dx * sinI * 0.55);
       }
     }
+  }
+  function range() {
     lo = 0; hi = 0;
     for (var n = 0; n < los.length; n++) { if (los[n] < lo) lo = los[n]; if (los[n] > hi) hi = los[n]; }
+  }
+  function compute() {
+    los.fill(0);
+    for (var w = 0; w < wells.length; w++) addField(wells[w]);
+    range();
   }
 
   // A round colour-bar limit: 1, 2, 5, 10, 20, 50 ... cm.
@@ -189,9 +193,9 @@
   }
 
   function addWell(x, y) {
-    wells.push({ x: x, y: y, depth: parseFloat(depthInput.value), volume: parseFloat(volInput.value), sign: mode === 'extract' ? -1 : 1 });
-    if (wells.length > MAX_WELLS) wells.shift();
-    update();
+    var wl = { x: x, y: y, depth: parseFloat(depthInput.value), volume: parseFloat(volInput.value), sign: mode === 'extract' ? -1 : 1 };
+    wells.push(wl);
+    addField(wl); range(); draw();
   }
   canvas.addEventListener('click', function (e) {
     var r = canvas.getBoundingClientRect();
