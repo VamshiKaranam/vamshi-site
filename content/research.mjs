@@ -39,9 +39,8 @@ export const themes = [
           webp: '/assets/img/research/delaware-faults-earthquakes.webp',
           full: '/assets/img/research/delaware-faults-earthquakes-full.jpg',
           width: 1400, height: 1244,
-          wide: true,
           alt: 'Map of cumulative InSAR displacement in the southern Delaware Basin with seismic lineaments drawn as magenta lines, subsidence features labelled S and uplift features U, and four cross-section lines. Beside and below the map, profiles along each cross-section compare surface displacement for 2016–2018 and 2016–2022 with the depths of earthquakes beneath them.',
-          caption: 'Surface displacement (2016–2022) and seismic lineaments in the southern Delaware Basin, with cross-sections comparing ground motion to earthquake depths. Open the figure for full resolution.',
+          caption: 'Surface displacement (2016–2022) and seismic lineaments in the southern Delaware Basin, with cross-sections comparing ground motion to earthquake depths.',
         },
       },
       {
@@ -61,7 +60,6 @@ export const themes = [
           webp: '/assets/img/research/tubbs-corner-model.webp',
           full: '/assets/img/research/tubbs-corner-model-full.jpg',
           width: 1400, height: 883,
-          wide: true,
           alt: 'Two rows of three maps around the Tubbs Corner well: InSAR observation, two-sill model and residual. Top row: subsidence of up to 3 cm during the January 2022 blowout, fitted with an RMSE of 2 mm. Bottom row: up to 40 cm of cumulative uplift from January 2020 to May 2023, fitted with an RMSE of 2 cm. Sill centres are marked alpha and beta.',
           caption: 'Two-sill model of the Tubbs Corner site: (a) the January 2022 blowout, (b) cumulative uplift from January 2020 to May 2023.',
         },

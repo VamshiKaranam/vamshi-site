@@ -10,7 +10,7 @@ export const file = 'research.html';
 export const title = 'Research';
 export const description =
   'Research on fluid-driven deformation and geohazards in the Permian Basin using InSAR, GNSS and geomechanical modeling, along with work on Delhi, the Jharia Coalfields and beyond.';
-export const scripts = ['/assets/js/maps.js'];
+export const scripts = ['/assets/js/maps.js', '/assets/js/lightbox.js'];
 
 // How InSAR turns two radar passes into a measurement of ground motion.
 const schematic = raw(`<svg class="schematic" viewBox="0 0 480 500" role="img" aria-labelledby="sch-t sch-d">

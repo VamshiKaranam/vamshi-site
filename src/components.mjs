@@ -18,7 +18,7 @@ export function figure(fig, fallbackAlt) {
     <img src="${fig.src}" alt="${fig.alt || fallbackAlt}" loading="lazy" decoding="async"${fig.width ? html` width="${fig.width}" height="${fig.height}"` : ''}>
   </picture>`;
     return html`<figure class="fig${fig.wide ? ' fig-wide' : ''}">
-  ${fig.full ? html`<a class="fig-link" href="${fig.full}" target="_blank" rel="noopener" title="Open full-resolution image">${img}</a>` : img}
+  ${fig.full ? html`<a class="fig-link" href="${fig.full}" target="_blank" rel="noopener" title="Enlarge figure">${img}</a>` : img}
   ${fig.caption ? html`<figcaption>${fig.caption}</figcaption>` : ''}
 </figure>`;
   }
