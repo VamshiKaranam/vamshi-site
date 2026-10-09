@@ -179,12 +179,13 @@ ${band({
         <div class="wells-frame"><canvas data-map width="900" height="600" role="img" aria-label="Simulated map. Click to add a well."></canvas></div>
         <div data-legend="ifg">
           <div class="cbar cbar-phase" aria-hidden="true"></div>
-          <p class="cbar-label" data-ifg-scale>One colour cycle = 2.77 cm, C-band (Sentinel-1)</p>
+          <div class="cbar-ticks"><span data-ifg-tick>0</span><span data-ifg-tick>0.7</span><span data-ifg-tick>1.4</span><span data-ifg-tick>2.1</span><span data-ifg-tick>2.8</span></div>
+          <p class="cbar-label" data-ifg-scale>cm, one colour cycle in C-band (Sentinel-1)</p>
         </div>
         <div data-legend="disp" hidden>
           <div class="cbar cbar-div" aria-hidden="true"></div>
           <div class="cbar-ticks"><span data-disp-tick></span><span data-disp-tick></span><span data-disp-tick></span><span data-disp-tick></span><span data-disp-tick></span></div>
-          <p class="cbar-label">cm along the radar line of sight: red sinking, blue rising</p>
+          <p class="cbar-label">cm toward the satellite: red sinking, blue rising</p>
         </div>
       </figure>
     </div>

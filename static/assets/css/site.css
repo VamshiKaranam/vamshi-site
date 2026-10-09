@@ -270,7 +270,7 @@ html.no-js .needs-js { display: none; }
 .wells-layout { display: grid; grid-template-columns: minmax(0, 16rem) minmax(0, 1fr); gap: 1.5rem; align-items: start; }
 .wells-view { max-width: calc((100dvh - 21rem) * 1.5); }
 .wells-view { margin: 0; }
-.view-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem; }
+.view-tabs { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem; margin-bottom: 0.5rem; }
 .view-tab { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.25rem; border: 1px solid var(--line-strong); border-radius: 999px; background: transparent; }
 .view-tab.is-active { background: var(--ink); border-color: var(--ink); }
 .view-tab-btn { min-height: 2rem; padding: 0.2rem 0.75rem; background: none; border: 0; border-radius: 999px; font-family: var(--sans); font-size: 0.9375rem; font-weight: 600; color: var(--ink-2); cursor: pointer; }

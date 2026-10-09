@@ -26,6 +26,7 @@
   var readout = root.querySelector('[data-readout]');
   var ifgScale = root.querySelector('[data-ifg-scale]');
   var dispTicks = root.querySelectorAll('[data-disp-tick]');
+  var ifgTicks = root.querySelectorAll('[data-ifg-tick]');
 
   // Model grid: 30 km x 20 km at 12 cells per km.
   var W = 360, H = 240, KM = 12;
@@ -157,7 +158,12 @@
     // Saturate at about half the peak, as published maps do, so bowls read clearly.
     var limit = niceLimit(0.5 * Math.max(Math.abs(lo), Math.abs(hi)));
     paint(mapCtx, canvas, view, limit, dpr);
-    ifgScale.textContent = 'One colour cycle = ' + BANDS[band].cm + ' cm, ' + BANDS[band].name;
+    var cyc = BANDS[band].cm;
+    ifgScale.textContent = 'cm, one colour cycle in ' + BANDS[band].name;
+    Array.prototype.forEach.call(ifgTicks, function (t, i) {
+      var v = cyc * i / 4;
+      t.textContent = i === 0 ? '0' : v.toFixed(1);
+    });
     var ticks = [-limit, -limit / 2, 0, limit / 2, limit];
     Array.prototype.forEach.call(dispTicks, function (t, i) {
       var v = ticks[i];
