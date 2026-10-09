@@ -115,8 +115,6 @@ ${pageHead({
   lede: 'Most of my work is in the Permian Basin of West Texas and New Mexico, where I use satellite radar and geomechanical models to track how oil and gas production and wastewater injection move the ground, and what that means for faults, wells and infrastructure. I also study groundwater-driven subsidence in cities, mining and slope hazards, and methods for new radar missions.',
 })}
 
-${themeBand(themes[0])}
-
 ${band({
   title: 'Approach',
   wide: true,
@@ -128,6 +126,8 @@ ${band({
     <div class="theme-fig"><figure class="fig fig-schematic">${schematic}<figcaption>Schematic, not to scale.</figcaption></figure></div>
   </div>`,
 })}
+
+${themeBand(themes[0])}
 
 ${band({
   title: 'Methods',
