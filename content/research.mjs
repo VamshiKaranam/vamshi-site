@@ -67,19 +67,19 @@ export const themes = [
     ],
   },
   {
-    id: 'cities',
-    title: 'Urban subsidence and groundwater',
-    place: 'Delhi National Capital Region, India',
+    id: 'terrain',
+    title: 'Mining, slopes and rock glaciers',
+    place: 'Jharia, Joshimath and Southeastern Alaska',
     summary:
-      'When a city pumps groundwater faster than it is replenished, the aquifer compacts and the land above it sinks. With colleagues at GFZ Potsdam and in India, I mapped subsidence across Delhi and its neighbours using InSAR and in-situ data, identifying the hotspots that matter for urban safety and water management.',
+      'Some ground moves because of what lies beneath it or what flows across it. In the Jharia Coalfields I combined Landsat-8 thermal anomaly mapping with InSAR to measure the subsidence caused by underground coal fires. Related work tracks the sinking Himalayan town of Joshimath and the motion of rock glaciers in Southeastern Alaska.',
     findings: [
-      'Parts of the National Capital Region are sinking, and the pattern follows groundwater extraction.',
-      'Faridabad, south of Delhi, shows the same risk of ground movement in both remote sensing and in-situ data.',
+      'Underground coal fires are causing land subsidence in the Jharia Coalfields that can be measured from space.',
+      'Rock glacier motion in Southeastern Alaska varies in space and time with hydrometeorology and topography.',
     ],
-    dois: ['10.1038/s41598-021-04193-9', '10.5194/egusphere-egu21-15694'],
+    dois: ['10.1016/j.jag.2021.102439', '10.57757/IUGG23-4938', '10.1029/2025JF008895'],
     figure: {
       src: null,
-      suggestion: 'Subsidence map of Delhi NCR with the main hotspots labelled',
+      suggestion: 'Thermal anomaly and subsidence maps of Jharia side by side, or a field photo',
     },
   },
   {
@@ -96,6 +96,22 @@ export const themes = [
     figure: {
       src: null,
       suggestion: 'Thermal anomaly and subsidence maps of Jharia side by side, or a field photo',
+    },
+  },
+  {
+    id: 'cities',
+    title: 'Urban subsidence and groundwater',
+    place: 'Delhi National Capital Region, India',
+    summary:
+      'When a city pumps groundwater faster than it is replenished, the aquifer compacts and the land above it sinks. With colleagues at GFZ Potsdam and in India, I mapped subsidence across Delhi and its neighbours using InSAR and in-situ data, identifying the hotspots that matter for urban safety and water management.',
+    findings: [
+      'Parts of the National Capital Region are sinking, and the pattern follows groundwater extraction.',
+      'Faridabad, south of Delhi, shows the same risk of ground movement in both remote sensing and in-situ data.',
+    ],
+    dois: ['10.1038/s41598-021-04193-9', '10.5194/egusphere-egu21-15694'],
+    figure: {
+      src: null,
+      suggestion: 'Subsidence map of Delhi NCR with the main hotspots labelled',
     },
   },
   {

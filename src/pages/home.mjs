@@ -41,7 +41,7 @@ export function body() {
       <h1>${site.name}</h1>
       <p class="intro-role"><strong>${site.title}</strong><br>${site.department}, ${site.institution}</p>
       <div class="intro-bio">
-        <p>I study how the ground deforms when fluids are pumped out of or into the subsurface. Most of my work is in the Permian Basin of West Texas and New Mexico, where oil and gas production and wastewater injection make the land sink and rise, reactivate faults and push old wells to blow out. I measure the motion with satellite radar interferometry (InSAR) and GNSS, and use geomechanical models to work out what is driving it underground. I have also worked on groundwater-driven subsidence beneath Delhi and coal fires in eastern India.</p>
+        <p>I study how the ground deforms when fluids are pumped out of or into the subsurface. Most of my work is in the Permian Basin of West Texas and New Mexico, where oil and gas production and wastewater injection make the land sink and rise, reactivate faults and push old wells to blow out. I measure the motion with satellite radar interferometry (InSAR) and GNSS, and use geomechanical models to work out what is driving it underground. I have also worked on coal fires and mine subsidence in eastern India and groundwater-driven subsidence beneath Delhi.</p>
         <p>I joined UA Little Rock in 2026 after a Ph.D. in Geophysics at Southern Methodist University, where I held a NASA FINESST award.</p>
       </div>
       <ul class="intro-links">
