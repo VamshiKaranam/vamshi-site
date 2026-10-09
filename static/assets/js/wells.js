@@ -7,13 +7,16 @@
 // A simulation for illustration, not data.
 (function () {
   var root = document.querySelector('[data-wells]');
-  var openBtn = document.querySelector('[data-wells-open]');
+  var openBtns = document.querySelectorAll('[data-wells-open]');
   var preview = document.querySelector('[data-wells-preview]');
-  if (!root || !openBtn || typeof HTMLDialogElement === 'undefined') return;
+  if (!root || !openBtns.length || typeof HTMLDialogElement === 'undefined') return;
 
-  var ifgCanvas = root.querySelector('[data-view="ifg"]');
-  var dispCanvas = root.querySelector('[data-view="disp"]');
-  var ifg = ifgCanvas.getContext('2d'), disp = dispCanvas.getContext('2d');
+  var canvas = root.querySelector('[data-map]');
+  var mapCtx = canvas.getContext('2d');
+  var viewButtons = root.querySelectorAll('[data-view-btn]');
+  var viewHint = root.querySelector('[data-view-hint]');
+  var legends = { ifg: root.querySelector('[data-legend="ifg"]'), disp: root.querySelector('[data-legend="disp"]') };
+  var view = 'ifg';
   var modeButtons = root.querySelectorAll('[data-mode]');
   var bandButtons = root.querySelectorAll('[data-wband]');
   var depthInput = root.querySelector('[data-depth]');
@@ -152,8 +155,7 @@
   function draw() {
     // Saturate at about half the peak, as published maps do, so bowls read clearly.
     var limit = niceLimit(0.5 * Math.max(Math.abs(lo), Math.abs(hi)));
-    paint(ifg, ifgCanvas, 'ifg', limit, dpr);
-    paint(disp, dispCanvas, 'disp', limit, dpr);
+    paint(mapCtx, canvas, view, limit, dpr);
     ifgScale.textContent = 'One colour cycle = ' + BANDS[band].cm + ' cm, ' + BANDS[band].name;
     var ticks = [-limit, -limit / 2, 0, limit / 2, limit];
     Array.prototype.forEach.call(dispTicks, function (t, i) {
@@ -161,7 +163,7 @@
       t.textContent = (v > 0 ? '+' : v < 0 ? '−' : '') + fmt(Math.abs(v));
     });
     if (!wells.length) {
-      readout.textContent = 'Click or tap either map to drill a well.';
+      readout.textContent = 'Click or tap the map to drill a well.';
     } else {
       var peak = Math.abs(lo) > hi ? lo : hi;
       readout.textContent = wells.length + (wells.length === 1 ? ' well. ' : ' wells. ') +
@@ -175,10 +177,8 @@
   var dpr = 1;
   function fit() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
-    [ifgCanvas, dispCanvas].forEach(function (c) {
-      var w = Math.round(c.clientWidth * dpr), h = Math.round(c.clientHeight * dpr);
-      if (w && h && (w !== c.width || h !== c.height)) { c.width = w; c.height = h; }
-    });
+    var w = Math.round(canvas.clientWidth * dpr), h = Math.round(canvas.clientHeight * dpr);
+    if (w && h && (w !== canvas.width || h !== canvas.height)) { canvas.width = w; canvas.height = h; }
   }
 
   function addWell(x, y) {
@@ -186,11 +186,9 @@
     if (wells.length > MAX_WELLS) wells.shift();
     update();
   }
-  [ifgCanvas, dispCanvas].forEach(function (c) {
-    c.addEventListener('click', function (e) {
-      var r = c.getBoundingClientRect();
-      addWell((e.clientX - r.left) / r.width * W, (e.clientY - r.top) / r.height * H);
-    });
+  canvas.addEventListener('click', function (e) {
+    var r = canvas.getBoundingClientRect();
+    addWell((e.clientX - r.left) / r.width * W, (e.clientY - r.top) / r.height * H);
   });
   function group(buttons, attr, set) {
     Array.prototype.forEach.call(buttons, function (b) {
@@ -202,6 +200,13 @@
   }
   group(modeButtons, 'data-mode', function (v) { mode = v; });
   group(bandButtons, 'data-wband', function (v) { band = v; draw(); });
+  group(viewButtons, 'data-view-btn', function (v) {
+    view = v;
+    legends.ifg.hidden = v !== 'ifg';
+    legends.disp.hidden = v !== 'disp';
+    viewHint.textContent = v === 'ifg' ? 'what the satellite records' : 'what it is processed into';
+    draw();
+  });
   function depthLabel() { depthOut.textContent = parseFloat(depthInput.value).toFixed(1) + ' km'; }
   function volLabel() {
     var v = parseFloat(volInput.value);
@@ -223,15 +228,16 @@
   // Static preview on the card: the starting wells as an interferogram.
   reset(); compute();
   if (preview && preview.getContext) paint(preview.getContext('2d'), preview, 'ifg', 1, 0);
-  openBtn.hidden = false;
 
   // The pop-up.
   var dialog = root.closest('dialog');
-  openBtn.addEventListener('click', function () {
-    depthLabel(); volLabel();
-    dialog.showModal();
-    document.documentElement.classList.add('lightbox-open');
-    fit(); update();
+  Array.prototype.forEach.call(openBtns, function (b) {
+    b.addEventListener('click', function () {
+      depthLabel(); volLabel();
+      dialog.showModal();
+      document.documentElement.classList.add('lightbox-open');
+      fit(); update();
+    });
   });
   dialog.querySelector('[data-wells-close]').addEventListener('click', function () { dialog.close(); });
   dialog.addEventListener('close', function () { document.documentElement.classList.remove('lightbox-open'); });

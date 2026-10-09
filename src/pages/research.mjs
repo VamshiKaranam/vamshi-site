@@ -132,11 +132,15 @@ ${band({
   wide: true,
   cls: 'needs-js',
   body: html`<div class="try-card">
-    <canvas class="try-preview" width="360" height="240" data-wells-preview aria-hidden="true"></canvas>
+    <button type="button" class="try-preview-btn" data-wells-open aria-label="Start the simulation">
+      <canvas class="try-preview" width="480" height="320" data-wells-preview aria-hidden="true"></canvas>
+      <span class="try-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+    </button>
     <div class="try-text">
+      <p class="try-eyebrow">Interactive · about 2 minutes</p>
       <h3>Drill your own wells</h3>
-      <p>Pump fluid out of the ground or inject it, choose how much and how deep, and see what a radar satellite would record. A two-minute simulation.</p>
-      <p><button type="button" class="btn try-btn" data-wells-open hidden>Start the simulation</button></p>
+      <p>Pump fluid out of the ground or inject it, choose how much and how deep, and see the interferogram a radar satellite would record.</p>
+      <p><button type="button" class="try-btn" data-wells-open>Start the simulation <span aria-hidden="true">→</span></button></p>
     </div>
   </div>`,
 })}
@@ -146,9 +150,9 @@ ${band({
     <header class="wells-head">
       <div>
         <h2 id="wells-title">Drill a well</h2>
-        <p>Extracting fluid lowers the pressure underground and the ground sinks; injecting raises it and the ground rises. Click or tap either map to drill.</p>
+        <p>Extracting fluid lowers the pressure underground and the ground sinks; injecting raises it and it rises. Click or tap the map to drill.</p>
       </div>
-      <button type="button" class="lightbox-close wells-close" data-wells-close aria-label="Close">×</button>
+      <button type="button" class="wells-close" data-wells-close>Close <span aria-hidden="true">×</span></button>
     </header>
     <div class="wells-layout">
       <div class="wells-controls">
@@ -176,24 +180,26 @@ ${band({
         </div>
         <p class="wells-status" data-readout aria-live="polite"></p>
         <p class="wells-buttons"><button type="button" class="btn btn-quiet" data-random>Random well</button> <button type="button" class="btn btn-quiet" data-clear>Clear</button></p>
+    <p class="wells-note">Simulation, not data: each well is a point pressure source (Mogi model). Volume is the change in volume of the pressurised rock, not the volume pumped.</p>
       </div>
-      <div class="wells-views">
-        <figure class="wells-view">
-          <figcaption class="view-title">Interferogram <span>what the satellite records</span></figcaption>
-          <div class="wells-frame"><canvas data-view="ifg" width="720" height="480" role="img" aria-label="Simulated interferogram. Click to add a well."></canvas></div>
+      <figure class="wells-view">
+        <div class="view-switch band-switch" role="group" aria-label="Map view">
+          <button type="button" class="chip" data-view-btn="ifg" aria-pressed="true">Interferogram</button>
+          <button type="button" class="chip" data-view-btn="disp" aria-pressed="false">Displacement</button>
+          <span class="view-hint" data-view-hint>what the satellite records</span>
+        </div>
+        <div class="wells-frame"><canvas data-map width="900" height="600" role="img" aria-label="Simulated map. Click to add a well."></canvas></div>
+        <div data-legend="ifg">
           <div class="cbar cbar-phase" aria-hidden="true"></div>
           <p class="cbar-label" data-ifg-scale>One colour cycle = 2.77 cm, C-band (Sentinel-1)</p>
-        </figure>
-        <figure class="wells-view">
-          <figcaption class="view-title">Displacement <span>what it is processed into</span></figcaption>
-          <div class="wells-frame"><canvas data-view="disp" width="720" height="480" role="img" aria-label="Simulated displacement map. Click to add a well."></canvas></div>
+        </div>
+        <div data-legend="disp" hidden>
           <div class="cbar cbar-div" aria-hidden="true"></div>
           <div class="cbar-ticks"><span data-disp-tick></span><span data-disp-tick></span><span data-disp-tick></span><span data-disp-tick></span><span data-disp-tick></span></div>
           <p class="cbar-label">cm along the radar line of sight: red sinking, blue rising</p>
-        </figure>
-      </div>
+        </div>
+      </figure>
     </div>
-    <p class="wells-note">Simulation, not data. Each well is a point pressure source (the Mogi model); the volume is the change in volume of the pressurised rock, which is not the same as the volume injected or produced.</p>
   </div>
 </dialog>
 
