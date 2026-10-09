@@ -248,6 +248,13 @@ html.no-js .nav-toggle, html.no-js .theme-toggle { display: none; }
 .fringe-control output { font-variant-numeric: tabular-nums; color: var(--ink-2); text-align: right; }
 html.no-js .fringe-control, html.no-js .band-switch, html.no-js .wells-controls { display: none; }
 html.no-js .needs-js { display: none; }
+.research-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 19rem); gap: 1.5rem clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
+.try-mini { padding: 0.9rem; background: #14171c; color: #eceef2; border-radius: var(--radius); }
+.try-mini .try-play { width: 3.2rem; height: 3.2rem; margin: -1.6rem 0 0 -1.6rem; }
+.try-mini .try-eyebrow { margin: 0.75rem 0 0.2rem; font-family: var(--sans); font-size: 0.75rem; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; color: #f2c94c; }
+.try-mini-title { margin: 0 0 0.75rem; font-family: var(--sans); font-size: 0.9375rem; line-height: 1.4; color: #eceef2; }
+.try-mini .try-btn { width: 100%; justify-content: center; }
+@media (max-width: 799px) { .research-head { grid-template-columns: minmax(0, 1fr); } .try-mini { max-width: 26rem; } }
 .try-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 1.25rem clamp(1.5rem, 4vw, 3rem); align-items: center; padding: clamp(1rem, 2.5vw, 1.5rem); background: #14171c; color: #eceef2; border-radius: var(--radius); }
 .try-preview-btn { position: relative; display: block; padding: 0; border: 0; background: none; border-radius: var(--radius); overflow: hidden; cursor: pointer; }
 .try-preview { display: block; width: 100%; aspect-ratio: 3 / 2; height: auto; transition: transform 0.3s ease; }

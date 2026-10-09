@@ -115,29 +115,23 @@ function themeBand(t) {
 
 export function body() {
   return html`
-${pageHead({
-  title: 'Research',
-  lede: 'Most of my work is in the Permian Basin of West Texas and New Mexico, where I use satellite radar and geomechanical models to track how oil and gas production and wastewater injection move the ground, and what that means for faults, wells and infrastructure. I also study mining and slope hazards, groundwater-driven subsidence in cities, and methods for new radar missions.',
-})}
-
-${band({
-  id: 'try-it',
-  title: 'Try it yourself',
-  wide: true,
-  cls: 'needs-js',
-  body: html`<div class="try-card">
-    <button type="button" class="try-preview-btn" data-wells-open aria-label="Start the simulation">
-      <canvas class="try-preview" width="480" height="320" data-wells-preview aria-hidden="true"></canvas>
-      <span class="try-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
-    </button>
-    <div class="try-text">
-      <p class="try-eyebrow">Interactive</p>
-      <h3>Drill your own wells</h3>
-      <p>Pump fluid out of the ground or inject it, choose how much and how deep, and see the interferogram a radar satellite would record.</p>
-      <p><button type="button" class="try-btn" data-wells-open>Start the simulation <span aria-hidden="true">→</span></button></p>
+<header class="page-head">
+  <div class="wrap research-head">
+    <div>
+      <h1>Research</h1>
+      <p class="lede">Most of my work is in the Permian Basin of West Texas and New Mexico, where I use satellite radar and geomechanical models to track how oil and gas production and wastewater injection move the ground, and what that means for faults, wells and infrastructure. I also study mining and slope hazards, groundwater-driven subsidence in cities, and methods for new radar missions.</p>
     </div>
-  </div>`,
-})}
+    <aside class="try-mini needs-js" id="try-it">
+      <button type="button" class="try-preview-btn" data-wells-open aria-label="Start the simulation">
+        <canvas class="try-preview" width="480" height="320" data-wells-preview aria-hidden="true"></canvas>
+        <span class="try-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+      </button>
+      <p class="try-eyebrow">Interactive</p>
+      <p class="try-mini-title">Drill your own wells and see what a radar satellite would record.</p>
+      <button type="button" class="try-btn" data-wells-open>Start the simulation <span aria-hidden="true">→</span></button>
+    </aside>
+  </div>
+</header>
 
 <dialog class="wells-dialog" aria-labelledby="wells-title">
   <div class="wells-shell" data-wells>
