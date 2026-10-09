@@ -147,7 +147,7 @@ ${band({
         </div>
         <div class="fringe-control">
           <label for="wells-depth">Depth</label>
-          <input id="wells-depth" type="range" min="0.5" max="3" step="0.1" value="1" data-depth>
+          <input id="wells-depth" type="range" min="0.5" max="5" step="0.1" value="1" data-depth>
           <output for="wells-depth" data-depth-out>1.0 km</output>
         </div>
         <p class="wells-status" data-readout aria-live="polite"></p>
