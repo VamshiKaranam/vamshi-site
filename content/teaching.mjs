@@ -6,7 +6,7 @@
 export const fieldPhoto = {
   src: '/assets/img/guadalupe-devils-hall.jpg',
   webp: '/assets/img/guadalupe-devils-hall.webp',
-  width: 1400, height: 933,
+  width: 1400, height: 861,
   alt: 'Vamshi Karanam standing on pale limestone boulders in a canyon, below tall layered limestone cliffs, with sotol and shrubs around him and a blue sky above.',
   caption: 'Devil’s Hall, Guadalupe Mountains National Park, Texas. The cliffs are part of the Permian Capitan Reef.',
 };
