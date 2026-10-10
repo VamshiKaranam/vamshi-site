@@ -162,8 +162,8 @@
   function fmt(n) { return n >= 10 ? Math.round(n) : (Math.round(n * 10) / 10); }
 
   function draw() {
-    // The colour scale runs from -limit to +limit cm (chosen under the
-    // colour bar, 10 by default); larger motion saturates.
+    // The colour scale runs from -limit to +limit cm (chosen beside the
+    // Displacement button, 10 by default); larger motion saturates.
     var limit = dispLimit;
     paint(mapCtx, canvas, view, limit, dpr);
     var cyc = BANDS[band].cm;
@@ -215,7 +215,6 @@
     });
   }
   group(modeButtons, 'data-mode', function (v) { mode = v; });
-  group(limitButtons, 'data-limit', function (v) { dispLimit = parseFloat(v); draw(); });
   function setView(v) {
     view = v;
     legends.ifg.hidden = v !== 'ifg';
@@ -229,6 +228,8 @@
   });
   // Choosing a band also switches to the interferogram, where bands matter.
   group(bandButtons, 'data-wband', function (v) { band = v; setView('ifg'); });
+  // Choosing colour limits likewise switches to the displacement map.
+  group(limitButtons, 'data-limit', function (v) { dispLimit = parseFloat(v); setView('disp'); });
   function depthLabel() { depthOut.textContent = parseFloat(depthInput.value).toFixed(1) + ' km'; }
   function volLabel() {
     var v = parseFloat(volInput.value);

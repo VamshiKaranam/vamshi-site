@@ -174,6 +174,11 @@ export function body() {
           </div>
           <div class="view-tab" data-tab="disp">
             <button type="button" class="view-tab-btn" data-view-btn="disp" aria-pressed="false">Displacement</button>
+            <span class="band-dots limit-dots" role="group" aria-label="Colour scale limits, in centimetres">
+              <button type="button" data-limit="2" aria-pressed="false" title="Colour scale −2 to +2 cm">±2</button>
+              <button type="button" data-limit="10" aria-pressed="true" title="Colour scale −10 to +10 cm">±10</button>
+              <button type="button" data-limit="50" aria-pressed="false" title="Colour scale −50 to +50 cm">±50</button>
+            </span>
           </div>
         </div>
         <div class="wells-frame"><canvas data-map width="900" height="600" role="img" aria-label="Simulated map. Click to add a well."></canvas></div>
@@ -185,16 +190,7 @@ export function body() {
         <div data-legend="disp" hidden>
           <div class="cbar cbar-div" aria-hidden="true"></div>
           <div class="cbar-ticks"><span data-disp-tick></span><span data-disp-tick></span><span data-disp-tick></span><span data-disp-tick></span><span data-disp-tick></span></div>
-          <div class="cbar-row">
-            <p class="cbar-label">cm toward the satellite: red sinking, blue rising</p>
-            <div class="cbar-limit" role="group" aria-label="Colour scale limits, in centimetres">
-              <span aria-hidden="true">Limits</span>
-              <button type="button" data-limit="2" aria-pressed="false">±2</button>
-              <button type="button" data-limit="5" aria-pressed="false">±5</button>
-              <button type="button" data-limit="10" aria-pressed="true">±10</button>
-              <button type="button" data-limit="20" aria-pressed="false">±20</button>
-              <button type="button" data-limit="50" aria-pressed="false">±50</button>
-            </div>
+          <p class="cbar-label">cm toward the satellite: red sinking, blue rising</p>
           </div>
         </div>
       </figure>
