@@ -64,16 +64,8 @@
     [0.5, 255, 255, 255], [0.6, 232, 245, 172], [0.7, 171, 221, 164], [0.8, 102, 194, 165], [0.9, 50, 136, 189], [1.0, 94, 79, 162]
   ]);
 
-  // A little atmosphere and speckle so the interferogram looks real.
-  var noise = new Float32Array(W * H);
-  var seed = 11;
-  function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
-  for (var y = 0; y < H; y++) {
-    for (var x = 0; x < W; x++) {
-      noise[y * W + x] = 0.08 * Math.sin(x / 57 + 0.4) * Math.cos(y / 43 + 1.1) +
-        0.05 * Math.sin((x - y) / 71) + (rnd() - 0.5) * 0.08;
-    }
-  }
+  // Atmosphere, decorrelated patches and phase noise (see ifgnoise.js).
+  var noise = window.ifgNoise ? window.ifgNoise(W, H, 60) : null;
 
   // Line-of-sight displacement (cm) from all wells.
   var INC = 0.68, sinI = Math.sin(INC), cosI = Math.cos(INC);
@@ -118,10 +110,18 @@
 
   function paint(ctx, canvas, kind, limit, u) {
     var dd = img.data, fringe = BANDS[band].cm;
+    var coh = noise && noise.coherence(fringe);
     for (var n = 0; n < los.length; n++) {
       var c, o = n * 4, lut;
       if (kind === 'ifg') {
-        var p = los[n] / fringe + noise[n] + 0.12;
+        var p = los[n] / fringe + 0.12;
+        if (noise) {
+          // Fringes packed tighter than about one per pixel lose coherence too.
+          var e = n % W < W - 1 ? n + 1 : n - 1, q = n + W < los.length ? n + W : n - W;
+          var gx = (los[e] - los[n]) / fringe, gy = (los[q] - los[n]) / fringe;
+          var g = coh[n] * (1 - Math.sqrt(gx * gx + gy * gy));
+          p += noise.atm[n] / fringe + noise.gauss[n] * noise.sigma[g > 0 ? (g * 255) | 0 : 0];
+        }
         p -= Math.floor(p);
         c = (p * 255) | 0; lut = phaseLut;
       } else {

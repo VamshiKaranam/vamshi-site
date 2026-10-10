@@ -50,10 +50,10 @@
     return q * (cosI + (dx / d) * sinI * 0.55);
   }
 
-  // Unit displacement field and a smooth "atmosphere", computed once.
-  var unit = new Float32Array(W * H), atmo = new Float32Array(W * H), speckle = new Float32Array(W * H);
-  var seed = 7;
-  function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+  // Unit displacement field, computed once, and its steepness. Atmosphere,
+  // decorrelated patches and phase noise come from ifgnoise.js.
+  var unit = new Float32Array(W * H), slope = new Float32Array(W * H);
+  var noise = window.ifgNoise ? window.ifgNoise(W, H, 40) : null;
   var peak = 0;
   for (var y = 0; y < H; y++) {
     for (var x = 0; x < W; x++) {
@@ -61,16 +61,25 @@
       var u = source(x, y, W * 0.44, H * 0.52, 46) - 0.42 * source(x, y, W * 0.80, H * 0.27, 26);
       unit[n] = u;
       if (u > peak) peak = u;
-      atmo[n] = 0.10 * Math.sin(x / 61 + 1.3) * Math.cos(y / 47) + 0.07 * Math.sin((x + y) / 83);
-      speckle[n] = (rnd() - 0.5) * 0.085;
     }
   }
   for (var m = 0; m < unit.length; m++) unit[m] /= peak;
+  for (var j = 0; j < unit.length; j++) {
+    var e = j % W < W - 1 ? j + 1 : j - 1, q = j + W < unit.length ? j + W : j - W;
+    var gx = unit[e] - unit[j], gy = unit[q] - unit[j];
+    slope[j] = Math.sqrt(gx * gx + gy * gy);
+  }
 
   function draw(cm) {
     var cycles = cm / FRINGE_CM, d = img.data;
+    var coh = noise && noise.coherence(FRINGE_CM);
     for (var n = 0; n < unit.length; n++) {
-      var p = unit[n] * cycles + atmo[n] + speckle[n] + 0.12;
+      var p = unit[n] * cycles + 0.12;
+      if (noise) {
+        // Fringes packed tighter than about one per pixel lose coherence too.
+        var g = coh[n] * (1 - slope[n] * cycles);
+        p += noise.atm[n] / FRINGE_CM + noise.gauss[n] * noise.sigma[g > 0 ? (g * 255) | 0 : 0];
+      }
       p -= Math.floor(p);
       var c = (p * 255) | 0, o = n * 4;
       d[o] = lut[c * 3]; d[o + 1] = lut[c * 3 + 1]; d[o + 2] = lut[c * 3 + 2]; d[o + 3] = 255;

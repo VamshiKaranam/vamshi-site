@@ -11,7 +11,7 @@ export const route = '/';
 export const file = 'index.html';
 export const title = site.name;
 export const description = site.description;
-export const scripts = ['/assets/js/fringe.js'];
+export const scripts = ['/assets/js/ifgnoise.js', '/assets/js/fringe.js'];
 
 export const jsonLd = {
   '@context': 'https://schema.org',

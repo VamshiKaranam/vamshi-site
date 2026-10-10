@@ -73,6 +73,8 @@ vercel.json     Tells Vercel to run build.mjs and serve dist/
 
 - The interferogram on the home page is a simulation drawn in the browser
   (`static/assets/js/fringe.js`). It illustrates the method and is not data.
+  Its noise (atmosphere, decorrelated patches, phase noise) comes from
+  `static/assets/js/ifgnoise.js`, shared with the Drill a well simulation.
 - Maps are drawn at build time from Natural Earth coastlines (public domain).
   They deliberately show no political boundaries.
 - Fonts are Archivo and Source Serif 4, both under the SIL Open Font License,
