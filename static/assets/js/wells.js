@@ -136,16 +136,17 @@
     ctx.drawImage(buf, 0, 0, cw, ch);
     if (!u) return;
 
+    // Wells are small open triangles, so the fringes show through them:
+    // pointing down where fluid is extracted, up where it is injected.
+    ctx.lineJoin = 'round';
     for (var w = 0; w < wells.length; w++) {
-      var px = wells[w].x * sx, py = wells[w].y * sx, r = 10 * u;
-      ctx.beginPath(); ctx.arc(px, py, r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(255,255,255,0.92)'; ctx.fill();
-      ctx.lineWidth = 2 * u; ctx.strokeStyle = '#1a1c20'; ctx.stroke();
-      ctx.beginPath();
+      var px = wells[w].x * sx, py = wells[w].y * sx;
       var s = (wells[w].sign < 0 ? 1 : -1) * u;
-      ctx.moveTo(px, py - 5.5 * s); ctx.lineTo(px, py + 4.5 * s);
-      ctx.moveTo(px - 4 * u, py + 1 * s); ctx.lineTo(px, py + 5.5 * s); ctx.lineTo(px + 4 * u, py + 1 * s);
-      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(px - 5 * u, py - 3 * s); ctx.lineTo(px + 5 * u, py - 3 * s); ctx.lineTo(px, py + 6 * s);
+      ctx.closePath();
+      ctx.lineWidth = 4 * u; ctx.strokeStyle = 'rgba(255,255,255,0.9)'; ctx.stroke();
+      ctx.lineWidth = 1.75 * u; ctx.strokeStyle = '#1a1c20'; ctx.stroke();
     }
     var bar = 5 * KM * sx, bx = 10 * u, by = ch - 10 * u;
     ctx.fillStyle = 'rgba(255,255,255,0.85)';
