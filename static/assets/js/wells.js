@@ -66,6 +66,8 @@
 
   // Atmosphere, decorrelated patches and phase noise (see ifgnoise.js).
   var noise = window.ifgNoise ? window.ifgNoise(W, H, 60) : null;
+  // Below this coherence the displacement map shows no data.
+  var MASK = 0.45;
 
   // Line-of-sight displacement (cm) from all wells.
   var INC = 0.68, sinI = Math.sin(INC), cosI = Math.cos(INC);
@@ -112,18 +114,23 @@
     var dd = img.data, fringe = BANDS[band].cm;
     var coh = noise && noise.coherence(fringe);
     for (var n = 0; n < los.length; n++) {
-      var c, o = n * 4, lut;
+      var c, o = n * 4, lut, g = 1;
+      if (noise) {
+        // Coherence here: the ground cover, and fringes packed tighter than
+        // about one per pixel lose coherence too.
+        var e = n % W < W - 1 ? n + 1 : n - 1, q = n + W < los.length ? n + W : n - W;
+        var gx = (los[e] - los[n]) / fringe, gy = (los[q] - los[n]) / fringe;
+        g = coh[n] * (1 - Math.sqrt(gx * gx + gy * gy));
+      }
       if (kind === 'ifg') {
         var p = los[n] / fringe + 0.12;
-        if (noise) {
-          // Fringes packed tighter than about one per pixel lose coherence too.
-          var e = n % W < W - 1 ? n + 1 : n - 1, q = n + W < los.length ? n + W : n - W;
-          var gx = (los[e] - los[n]) / fringe, gy = (los[q] - los[n]) / fringe;
-          var g = coh[n] * (1 - Math.sqrt(gx * gx + gy * gy));
-          p += noise.atm[n] / fringe + noise.gauss[n] * noise.sigma[g > 0 ? (g * 255) | 0 : 0];
-        }
+        if (noise) p += noise.atm[n] / fringe + noise.gauss[n] * noise.sigma[g > 0 ? (g * 255) | 0 : 0];
         p -= Math.floor(p);
         c = (p * 255) | 0; lut = phaseLut;
+      } else if (g < MASK) {
+        // Too decorrelated to measure: no data, drawn grey.
+        dd[o] = 168; dd[o + 1] = 171; dd[o + 2] = 177; dd[o + 3] = 255;
+        continue;
       } else {
         var v = los[n] / limit;
         v = v < -1 ? -1 : v > 1 ? 1 : v;
