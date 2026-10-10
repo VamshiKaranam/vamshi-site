@@ -185,7 +185,17 @@ export function body() {
         <div data-legend="disp" hidden>
           <div class="cbar cbar-div" aria-hidden="true"></div>
           <div class="cbar-ticks"><span data-disp-tick></span><span data-disp-tick></span><span data-disp-tick></span><span data-disp-tick></span><span data-disp-tick></span></div>
-          <p class="cbar-label">cm toward the satellite: red sinking, blue rising</p>
+          <div class="cbar-row">
+            <p class="cbar-label">cm toward the satellite: red sinking, blue rising</p>
+            <div class="cbar-limit" role="group" aria-label="Colour scale limits, in centimetres">
+              <span aria-hidden="true">Limits</span>
+              <button type="button" data-limit="2" aria-pressed="false">±2</button>
+              <button type="button" data-limit="5" aria-pressed="false">±5</button>
+              <button type="button" data-limit="10" aria-pressed="true">±10</button>
+              <button type="button" data-limit="20" aria-pressed="false">±20</button>
+              <button type="button" data-limit="50" aria-pressed="false">±50</button>
+            </div>
+          </div>
         </div>
       </figure>
     </div>

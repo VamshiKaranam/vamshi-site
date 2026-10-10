@@ -27,6 +27,8 @@
   var ifgScale = root.querySelector('[data-ifg-scale]');
   var dispTicks = root.querySelectorAll('[data-disp-tick]');
   var ifgTicks = root.querySelectorAll('[data-ifg-tick]');
+  var limitButtons = root.querySelectorAll('[data-limit]');
+  var dispLimit = 10;
 
   // Model grid: 30 km x 20 km at 12 cells per km.
   var W = 360, H = 240, KM = 12;
@@ -160,8 +162,9 @@
   function fmt(n) { return n >= 10 ? Math.round(n) : (Math.round(n * 10) / 10); }
 
   function draw() {
-    // Fixed colour scale, -10 to +10 cm; larger motion saturates.
-    var limit = 10;
+    // The colour scale runs from -limit to +limit cm (chosen under the
+    // colour bar, 10 by default); larger motion saturates.
+    var limit = dispLimit;
     paint(mapCtx, canvas, view, limit, dpr);
     var cyc = BANDS[band].cm;
     ifgScale.textContent = 'Phase in radians (cm in brackets); one colour cycle = ' + cyc + ' cm in ' + BANDS[band].name;
@@ -212,6 +215,7 @@
     });
   }
   group(modeButtons, 'data-mode', function (v) { mode = v; });
+  group(limitButtons, 'data-limit', function (v) { dispLimit = parseFloat(v); draw(); });
   function setView(v) {
     view = v;
     legends.ifg.hidden = v !== 'ifg';
