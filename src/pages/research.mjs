@@ -190,7 +190,7 @@ export function body() {
         <div data-legend="disp" hidden>
           <div class="cbar cbar-div" aria-hidden="true"></div>
           <div class="cbar-ticks"><span data-disp-tick></span><span data-disp-tick></span><span data-disp-tick></span><span data-disp-tick></span><span data-disp-tick></span></div>
-          <p class="cbar-label">cm toward the satellite: red sinking, blue rising; grey is no data (decorrelated)</p>
+          <p class="cbar-label">cm toward the satellite: red sinking, blue rising; grey is no data (no coherence)</p>
           </div>
         </div>
       </figure>

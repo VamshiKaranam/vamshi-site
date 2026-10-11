@@ -12,7 +12,10 @@
 //   3. Phase noise: for coherence gamma and L looks the phase scatter is
 //      about sqrt((1 - gamma^2) / (2 L gamma^2)) radians.
 // Steep fringes also decorrelate; the callers handle that with the local
-// phase gradient. All of it is an illustration, not data.
+// phase gradient. A caller can also ask for a few "dead" areas, such as open
+// water, where nothing is coherent in any band and the only honest thing to
+// do with the displacement there is to mask it. All of it is an
+// illustration, not data.
 (function () {
   var LOOKS = 4, C_CM = 2.77;
 
@@ -45,7 +48,8 @@
     return out;
   }
 
-  window.ifgNoise = function (W, H, seed) {
+  // dead: optional list of [x, y, radius] in grid cells.
+  window.ifgNoise = function (W, H, seed, dead) {
     function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
     var N = W * H, n, x, y;
 
@@ -70,6 +74,20 @@
     var gauss = new Float32Array(N);
     for (n = 0; n < N; n++) gauss[n] = Math.sqrt(-2 * Math.log(rnd() + 1e-9)) * Math.cos(6.2832 * rnd());
 
+    // Dead areas: rough-edged blobs with no coherence at any wavelength.
+    // Made last, so the fields above are the same with or without them.
+    var none = new Uint8Array(N);
+    if (dead && dead.length) {
+      var edge = fbm(W, H, rnd, W * 0.1, 0.7);
+      for (y = 0; y < H; y++) for (x = 0; x < W; x++) {
+        n = y * W + x;
+        for (var k = 0; k < dead.length; k++) {
+          var dx = x - dead[k][0], dy = (y - dead[k][1]) * 1.25, r = dead[k][2] * (1 + 0.3 * edge[n]);
+          if (dx * dx + dy * dy < r * r) none[n] = 1;
+        }
+      }
+    }
+
     // Phase scatter in cycles for a coherence of i / 255.
     var sigma = new Float32Array(256);
     for (var i = 0; i < 256; i++) {
@@ -79,12 +97,12 @@
 
     var cache = {};
     return {
-      atm: atm, gauss: gauss, sigma: sigma,
+      atm: atm, gauss: gauss, sigma: sigma, dead: none,
       // Coherence for a band whose fringe spacing (half wavelength) is cm.
       coherence: function (cm) {
         if (!cache[cm]) {
           var e = (C_CM / cm) * (C_CM / cm), out = new Float32Array(N);
-          for (var n = 0; n < N; n++) out[n] = Math.pow(coh[n], e);
+          for (var n = 0; n < N; n++) out[n] = none[n] ? 0 : Math.pow(coh[n], e);
           cache[cm] = out;
         }
         return cache[cm];
