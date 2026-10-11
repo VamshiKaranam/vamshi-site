@@ -14,7 +14,6 @@ const sortKey = (d) => (d.length === 4 ? `${d}-12-31` : d);
 
 export function body() {
   const sorted = [...media].sort((a, b) => sortKey(b.date).localeCompare(sortKey(a.date)));
-  const outlets = new Set(media.map((m) => m.outlet));
   const featured = sorted.filter((m) => m.featured);
   const storyOrder = Object.keys(stories).sort((a, b) => {
     const latest = (k) => sortKey(sorted.find((m) => m.story === k)?.date || '0');
@@ -30,7 +29,7 @@ export function body() {
   return html`
 ${pageHead({
   title: 'Press',
-  lede: `${media.length} stories from ${outlets.size} outlets have reported on this research, from regional papers in Texas and New Mexico to Reuters, Bloomberg and the BBC.`,
+  lede: 'Press coverage is grouped by story, and can be searched by headline, outlet or reporter. Outlets range from regional papers in Texas and New Mexico to Reuters, Bloomberg and the BBC.',
 })}
 
 <section class="band band-first">
