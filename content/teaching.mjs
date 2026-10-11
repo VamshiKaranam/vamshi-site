@@ -41,7 +41,7 @@ export const courses = [
 export const earlierTeaching = [
   { where: 'Southern Methodist University', what: 'Teaching assistant for remote sensing, GIS, radar and photogrammetry. Led a two-day Google Earth Engine workshop introducing students to large-scale geospatial analysis.' },
   { where: 'Leibniz University Hannover', what: 'Teaching assistant for SAR applications and geodesy.' },
-  { where: 'IIT Roorkee', what: 'Teaching assistant for remote sensing and image interpretation.' },
+  { where: 'IIT Roorkee', what: 'Teaching assistant for Introduction to Photogrammetry.' },
 ];
 
 export const teachingApproach =
