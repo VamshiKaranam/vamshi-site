@@ -37,7 +37,7 @@ export const positions = [
   { years: '2019–2020', role: 'Visiting Researcher', org: 'Leibniz University Hannover, Germany',
     detail: 'Advisor: Dr. Mahdi Motagh. Quantified coal fire–induced subsidence in the Jharia Coalfields by combining Landsat-8 thermal anomaly mapping with InSAR.' },
   { years: '2018–2019', role: 'Teaching Assistant', org: 'IIT Roorkee, India',
-    detail: 'Advisor: Dr. Kamal Jain. Teaching assistant for remote sensing and image interpretation.' },
+    detail: 'Advisor: Dr. Kamal Jain. Teaching assistant for Introduction to Photogrammetry.' },
 ];
 
 export const education = [
