@@ -41,8 +41,7 @@ export function body() {
       <h1>${site.name}</h1>
       <p class="intro-role"><strong>${site.title}</strong><br>${site.department}, ${site.institution}</p>
       <div class="intro-bio">
-        <p>Hi, I’m Vamshi. I am a remote sensing scientist at UA Little Rock, and I use satellites to understand geohazards.</p>
-        <p>Much of my work is on ground deformation caused by human activity. For example, when oil, gas or water is pumped out of the subsurface, or wastewater is pumped in, the land above sinks and rises, usually too slowly for anyone to notice. I measure that motion with satellite radar interferometry (InSAR) and GNSS, and use geomechanical models to work out what is driving it underground. Most of my work is in the Permian Basin of West Texas and New Mexico, where production and injection have reactivated faults and caused old wells to blow out. I have also worked on coal fires and mine subsidence in eastern India and groundwater-driven subsidence beneath Delhi.</p>
+        <p>I use satellites to understand geohazards. For example, when oil, gas or water is pumped out of the subsurface, or wastewater is pumped in, the land above sinks and rises, usually too slowly for anyone to notice. I measure that motion with radar interferometry (InSAR) and GNSS, and use geomechanical models to work out what is driving it underground. Most of my work is in the Permian Basin of West Texas and New Mexico, where production and injection have reactivated faults and caused old wells to blow out. I have also worked on coal fires and mine subsidence in eastern India and groundwater-driven subsidence beneath Delhi.</p>
         <p>I joined UA Little Rock in 2026 after a Ph.D. in Geophysics at Southern Methodist University, where I held a NASA FINESST award.</p>
       </div>
       <ul class="intro-links">
