@@ -36,6 +36,8 @@ export const positions = [
     detail: 'Advisor: Dr. Mahdi Motagh. Mapped groundwater-driven subsidence in Delhi using InSAR and in-situ data.' },
   { years: '2019–2020', role: 'Visiting Researcher', org: 'Leibniz University Hannover, Germany',
     detail: 'Advisor: Dr. Mahdi Motagh. Quantified coal fire–induced subsidence in the Jharia Coalfields by combining Landsat-8 thermal anomaly mapping with InSAR.' },
+  { years: '2018–2019', role: 'Teaching Assistant', org: 'IIT Roorkee, India',
+    detail: 'Advisor: Dr. Kamal Jain. Teaching assistant for remote sensing and image interpretation.' },
 ];
 
 export const education = [
@@ -43,7 +45,7 @@ export const education = [
     detail: 'Dissertation: Decadal-Scale InSAR Monitoring and Poroelastic Modeling of Fluid-Driven Geohazards in the Permian Basin',
     url: 'https://scholar.smu.edu/hum_sci_earthsciences_etds/43' },
   { years: '2018–2020', degree: 'M.Tech in Geospatial Engineering', org: 'Indian Institute of Technology Roorkee',
-    detail: 'Gold Medal. Dissertation: Geospatial modeling of coal fires on mine subsidence in Jharia Coalfields, India' },
+    detail: 'Highest CGPA in the class. Dissertation: Geospatial modeling of coal fires on mine subsidence in Jharia Coalfields, India' },
   { years: '2013–2018', degree: 'Bachelor of Architecture', org: 'National Institute of Technology Calicut', detail: null },
 ];
 
@@ -52,7 +54,7 @@ export const awards = [
   { year: '2024–2026', name: 'NASA FINESST research grant', from: 'Future Investigators in NASA Earth and Space Science and Technology' },
   { year: '2023', name: 'IGARSS Travel Grant', from: 'IEEE Geoscience and Remote Sensing Society' },
   { year: '2023', name: 'Professional Development Microgrant', from: 'IEEE Geoscience and Remote Sensing Society' },
-  { year: '2020', name: 'Gold Medal, M.Tech', from: 'Indian Institute of Technology Roorkee' },
+  { year: '2020', name: 'Prize for highest CGPA, M.Tech', from: 'Indian Institute of Technology Roorkee' },
   { year: '2019–2020', name: 'DAAD KOSPIE Fellowship', from: 'German Academic Exchange Service, at Leibniz University Hannover' },
   { year: '2018–2020', name: 'MHRD National Graduate Scholarship', from: 'Government of India' },
 ];
