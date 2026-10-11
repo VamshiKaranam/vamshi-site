@@ -1,9 +1,10 @@
 // Biography, career history, awards and service.
 
 export const bio = [
-  'I am an Assistant Professor of Geology at the University of Arkansas at Little Rock. I use satellite radar interferometry (InSAR), GNSS and GIS to study how the ground deforms when fluids are extracted or injected, from oil and gas basins such as the Permian to cities that pump groundwater, and the hazards this creates for people and infrastructure.',
-  'My research combines satellite geodesy with physics-based poroelastic modeling and geospatial analytics to understand how human activity reshapes sedimentary basins and cities. Before joining UA Little Rock I completed a Ph.D. in Geophysics at Southern Methodist University, where I studied well blowouts and ground deformation in the Permian Basin and held a NASA FINESST award.',
-  'I trained first as an architect, then moved to geospatial engineering at IIT Roorkee and to radar remote sensing in Germany at Leibniz University Hannover and GFZ Potsdam. At UA Little Rock I teach Earth and the Environment and GIS, and I am setting up a computational geophysics and remote sensing research program.',
+  'I am an Assistant Professor of Geology at the University of Arkansas at Little Rock. I use satellite remote sensing to study geohazards, mostly ground deformation caused by oil and gas production, wastewater injection, mining and groundwater pumping.',
+  'I did not start in the earth sciences. I trained as an architect at NIT Calicut, then moved to geospatial engineering at IIT Roorkee for my master’s. A DAAD fellowship took me to Leibniz University Hannover, and later I worked at GFZ Potsdam. That is where I began working with radar remote sensing, on coal fires in the Jharia Coalfields and subsidence in Delhi.',
+  'For my Ph.D. in Geophysics at Southern Methodist University I studied ground deformation and well blowouts in the Permian Basin, with support from a NASA FINESST award. That work is still the main part of my research.',
+  'At UA Little Rock I teach Earth and the Environment and GIS, and I am setting up the Earth Observation and Geohazards Lab.',
 ];
 
 // A candid photo shown under the bio on the About page. Set to null to hide.
