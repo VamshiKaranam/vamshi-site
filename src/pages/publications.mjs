@@ -15,12 +15,11 @@ export const scripts = ['/assets/js/filter.js'];
 export function body() {
   const scholar = site.profiles.find((p) => p.label === 'Google Scholar');
   const order = ['journal', 'preparation', 'thesis', 'conference'];
-  const count = (t) => publications.filter((p) => p.type === t).length;
 
   return html`
 ${pageHead({
   title: 'Publications',
-  lede: html`${count('journal')} journal articles and ${count('conference')} conference presentations. Citation counts are on ${scholar ? html`<a href="${scholar.url}" target="_blank" rel="noopener">Google Scholar</a>` : 'Google Scholar'}.`,
+  lede: html`Publications are grouped by type, and can be filtered by topic or searched by title, author or venue. Citation counts are on ${scholar ? html`<a href="${scholar.url}" target="_blank" rel="noopener">Google Scholar</a>` : 'Google Scholar'}.`,
 })}
 
 <section class="band band-first" data-filter>
