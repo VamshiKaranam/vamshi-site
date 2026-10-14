@@ -11,8 +11,8 @@ export const bio = [
 export const candid = {
   src: '/assets/img/nisar-igarss-2023.jpg',
   webp: '/assets/img/nisar-igarss-2023.webp',
-  width: 800, height: 890,
-  alt: 'Vamshi Karanam smiling beside a gold scale model of the NISAR satellite, with its large mesh radar antenna, at the NASA exhibit.',
+  width: 800, height: 1066,
+  alt: 'Vamshi Karanam standing beside a gold scale model of the NISAR satellite and pointing up at its large mesh radar antenna, at the NASA exhibit.',
   caption: 'With a model of NISAR, the NASA–ISRO radar satellite, at IGARSS 2023 in Pasadena.',
 };
 
