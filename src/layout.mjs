@@ -10,7 +10,7 @@ const icon = {
 const mark = raw('<svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="4"><circle cx="32" cy="32" r="28"/><circle cx="29" cy="34.5" r="19.5"/><circle cx="26.5" cy="36.5" r="11"/><circle cx="24.5" cy="38" r="3" fill="currentColor" stroke="none"/></svg>');
 
 // Runs before first paint so the saved theme never flashes.
-const themeScript = raw(`<script>(function(){var d=document.documentElement;d.classList.remove('no-js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t);}catch(e){}})();</script>`);
+const themeScript = raw(`<script>(function(){var d=document.documentElement;d.classList.remove('no-js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){d.setAttribute('data-theme',t);document.querySelectorAll('meta[name=theme-color]').forEach(function(m){m.content=t==='dark'?'#111318':'#ffffff';});}}catch(e){}})();</script>`);
 
 export function page({ route, title, description, body, assets, scripts = [], jsonLd = null, buildDate }) {
   const fullTitle = route === '/' ? `${site.name} | ${site.title}, ${site.institutionShort}` : `${title} | ${site.name}`;

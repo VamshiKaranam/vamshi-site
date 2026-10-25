@@ -10,6 +10,10 @@
         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       var next = current === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
+      // The phone's top bar follows the chosen theme, not only the device setting.
+      document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) {
+        m.setAttribute('content', next === 'dark' ? '#111318' : '#ffffff');
+      });
       try { localStorage.setItem('theme', next); } catch (e) { /* storage unavailable: theme lasts for this page only */ }
       document.dispatchEvent(new CustomEvent('themechange', { detail: next }));
     });
