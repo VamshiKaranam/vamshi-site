@@ -53,10 +53,11 @@ export const education = [
 export const awards = [
   { year: '2026', name: 'Geospatial World 50 Rising Stars', from: 'Geospatial World Forum, Netherlands', url: 'https://geospatialworld.net/rising-stars/2026/' },
   { year: '2024–2026', name: 'NASA FINESST research grant', from: 'Future Investigators in NASA Earth and Space Science and Technology',
-    url: 'https://nspires.nasaprs.com/external/viewrepositorydocument/cmdocumentid=1018389/solicitationId=%7B2CA37D02-F6A7-9746-68C1-8B681D7532EA%7D/viewSolicitationDocument=1/FINESST-23%20Earth%20Science%20Division%20Selections%20August%205%202024.pdf#page=26&zoom=100,0,420' },
+    url: 'https://nspires.nasaprs.com/external/viewrepositorydocument/cmdocumentid=1018389/solicitationId=%7B2CA37D02-F6A7-9746-68C1-8B681D7532EA%7D/viewSolicitationDocument=1/FINESST-23%20Earth%20Science%20Division%20Selections%20August%205%202024.pdf#page=26&zoom=100,0,270' },
   { year: '2023', name: 'IGARSS Travel Grant', from: 'IEEE Geoscience and Remote Sensing Society' },
   { year: '2023', name: 'Professional Development Microgrant', from: 'IEEE Geoscience and Remote Sensing Society' },
-  { year: '2020', name: 'Prize for highest CGPA, M.Tech', from: 'Indian Institute of Technology Roorkee' },
+  { year: '2020', name: 'Prize for highest CGPA, M.Tech', from: 'Indian Institute of Technology Roorkee',
+    url: 'https://civil.iitr.ac.in/#:~:text=Vamshi%20Krishna%20Rao%20K.' },
   { year: '2019–2020', name: 'DAAD KOSPIE Fellowship', from: 'German Academic Exchange Service, at Leibniz University Hannover' },
   { year: '2018–2020', name: 'MHRD National Graduate Scholarship', from: 'Government of India' },
 ];
