@@ -58,7 +58,8 @@ export const awards = [
   { year: '2023', name: 'Professional Development Microgrant', from: 'IEEE Geoscience and Remote Sensing Society' },
   { year: '2020', name: 'Prize for highest CGPA, M.Tech', from: 'Indian Institute of Technology Roorkee',
     url: 'https://civil.iitr.ac.in/#:~:text=Vamshi%20Krishna%20Rao%20K.' },
-  { year: '2019–2020', name: 'DAAD KOSPIE Fellowship', from: 'German Academic Exchange Service, at Leibniz University Hannover' },
+  { year: '2019–2020', name: 'DAAD KOSPIE Fellowship', from: 'German Academic Exchange Service, at Leibniz University Hannover',
+    url: 'https://civil.iitr.ac.in/#:~:text=Vamshi%20Krishna%20Rao%20K.%20(M.%20Tech)%2C%20Awarded%20Kopsie%20DAAD%20fellowship' },
   { year: '2018–2020', name: 'MHRD National Graduate Scholarship', from: 'Government of India' },
 ];
 
