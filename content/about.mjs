@@ -46,7 +46,7 @@ export const education = [
     url: 'https://scholar.smu.edu/hum_sci_earthsciences_etds/43' },
   { years: '2018–2020', degree: 'M.Tech in Geospatial Engineering', org: 'Indian Institute of Technology Roorkee',
     detail: 'Highest CGPA in the class. Dissertation: Geospatial modeling of coal fires on mine subsidence in Jharia Coalfields, India',
-    url: 'https://research.uni-hannover.de/en/publications/multi-sensor-remote-sensing-analysis-of-coal-fire-induced-land-su/' },
+    url: 'https://www.ipi.uni-hannover.de/fileadmin/ipi/abschlussarbeiten/master/2020/Vamshi_Thesis_report_AC_Abstract_Web.pdf' },
   { years: '2013–2018', degree: 'Bachelor of Architecture', org: 'National Institute of Technology Calicut', detail: null },
 ];
 
