@@ -18,6 +18,7 @@ export const candid = {
 
 // Shown on the home page. Newest first. `url` is optional.
 export const updates = [
+  { year: 2026, text: 'Received a UA Little Rock Sustainability Grant to map where campus gets hottest, using satellites and ground sensors, to guide shade and tree planting.', url: 'https://ualr.edu/sustainability/sustainability/competitions/' },
   { year: 2026, text: 'Joined the University of Arkansas at Little Rock as Assistant Professor of Geology.' },
   { year: 2026, text: 'Named one of Geospatial World’s 50 Rising Stars.', url: 'https://geospatialworld.net/rising-stars/2026/' },
   { year: 2026, text: 'Completed a Ph.D. in Geophysics at Southern Methodist University.', url: 'https://scholar.smu.edu/hum_sci_earthsciences_etds/43' },
@@ -51,6 +52,8 @@ export const education = [
 ];
 
 export const awards = [
+  { year: '2026–2027', name: 'Sustainability Grant (PI): Where Is Campus Hottest? Using Satellites and Ground Sensors to Guide Shade and Tree Planting', from: 'UA Little Rock Committee on Sustainability',
+    url: 'https://ualr.edu/sustainability/sustainability/competitions/' },
   { year: '2026', name: 'Geospatial World 50 Rising Stars', from: 'Geospatial World Forum, Netherlands', url: 'https://geospatialworld.net/rising-stars/2026/' },
   { year: '2024–2026', name: 'NASA FINESST research grant', from: 'Future Investigators in NASA Earth and Space Science and Technology',
     url: 'https://nspires.nasaprs.com/external/viewrepositorydocument/cmdocumentid=1018389/solicitationId=%7B2CA37D02-F6A7-9746-68C1-8B681D7532EA%7D/viewSolicitationDocument=1/FINESST-23%20Earth%20Science%20Division%20Selections%20August%205%202024.pdf#page=26&zoom=100,0,520' },
