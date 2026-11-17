@@ -28,6 +28,13 @@ ${band({
   <p><a href="/research">Read about current research</a></p>`,
 })}
 
+${group.projects && group.projects.length ? band({
+  title: 'Current projects',
+  body: html`<dl class="deflist">
+    ${group.projects.map((pr) => html`<div><dt>${pr.title}</dt><dd>${pr.detail}${pr.funding ? html` Funded by the ${pr.url ? html`<a href="${pr.url}">${pr.funding}</a>` : pr.funding}.` : ''}</dd></div>`)}
+  </dl>`,
+}) : ''}
+
 ${group.members.length ? band({
   title: 'People',
   body: html`<ul class="plain people">

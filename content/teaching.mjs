@@ -56,6 +56,15 @@ export const group = {
     { name: 'Geospatial science', detail: 'GIS, data fusion and machine learning for mapping exposure and risk.' },
     { name: 'Natural and human-made hazards', detail: 'Subsidence, induced seismicity, failing wells, unstable slopes and mines.' },
   ],
+  // Current projects, shown on the Lab page. Hidden when the list is empty.
+  //   { title: 'Project title', detail: 'One or two plain sentences.', funding: 'Funder (years)', url: 'optional link' }
+  // No amounts, and no unpublished results.
+  projects: [
+    { title: 'Where Is Campus Hottest?',
+      detail: 'Using satellites and ground sensors to map heat across the UA Little Rock campus and guide where to add shade and trees.',
+      funding: 'UA Little Rock Sustainability Grant (2026–27)',
+      url: 'https://ualr.edu/sustainability/sustainability/competitions/' },
+  ],
   // People in the group. The People section appears on the Lab page once at
   // least one member is listed here. Add students as they join:
   //   { name: 'Full Name', role: 'M.S. student', topic: 'What they work on', photo: '/assets/img/people/name.jpg' }
